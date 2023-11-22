@@ -47,6 +47,7 @@ public class Menu {
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("Tast 1 for at oprette et medlem");
             System.out.println("Tast 2 for at se medlemmer");
+            System.out.println("Tast 3 for at slette medlemmer");
             int choice = s.nextInt();
 
             switch (choice) {
@@ -57,6 +58,13 @@ public class Menu {
                 break;
                 case 8: ms.EkstraMember();
                 break;
+
+                case 3:
+                    System.out.println("Vælg nummer på person du ønsker at slette");
+                    ms.watchMembers();
+                    int indexToRemove = s.nextInt();
+                    //ms.deleteMembers(indexToRemove);
+                    break;
             }
         }
     }

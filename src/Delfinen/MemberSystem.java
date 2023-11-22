@@ -28,7 +28,14 @@ public class MemberSystem {
         }
 
     }
-    public void EkstraMember(   ) {
+
+    /*public void deleteMembers(int index) {     //chatten hjalp til her.
+        if (index>=0 && index<listMember.size()) {
+            listMember.remove(index);
+        } else
+            System.out.println("invalid, try again.");
+    }*/
+    public void EkstraMember() {
         Member m1 = new Member(1, "Martin Poulsen", LocalDate.of(1997, 2, 21));
         Member m2 = new Member(2, "Lars Poulsen", LocalDate.of(1997, 02, 21));
         Member m3 = new Member(3, "Hej Poulsen", LocalDate.of(1997, 02, 21));
