@@ -1,7 +1,6 @@
 package Delfinen;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Main {
 
@@ -24,7 +23,7 @@ public class Main {
         System.out.println(m.getId());
         System.out.println(m);
         m.setPassive(true);
-        newMenu.menu();
+        newMenu.hovedMenu();
 
     }
 }
