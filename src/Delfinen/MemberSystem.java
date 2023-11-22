@@ -23,18 +23,22 @@ public class MemberSystem {
     }
 
     public void watchMembers() {
+        for (int i = 0; i < listMember.size() ; i++) {
+            System.out.println(listMember.get(i));
+        }
 
-        Member m1 = new Member(1, "Martin Poulsen", LocalDate.of(1997,2,21));
-        Member m2 = new Member(2, "Lars Poulsen", LocalDate.of(1997,02, 21));
-        Member m3 = new Member(3, "Hej Poulsen", LocalDate.of(1997,02, 21));
-        Member m4 = new Member(4, "Erik Poulsen", LocalDate.of(1997,02, 21));
-        Member m5 = new Member(5, "Godmorgen Poulsen", LocalDate.of(1997,02, 21));
+    }
+    public void EkstraMember(   ) {
+        Member m1 = new Member(1, "Martin Poulsen", LocalDate.of(1997, 2, 21));
+        Member m2 = new Member(2, "Lars Poulsen", LocalDate.of(1997, 02, 21));
+        Member m3 = new Member(3, "Hej Poulsen", LocalDate.of(1997, 02, 21));
+        Member m4 = new Member(4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
+        Member m5 = new Member(5, "Godmorgen Poulsen", LocalDate.of(1997, 02, 21));
         listMember.add(m1);
         listMember.add(m2);
         listMember.add(m3);
         listMember.add(m4);
         listMember.add(m5);
-        System.out.println(listMember);
-
     }
+
 }

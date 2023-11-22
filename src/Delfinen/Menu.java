@@ -55,6 +55,8 @@ public class Menu {
 
                 case 2: ms.watchMembers();
                 break;
+                case 8: ms.EkstraMember();
+                break;
             }
         }
     }
