@@ -8,17 +8,16 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
 
     public void hovedMenu () {
-        Scanner sc = new Scanner(System.in);
 
         while  (true) {
-            System.out.println("Velkommen til svømmehallen Delfinen");
-            System.out.println("1. medlemsoplysninger");
-            System.out.println("2. kontingenter");
-            System.out.println("3. svømmeresultater");
-            System.out.println("4. stop program");
+            System.out.println("Velkommen til svømmehallen Delfinen: ");
+            System.out.println("1. Medlemsoplysninger");
+            System.out.println("2. Kontingenter");
+            System.out.println("3. Svømmeresultater");
+            System.out.println("4. Stop program");
             System.out.print("Skriv dit valg: ");
-            int choice = sc.nextInt();
             try {
+                int choice = scanner.nextInt();
                 switch (choice) {
                     case 1:
                         medlemsOplysningerMenu();
@@ -46,29 +45,34 @@ public class Menu {
     }
 
     public void medlemsOplysningerMenu() {
-        Scanner s = new Scanner(System.in);
-
-        while(true) {
+        boolean shutUp = false;
+        while(!shutUp) {
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("Tast 1 for at oprette et medlem");
-            System.out.println("Tast 2 for at se medlemmer");
-            System.out.println("Tast 3 for at slette medlemmer");
-            int choice = s.nextInt();
-
+            System.out.println("Tast 2 for at se medlemmer.");
+            System.out.println("Tast 3 for at slette medlemmer.");
+            System.out.println("Tast 4 for ekstra medlemmer");
+            System.out.println("tast 5 for at komme tilbage til hovedmenu.");
+            int choice = scanner.nextInt();
             switch (choice) {
                 case 1: ms.addMember();
                     break;
-
                 case 2: ms.watchMembers();
                 break;
-                case 8: ms.EkstraMember();
-                break;
-
                 case 3:
                     System.out.println("Vælg nummer på person du ønsker at slette");
                     ms.watchMembers();
-                    int indexToRemove = s.nextInt();
+                    int indexToRemove = scanner.nextInt();
                     //ms.deleteMembers(indexToRemove);
+                    break;
+                case 4: ms.EkstraMember();
+                    break;
+                case 5:
+                    System.out.println("tilbage til hovedmenu.");
+                    shutUp = true;
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg.");
                     break;
             }
         }

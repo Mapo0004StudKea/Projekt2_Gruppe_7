@@ -25,6 +25,7 @@ public class MemberSystem {
             System.out.println("Du har oprettet et ny medlem");
     }catch (DateTimeParseException d){
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
+            addMember();
         }
     }
 
