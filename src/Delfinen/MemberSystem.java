@@ -42,15 +42,25 @@ public class MemberSystem {
             System.out.println("invalid, try again.");
     }*/
     public void EkstraMember() {
-        Member m1 = new Member(1, "Martin Poulsen", LocalDate.of(1997, 2, 21));
-        Member m2 = new Member(2, "Lars Poulsen", LocalDate.of(1997, 02, 21));
-        Member m3 = new Member(3, "Hej Poulsen", LocalDate.of(1997, 02, 21));
-        Member m4 = new Member(4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
-        Member m5 = new Member(5, "Godmorgen Poulsen", LocalDate.of(1997, 02, 21));
+
+        int makeId = listMember.size() + (1);
+        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1997, 2, 21));
         listMember.add(m1);
+
+        int makeId2 = listMember.size() + (1);
+        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(1997, 02, 21));
         listMember.add(m2);
+
+        int makeId3 = listMember.size() + (1);
+        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1997, 02, 21));
         listMember.add(m3);
+
+        int makeId4 = listMember.size() + (1);
+        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
         listMember.add(m4);
+
+        int makeId5 = listMember.size() + (1);
+        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(1997, 02, 21));
         listMember.add(m5);
     }
 

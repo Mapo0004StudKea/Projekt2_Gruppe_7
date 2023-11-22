@@ -1,9 +1,12 @@
 package Delfinen;
 
+import Delfinen.MemberSystem;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
 
@@ -58,7 +61,7 @@ public class Menu {
                 case 1: ms.addMember();
                     break;
                 case 2: ms.watchMembers();
-                break;
+                    break;
                 case 3:
                     System.out.println("Vælg nummer på person du ønsker at slette");
                     ms.watchMembers();
