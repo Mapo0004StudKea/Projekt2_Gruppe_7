@@ -1,6 +1,8 @@
 package Delfinen;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,21 +14,24 @@ public class MemberSystem {
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
-        System.out.println("Indtast fødselsdato. yyyy-mm-dd");
-        LocalDate date = LocalDate.parse(scanner.nextLine());
+        try {
+            System.out.println("Indtast fødselsdato. yyyy-mm-dd");
+            LocalDate date = LocalDate.parse(scanner.nextLine());
+
         int makeId = 0;
-        for (int i = 1; i<listMember.size(); i++) {
             makeId = listMember.size() + (1);
-        }
         Member m1= new Member(makeId,name, date);
         listMember.add(m1);
+            System.out.println("Du har oprettet et ny medlem");
+    }catch (DateTimeParseException d){
+            System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
+        }
     }
 
     public void watchMembers() {
         for (int i = 0; i < listMember.size() ; i++) {
             System.out.println(listMember.get(i));
         }
-
     }
 
     /*public void deleteMembers(int index) {     //chatten hjalp til her.
