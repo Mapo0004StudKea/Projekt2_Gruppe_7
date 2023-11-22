@@ -29,12 +29,17 @@ public class Menu {
                     case 3:
                         svømmeResultater();
                         break;
+                    case 4:
+                        System.out.println("Stopper programmet.");
+                        scanner.close();
+                        System.exit(0);
+                        break;
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Error: Please enter a valid integer choice.");
+                System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
                 scanner.nextLine();
             }
         }
