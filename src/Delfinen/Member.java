@@ -44,10 +44,6 @@ public class Member {
         return age;
     }
 
-    public void setExercise(boolean exercise) {
-        this.exercise = exercise;
-    }
-
     public boolean getExercise() {
         return exercise;
     }
@@ -58,6 +54,10 @@ public class Member {
 
     public double getPrice() {
         return price;
+    }
+
+    public void setExercise(boolean exercise) {
+        this.exercise = exercise;
     }
 }
 
