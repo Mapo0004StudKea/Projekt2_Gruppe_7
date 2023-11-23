@@ -14,6 +14,8 @@ public class MemberSystem {
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
+        System.out.println("Indtast type af medlemskab");
+
         try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
@@ -21,7 +23,12 @@ public class MemberSystem {
         int makeId = 0;
             makeId = listMember.size() + (1);
         Member m1= new Member(makeId,name, date);
+        m1.setExercise(true);
         listMember.add(m1);
+        System.out.println("Vælg medlemskabstype");
+        if(m1.getExercise()==true );
+
+
             System.out.println("Du har oprettet et ny medlem");
     }catch (DateTimeParseException d){
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");

@@ -9,6 +9,7 @@ public class Member {
     int id;
     boolean passive;
     boolean exercise;
+    double price;
 
     Member(int id, String name, LocalDate age) {
         this.name = name;
@@ -24,6 +25,10 @@ public class Member {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getId() {
         return id;
     }
@@ -37,6 +42,22 @@ public class Member {
     }
     public LocalDate getAge() {
         return age;
+    }
+
+    public void setExercise(boolean exercise) {
+        this.exercise = exercise;
+    }
+
+    public boolean getExercise() {
+        return exercise;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }
 
