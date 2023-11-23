@@ -7,9 +7,8 @@ public class Menu {
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
 
-    public void hovedMenu () {
+    public void mainMenu() {
         Scanner sc = new Scanner(System.in);
-
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
             System.out.println("1. medlemsoplysninger");
@@ -21,13 +20,13 @@ public class Menu {
             try {
                 switch (choice) {
                     case 1:
-                        medlemsOplysningerMenu();
+                        memberInfoMenu();
                         break;
                     case 2:
-                        kontingenter();
+                        Accounting();
                         break;
                     case 3:
-                        svømmeResultater();
+                        swimResults();
                         break;
                     case 4:
                         System.out.println("Stopper programmet.");
@@ -45,7 +44,7 @@ public class Menu {
         }
     }
 
-    public void medlemsOplysningerMenu() {
+    public void memberInfoMenu() {
         Scanner s = new Scanner(System.in);
 
         while(true) {
@@ -60,18 +59,14 @@ public class Menu {
             switch (choice) {
                 case 1: ms.addMember();
                     break;
-
-                case 2: ms.watchMembers();
-                break;
-
+                case 2: ms.viewMemberList();
+                    break;
                 case 3:
-                    ms.watchMembers();
+                    ms.viewMemberList();
                     ms.deleteMember();
                     break;
-
                 case 4:
-                    hovedMenu();
-
+                    mainMenu();
                 case 8:
                     ms.EkstraMember();
                     break;
@@ -79,10 +74,10 @@ public class Menu {
         }
     }
 
-    public void kontingenter() {
+    public void Accounting() {
         System.out.println("kommer senere.");
     }
-    public void svømmeResultater() {
+    public void swimResults() {
         System.out.println("kommer senere.");
     }
 }

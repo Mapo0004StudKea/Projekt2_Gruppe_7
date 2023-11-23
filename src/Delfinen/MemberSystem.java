@@ -1,6 +1,5 @@
 package Delfinen;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class MemberSystem {
             LocalDate date = LocalDate.parse(scanner.nextLine());
 
         int makeId = 0;
-            makeId = listMember.size() + (1);
+            makeId = listMember.size() + 1;
         Member m1= new Member(makeId,name, date);
         listMember.add(m1);
             System.out.println("Du har oprettet et ny medlem");
@@ -29,7 +28,7 @@ public class MemberSystem {
         }
     }
 
-    public void watchMembers() {
+    public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
             System.out.println(listMember.get(i));
         }
