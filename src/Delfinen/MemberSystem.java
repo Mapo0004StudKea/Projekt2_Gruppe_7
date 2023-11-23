@@ -34,6 +34,23 @@ public class MemberSystem {
             System.out.println(listMember.get(i));
         }
     }
+    public void deleteMember() {
+        System.out.println("Indtast medlemmets ID for at slette:");
+        int memberIdToDelete = scanner.nextInt();
+
+        boolean memberFound = false;
+        for (Member member : listMember) {
+            if (member.getId() == memberIdToDelete) {
+                listMember.remove(member);
+                memberFound = true;
+                System.out.println("Medlem slettet!");
+            }
+        }
+
+        if (!memberFound) {
+            System.out.println("Medlem ikke fundet med det angivne ID.");
+        }
+    }
 
     /*public void deleteMembers(int index) {     //chatten hjalp til her.
         if (index>=0 && index<listMember.size()) {
