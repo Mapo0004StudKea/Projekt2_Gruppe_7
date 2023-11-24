@@ -14,7 +14,6 @@ public class MemberSystem {
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
-        scanner.nextLine();
         try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
@@ -36,13 +35,6 @@ public class MemberSystem {
     }catch (DateTimeParseException d){
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
             addMember();
-        }
-    }
-    public void seeMemberPassive1() {
-        for (int i = 0; i<listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
-            if (listMember.get(i).getPassive() == true) {
-                System.out.println(listMember.get(i));
-            }
         }
     }
 
