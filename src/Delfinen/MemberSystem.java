@@ -160,7 +160,21 @@ public class MemberSystem {
                 LocalDate newDate = LocalDate.parse(scanner.nextLine());
                 member.setAge(newDate);
 
+                System.out.println("Ønsker medlemmet at være passivt? j/n");
+                String passive = scanner.nextLine();
+                if (passive.equals("j")) {
+                    member.setPrice(500);
+                    member.setPassive(true);
+                    System.out.println("Medlemskabet er nu passivt");
+                    if (passive.equals("j")) {
+                        member.setExercise(false);
+                    }
+                }
+
                 System.out.println("Medlemsoplysninger opdateret!");
+                System.out.println(member);
+                System.out.println(member.getPrice());
+                System.out.println("medlem er nu passiv: " + member.getPassive());
                 memberFound = true;
                 break;
             }

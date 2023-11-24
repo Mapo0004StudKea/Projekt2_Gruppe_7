@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+    Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
 
@@ -78,7 +79,24 @@ public class Menu {
     }
 
     public void Accounting() {
-        System.out.println("kommer senere.");
+        Scanner s = new Scanner(System.in);
+
+        while(true) {
+            System.out.println("Accounting og finans menu");
+            System.out.println("1: Se liste med passive medlemmer");
+            System.out.println("2: for at gå tilbage til hovedmenu");
+
+            int choice = s.nextInt();
+
+            switch (choice) {
+                case 1:  acc.seeMemberPassive();
+                    break;
+                case 2: mainMenu();
+                    break;
+            }
+        }
+
+
     }
     public void swimResults() {
         Scanner s = new Scanner(System.in);
