@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Diciplin {
     String navn;
     double lenght;
-    ArrayList<Resault> ListOfResault = new ArrayList<>();
+    ArrayList<Result> ListOfResault = new ArrayList<>();
 
     public Diciplin(String navn, double lenght){
         this.navn = navn;
