@@ -16,6 +16,7 @@ public class Member {
     boolean passive;
     boolean exercise;
     double price;
+    ArrayList<Result> listeResault = new ArrayList<>();
 
     Member(int id, String name, LocalDate age) {
         this.name = name;
@@ -64,6 +65,10 @@ public class Member {
 
     public void setExercise(boolean exercise) {
         this.exercise = exercise;
+    }
+
+    public ArrayList<Result> getListMember() {
+        return listeResault;
     }
 }
 

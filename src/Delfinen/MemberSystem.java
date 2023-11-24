@@ -31,13 +31,34 @@ public class MemberSystem {
             } else if (m1.getExercise()==true && checkAge>65) {
                 m1.setPrice(1200);
             }
-
             System.out.println(m1.getPrice());
             System.out.println("Du har oprettet et ny medlem");
     }catch (DateTimeParseException d){
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
             addMember();
         }
+    }
+
+    public void setNewResult(){
+        Scanner scan = new Scanner(System.in);
+        Diciplin carwl = new Diciplin("carwl",500);
+        Diciplin rygsvømning = new Diciplin("rygsvømning",500);
+
+
+        System.out.println("vælg en et medlem");
+        System.out.println(listMember);
+        int chocie = scan.nextInt();
+
+        System.out.println("set ny resualt, skriv tid");
+        double tid = scan.nextDouble();
+        Result re = new Result(tid, LocalDate.now());
+
+        listMember.get(chocie).listeResault.add(re);
+
+        System.out.println("vægl diciplin (der er kun en lige nu så den vægler selv)");
+        re.ListOfDiciplin.add(carwl);
+
+        System.out.println(listMember.get(chocie).getListMember());
     }
 
     public void viewMemberList() {
@@ -76,12 +97,13 @@ public class MemberSystem {
         }
     }
 
+
     /*public void deleteMembers(int index) {     //chatten hjalp til her.
-        if (index>=0 && index<listMember.size()) {
-            listMember.remove(index);
-        } else
-            System.out.println("invalid, try again.");
-    }*/
+            if (index>=0 && index<listMember.size()) {
+                listMember.remove(index);
+            } else
+                System.out.println("invalid, try again.");
+        }*/
     public void EkstraMember() {
 
         int makeId = listMember.size() + (1);

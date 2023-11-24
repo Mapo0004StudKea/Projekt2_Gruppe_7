@@ -81,6 +81,21 @@ public class Menu {
         System.out.println("kommer senere.");
     }
     public void swimResults() {
-        System.out.println("kommer senere.");
+        Scanner s = new Scanner(System.in);
+
+        while(true) {
+            System.out.println("Menu for medlemsoplysninger");
+            System.out.println("1: sæt nyt svømmeresultat");
+            System.out.println("2: tilbage til hovedmenu");
+
+            int choice = s.nextInt();
+
+            switch (choice) {
+                case 1:  ms.setNewResult();
+                    break;
+                case 2: mainMenu();
+                break;
+            }
+        }
     }
 }
