@@ -38,6 +38,13 @@ public class MemberSystem {
             addMember();
         }
     }
+    public void seeMemberPassive1() {
+        for (int i = 0; i<listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
+            if (listMember.get(i).getPassive() == true) {
+                System.out.println(listMember.get(i));
+            }
+        }
+    }
 
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
@@ -164,22 +171,22 @@ public class MemberSystem {
 
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
-        m1.setExercise(false); m1.setPassive(true);
+        m2.setExercise(false); m2.setPassive(true);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
         Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
-        m1.setExercise(true); m1.setPassive(false);
+        m3.setExercise(true); m3.setPassive(false);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
-        m1.setExercise(false); m1.setPassive(true);
+        m4.setExercise(false); m4.setPassive(true);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
         Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
-        m1.setExercise(true); m1.setPassive(false);
+        m5.setExercise(true); m5.setPassive(false);
         listMember.add(m5);
     }
 }

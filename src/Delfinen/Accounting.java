@@ -1,7 +1,5 @@
 package Delfinen;
 
-import com.sun.security.jgss.GSSUtil;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -61,8 +59,10 @@ public class Accounting {
     public static void main(String[] args) {
         Member mss = new Member(12, "Dromedar", LocalDate.of(1998,12,22));
         Accounting.list.add(mss);
-        mss.setExercise(true);
+        mss.setPassive(true);
+        mss.setExercise(false);
         a.seeAllExerciseMembers();
+        a.seeMemberPassive();
 
     }
 
