@@ -67,6 +67,9 @@ public class Menu {
                     break;
                 case 4:
                     mainMenu();
+                case 5:
+                    ms.editMember();
+                    break;
                 case 8:
                     ms.EkstraMember();
                     break;

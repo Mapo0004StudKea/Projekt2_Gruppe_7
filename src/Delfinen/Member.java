@@ -5,8 +5,13 @@ import java.util.ArrayList;
 
 public class Member {
     String name;
+
+    public void setAge(LocalDate age) {
+        this.age = age;
+    }
+
     LocalDate age;
-    String adress;
+    String address;
     int id;
     boolean passive;
     boolean exercise;

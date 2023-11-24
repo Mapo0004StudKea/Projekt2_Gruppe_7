@@ -12,15 +12,15 @@ public class MemberSystem {
 
     public void addMember() {
         System.out.println("Opret medlem");
-        try {
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
+        scanner.nextLine();
+        try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
-        int makeId = 1;
-            makeId = listMember.size() + (1);
-        Member m1= new Member(makeId,name, date);
-        listMember.add(m1);
+            int makeId = listMember.size() + (1);
+            Member m1= new Member(makeId,name, date);
+            listMember.add(m1);
             System.out.println("sæt medlemskab");
             m1.setExercise(true);
             int checkAge =LocalDate.now().compareTo(date);
@@ -109,5 +109,43 @@ public class MemberSystem {
         m1.setExercise(true); m1.setPassive(false);
         listMember.add(m5);
     }
+    public void editMember() {
+        if (listMember.isEmpty()) {
+            System.out.println("Ingen medlemmer at redigere.");
+            return;
+        }
 
+        System.out.println("Liste over medlemmer:");
+        viewMemberList();
+
+        System.out.println("Indtast medlemmets ID for at redigere:");
+        int memberIdToEdit = scanner.nextInt();
+        scanner.nextLine();
+
+        Iterator<Member> iterator = listMember.iterator();
+        boolean memberFound = false;
+
+        while (iterator.hasNext()) {
+            Member member = iterator.next();
+            if (member.getId() == memberIdToEdit) {
+                System.out.println("Nuværende medlemsoplysninger: " + member);
+
+                System.out.println("Indtast nyt fulde navn på medlemmet:");
+                String newName = scanner.nextLine();
+                member.setName(newName);
+
+                System.out.println("Indtast ny fødselsdato. yyyy-mm-dd:");
+                LocalDate newDate = LocalDate.parse(scanner.nextLine());
+                member.setAge(newDate);
+
+                System.out.println("Medlemsoplysninger opdateret!");
+                memberFound = true;
+                break;
+            }
+        }
+
+        if (!memberFound) {
+            System.out.println("Medlem ikke fundet med det angivne ID.");
+        }
+    }
 }
