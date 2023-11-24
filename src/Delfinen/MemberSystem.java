@@ -69,7 +69,16 @@ public class MemberSystem {
 
     public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
+            if (listMember.get(i).getPassive() == true){
             System.out.println(listMember.get(i));
+            System.out.println("medlemet er passivt");
+            System.out.println(listMember.get(i).getPrice());
+            }
+            if (listMember.get(i).getExercise() == true ){
+                System.out.println(listMember.get(i));
+                System.out.println("medlem er motionist");
+                System.out.println(listMember.get(i).getPrice());
+            }
         }
     }
     public void deleteMember() {
