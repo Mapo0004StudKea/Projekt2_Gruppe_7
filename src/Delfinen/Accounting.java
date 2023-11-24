@@ -55,13 +55,8 @@ public class Accounting {
                 default:
                     System.out.println("Invalid try again. ");
             }
-
-
-
         }
     }
-
-
 
     public static void main(String[] args) {
         Member mss = new Member(12, "DROMMEDAR", LocalDate.of(1998,12,22));

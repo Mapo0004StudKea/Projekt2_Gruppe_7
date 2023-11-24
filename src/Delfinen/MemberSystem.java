@@ -54,7 +54,7 @@ public class MemberSystem {
         }
 
  */
-        Iterator<Member> iterator = listMember.iterator();
+        Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
         boolean memberFound = false;
 
         while (iterator.hasNext()) {
@@ -80,23 +80,28 @@ public class MemberSystem {
     public void EkstraMember() {
 
         int makeId = listMember.size() + (1);
-        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1997, 2, 21));
+        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
+        m1.setExercise(true); m1.setPassive(false);
         listMember.add(m1);
 
         int makeId2 = listMember.size() + (1);
-        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(1997, 02, 21));
+        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
+        m1.setExercise(false); m1.setPassive(true);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1997, 02, 21));
+        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
+        m1.setExercise(true); m1.setPassive(false);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
+        m1.setExercise(false); m1.setPassive(true);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
-        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(1997, 02, 21));
+        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
+        m1.setExercise(true); m1.setPassive(false);
         listMember.add(m5);
     }
 
