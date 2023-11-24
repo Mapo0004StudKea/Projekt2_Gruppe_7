@@ -3,6 +3,7 @@ package Delfinen;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class MemberSystem {
@@ -11,19 +12,19 @@ public class MemberSystem {
 
     public void addMember() {
         System.out.println("Opret medlem");
+        try {
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
-        try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
-        int makeId = 0;
-            makeId = listMember.size() + 1;
+        int makeId = 1;
+            makeId = listMember.size() + (1);
         Member m1= new Member(makeId,name, date);
         listMember.add(m1);
             System.out.println("sæt medlemskab");
             m1.setExercise(true);
-            int chekAge =LocalDate.now().compareTo(date);
-            if (m1.getExercise()==true && chekAge>=18 && chekAge<=65){
+            int checkAge =LocalDate.now().compareTo(date);
+            if (m1.getExercise()==true && checkAge>=18 && checkAge<=65){
                 m1.setPrice(1600);
             }
             System.out.println(m1.getPrice());
@@ -42,7 +43,7 @@ public class MemberSystem {
     public void deleteMember() {
         System.out.println("Indtast medlemmets ID for at slette:");
         int memberIdToDelete = scanner.nextInt();
-
+/*
         boolean memberFound = false;
         for (Member member : listMember) {
             if (member.getId() == memberIdToDelete) {
@@ -52,6 +53,19 @@ public class MemberSystem {
             }
         }
 
+ */
+        Iterator<Member> iterator = listMember.iterator();
+        boolean memberFound = false;
+
+        while (iterator.hasNext()) {
+            Member member = iterator.next();
+            if (member.getId() == memberIdToDelete) {
+                iterator.remove();
+                memberFound = true;
+                System.out.println("Medlem slettet!");
+                break;
+            }
+        }
         if (!memberFound) {
             System.out.println("Medlem ikke fundet med det angivne ID.");
         }
