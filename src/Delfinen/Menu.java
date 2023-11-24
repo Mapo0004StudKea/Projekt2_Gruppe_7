@@ -89,7 +89,7 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:  acc.seeMemberPassive();
+                case 1: ms.seeMemberPassive();
                     break;
                 case 2: mainMenu();
                     break;

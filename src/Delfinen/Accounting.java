@@ -15,13 +15,6 @@ public class Accounting {
     static ArrayList<Member> list = new ArrayList<>();
 
 
-    public void seeMemberPassive() {
-        for (int i = 0; i<ms.listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
-            if (ms.listMember.get(i).getPassive() == true) {
-                System.out.println(ms.listMember.get(i));
-            }
-        }
-    }
 
     public void seeAllExerciseMembers() {
         for (int i = 0; i<list.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
@@ -62,7 +55,7 @@ public class Accounting {
         mss.setPassive(true);
         mss.setExercise(false);
         a.seeAllExerciseMembers();
-        a.seeMemberPassive();
+
 
     }
 
