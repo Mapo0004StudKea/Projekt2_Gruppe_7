@@ -4,9 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CompetitionSwimmer extends Member {
-    ArrayList<CompetitionSwimmer> times = new ArrayList<>();
-    ArrayList<CompetitionSwimmer> disciplin 
-
     double time;
     String disciplin;
 
