@@ -27,6 +27,7 @@ public class MemberSystem {
             if (m1.getExercise()==true && checkAge>=18 && checkAge<=65){
                 m1.setPrice(1600);
             }
+
             System.out.println(m1.getPrice());
             System.out.println("Du har oprettet et ny medlem");
     }catch (DateTimeParseException d){
