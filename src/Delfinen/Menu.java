@@ -54,6 +54,7 @@ public class Menu {
             System.out.println("Tast 2 for at se medlemmer");
             System.out.println("Tast 3 for at slette medlemmer");
             System.out.println("Tast 4 for hovedmenu");
+            System.out.println("Tast 5 for at ændre medlemsinfo");
             System.out.println("Tast 8 for at putte medlemmer i ´se medlemmer´");
             int choice = s.nextInt();
 

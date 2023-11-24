@@ -41,24 +41,24 @@ public class MemberSystem {
 
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
-        Diciplin carwl = new Diciplin("carwl",500);
-        Diciplin rygsvømning = new Diciplin("rygsvømning",500);
+        Disciplin crawl = new Disciplin("crawl",500);
+        Disciplin rygsvømning = new Disciplin("rygsvømning",500);
 
 
         System.out.println("vælg en et medlem");
         System.out.println(listMember);
-        int chocie = scan.nextInt();
+        int choice = scan.nextInt();
 
-        System.out.println("set ny resualt, skriv tid");
+        System.out.println("set ny resultat, skriv tid");
         double tid = scan.nextDouble();
         Result re = new Result(tid, LocalDate.now());
 
-        listMember.get(chocie).listeResault.add(re);
+        listMember.get(choice).listeResult.add(re);
 
-        System.out.println("vægl diciplin (der er kun en lige nu så den vægler selv)");
-        re.ListOfDiciplin.add(carwl);
+        System.out.println("vælg disciplin (der er kun en lige nu så den vægler selv)");
+        re.ListOfDisciplin.add(crawl);
 
-        System.out.println(listMember.get(chocie).getListMember());
+        System.out.println(listMember.get(choice).getListMember());
     }
 
     public void viewMemberList() {
@@ -179,7 +179,6 @@ public class MemberSystem {
                 break;
             }
         }
-
         if (!memberFound) {
             System.out.println("Medlem ikke fundet med det angivne ID.");
         }

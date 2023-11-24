@@ -18,7 +18,7 @@ public class Accounting {
 
 
     public void seeMemberPassive() {
-        for (int i = 0; i<ms.listMember.size(); i++) { //Henter et medlem fra arrayen og displayer hvis det er en motionist svømmer
+        for (int i = 0; i<ms.listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
             if (ms.listMember.get(i).getPassive() == true) {
                 System.out.println(ms.listMember.get(i));
             }
@@ -26,7 +26,7 @@ public class Accounting {
     }
 
     public void seeAllExerciseMembers() {
-        for (int i = 0; i<list.size(); i++) { //Henter et medlem fra arrayen og displayer hvis det er en motionist svømmer
+        for (int i = 0; i<list.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
                 if (list.get(i).getExercise()==true) {
                     System.out.println(list.get(i));
                 }
@@ -59,7 +59,7 @@ public class Accounting {
     }
 
     public static void main(String[] args) {
-        Member mss = new Member(12, "DROMMEDAR", LocalDate.of(1998,12,22));
+        Member mss = new Member(12, "Dromedar", LocalDate.of(1998,12,22));
         Accounting.list.add(mss);
         mss.setExercise(true);
         a.seeAllExerciseMembers();

@@ -5,18 +5,13 @@ import java.util.ArrayList;
 
 public class Member {
     String name;
-
-    public void setAge(LocalDate age) {
-        this.age = age;
-    }
-
     LocalDate age;
     String address;
     int id;
     boolean passive;
     boolean exercise;
     double price;
-    ArrayList<Result> listeResault = new ArrayList<>();
+    ArrayList<Result> listeResult = new ArrayList<>();
 
     Member(int id, String name, LocalDate age) {
         this.name = name;
@@ -68,7 +63,11 @@ public class Member {
     }
 
     public ArrayList<Result> getListMember() {
-        return listeResault;
+        return listeResult;
+    }
+
+    public void setAge(LocalDate age) {
+        this.age = age;
     }
 }
 
