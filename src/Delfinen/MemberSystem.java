@@ -26,6 +26,10 @@ public class MemberSystem {
             int checkAge =LocalDate.now().compareTo(date);
             if (m1.getExercise()==true && checkAge>=18 && checkAge<=65){
                 m1.setPrice(1600);
+            } else if (m1.getExercise()==true && checkAge<18) {
+                m1.setPrice(1000);
+            } else if (m1.getExercise()==true && checkAge>65) {
+                m1.setPrice(1200);
             }
 
             System.out.println(m1.getPrice());

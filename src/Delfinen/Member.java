@@ -1,6 +1,7 @@
 package Delfinen;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Member {
     String name;
