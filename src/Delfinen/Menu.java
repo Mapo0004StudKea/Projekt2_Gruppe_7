@@ -101,6 +101,12 @@ public class Menu {
                     ms.viewMemberList();
                     ms.newTrasaction();
                     break;
+                case 4:
+                    ms.viewMemberList();
+                    System.out.println("vægl hvem du gerne ville se");
+                    int chocie = scanner.nextInt();
+                    ms.listMember.get(chocie).printTransektions();
+                    break;
                 default:
                     System.out.println("Ugyldigt valg.");
                     break;
