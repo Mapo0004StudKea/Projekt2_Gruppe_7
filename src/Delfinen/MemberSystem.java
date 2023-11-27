@@ -37,7 +37,7 @@ public class MemberSystem {
             if (payNow.equals("j")) {
                 m1.getHasPaid();
             } else {
-                m1.setHaspaid(false);
+                m1.setHasPaid(false);
             }
             System.out.println("Du har oprettet et ny medlem");
 
@@ -46,13 +46,13 @@ public class MemberSystem {
             addMember();
         }
     }
-        public void seeIfMemberHadPaid() {
-            for (int i=0; i<listMember.size(); i++) {
-                if (listMember.get(i).getHasPaid()==true) {
-                    System.out.println(listMember.get(i));
-                }
+    public void seeIfMemberHadPaid() {
+        for (int i=0; i<listMember.size(); i++) {
+            if (listMember.get(i).getHasPaid()==true) {
+                System.out.println(listMember.get(i));
             }
         }
+    }
     public void seeMemberPassive() {
         for (int i = 0; i<listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
             if (listMember.get(i).getPassive() == true) {
@@ -60,7 +60,7 @@ public class MemberSystem {
             }
         }
     }
-        // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
+    // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
         Diciplin crawl = new Diciplin("crawl",500);
@@ -83,17 +83,17 @@ public class MemberSystem {
         System.out.println("3. for at vægle freestyle - 500m");
         int menuChoice = scan.nextInt();
 
-            switch (menuChoice) {
-                case 1:
-                    re.setDisplin(rygsvømning);
-                    break;
-                case 2:
-                    re.setDisplin(crawl);
-                    break;
-                case 3:
-                    re.setDisplin(freestyle);
-                    break;
-            }
+        switch (menuChoice) {
+            case 1:
+                re.setDisplin(rygsvømning);
+                break;
+            case 2:
+                re.setDisplin(crawl);
+                break;
+            case 3:
+                re.setDisplin(freestyle);
+                break;
+        }
 
 
         listMember.get(choice).listeResult.add(re);
@@ -109,12 +109,12 @@ public class MemberSystem {
             if (listMember.get(i).getPassive() == true){
                 System.out.println(listMember.get(i));
                 System.out.println("medlemet er passivt");
-                System.out.println(listMember.get(i).getPrice());
+                //System.out.println(listMember.get(i).getPrice());
             }
             if (listMember.get(i).getExercise() == true ){
                 System.out.println(listMember.get(i));
                 System.out.println("medlem er motionist");
-                System.out.println(listMember.get(i).getPrice());
+                //System.out.println(listMember.get(i).getPrice());
             }
             if (listMember.get(i).getHasPaid() ) {
                 System.out.println("Medlemmet har betalt");
@@ -152,7 +152,7 @@ public class MemberSystem {
             System.out.println("Medlem ikke fundet med det angivne ID.");
         }
     }
-        // der skal laves en rettelse så hvis man ændre sit fødsels år skal man ikke betale så meget.
+    // der skal laves en rettelse så hvis man ændre sit fødsels år skal man ikke betale så meget.
     public void editMember() {
         if (listMember.isEmpty()) {
             System.out.println("Ingen medlemmer at redigere.");
@@ -214,28 +214,38 @@ public class MemberSystem {
     public void EkstraMember() {
 
         int makeId = listMember.size() + (1);
-        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
-        m1.setExercise(true); m1.setPassive(false); m1.setHaspaid(true);
+        Member m1 = new Member(makeId, "Sebastian Drumm", LocalDate.of(1960, 2, 21));
+        m1.setExercise(true); m1.setPassive(false);
+        m1.setHasPaid(true);
+        m1.setPrice(1200.0);
         listMember.add(m1);
 
         int makeId2 = listMember.size() + (1);
-        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
-        m2.setExercise(false); m2.setPassive(true); m2.setHaspaid(false);
+        Member m2 = new Member(makeId2, "Viktor Rasmussen", LocalDate.of(2017, 2, 21));
+        m2.setExercise(false); m2.setPassive(true);
+        m2.setHasPaid(true);
+        m2.setPrice(500.0);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
-        m3.setExercise(true); m3.setPassive(false); m3.setHaspaid(true);
+        Member m3 = new Member(makeId3, "Laurits Larsen", LocalDate.of(1965, 2, 21));
+        m3.setExercise(true); m3.setPassive(false);
+        m3.setHasPaid(true);
+        m3.setPrice(1600.0);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
-        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
-        m4.setExercise(false); m4.setPassive(true); m4.setHaspaid(false);
+        Member m4 = new Member(makeId4, "Martin Poulsen", LocalDate.of(1997, 2, 21));
+        m4.setExercise(false); m4.setPassive(true);
+        m4.setHasPaid(true);
+        m4.setPrice(500.0);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
-        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
-        m5.setExercise(true); m5.setPassive(false); m5.setHaspaid(true);
+        Member m5 = new Member(makeId5, "Tunahan Turan", LocalDate.of(2018, 2, 21));
+        m5.setExercise(true); m5.setPassive(false);
+        m5.setHasPaid(false);
+        m5.setPrice(1000.0);
         listMember.add(m5);
     }
 }
