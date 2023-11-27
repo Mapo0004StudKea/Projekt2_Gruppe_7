@@ -12,6 +12,6 @@ public class Disciplin {
 
     @Override
     public String toString() {
-        return "disciplin: " + navn + " length: " + length;
+        return  navn + " length: " + length;
     }
 }

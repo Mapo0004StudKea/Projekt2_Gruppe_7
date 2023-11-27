@@ -10,6 +10,7 @@ public class MemberSystem {
     ArrayList<Member> listMember = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
+    // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
     public void addMember() {
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
@@ -59,11 +60,12 @@ public class MemberSystem {
             }
         }
     }
-
+        // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
-        Disciplin crawl = new Disciplin("crawl",500);
-        Disciplin rygsvømning = new Disciplin("rygsvømning",500);
+        Disciplin crawl = new Disciplin("Crawl - 500m",500);
+        Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m",500);
+        Disciplin freestyle = new Disciplin("freestyle - 500m",500);
 
         System.out.println("Liste over medlemmer:");
         viewMemberList();
@@ -72,15 +74,36 @@ public class MemberSystem {
 
         System.out.println("set ny resultat, skriv tid");
         double tid = scan.nextDouble();
-        Result re = new Result(tid, LocalDate.now());
+
+        Result re = new Result(tid, LocalDate.now(),rygsvømning);
+
+        System.out.println("vægle en disciplin: ");
+        System.out.println("1. for at vægle Rygsvømning - 500m");
+        System.out.println("2. for at vægle Crawl - 500m");
+        System.out.println("3. for at vægle freestyle - 500m");
+        int menuChoice = scan.nextInt();
+
+            switch (menuChoice) {
+                case 1:
+                    re.setDisplin(rygsvømning);
+                    break;
+                case 2:
+                    re.setDisplin(crawl);
+                    break;
+                case 3:
+                    re.setDisplin(freestyle);
+                    break;
+            }
+
 
         listMember.get(choice).listeResult.add(re);
+        System.out.println(listMember.get(choice));
 
-        System.out.println("vælg disciplin (der er kun en lige nu så den vægler selv)");
-        re.ListOfDisciplin.add(crawl);
-
-        System.out.println(listMember.get(choice).getListMember());
+        for (int i = 0; i <listMember.get(choice).listeResult.size(); i++) {
+            System.out.println(listMember.get(choice).listeResult.get(i));
+        }
     }
+
 
     public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
@@ -126,7 +149,7 @@ public class MemberSystem {
             System.out.println("Medlem ikke fundet med det angivne ID.");
         }
     }
-
+        // der skal laves en rettelse så hvis man ændre sit fødsels år skal man ikke betale så meget.
     public void editMember() {
         if (listMember.isEmpty()) {
             System.out.println("Ingen medlemmer at redigere.");

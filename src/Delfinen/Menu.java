@@ -70,7 +70,9 @@ public class Menu {
                     ms.editMember();
                     break;
                 case 5: mainMenu();
+                        break;
                 case 6: ms.seeIfMemberHadPaid();
+                        break;
                 case 8:
                     ms.EkstraMember();
                     break;
@@ -114,7 +116,7 @@ public class Menu {
                 case 1:  ms.setNewResult();
                     break;
                 case 2: mainMenu();
-                break;
+                    break;
                 default:
                     System.out.println("Ugyldigt valg.");
                     break;
