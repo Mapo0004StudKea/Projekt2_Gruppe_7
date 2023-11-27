@@ -88,6 +88,7 @@ public class Menu {
             System.out.println("Accounting og finans menu");
             System.out.println("1: Se liste med passive medlemmer");
             System.out.println("2: for at gå tilbage til hovedmenu");
+            System.out.println("3: for at et medlem kan betale");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -95,6 +96,10 @@ public class Menu {
                 case 1: ms.seeMemberPassive();
                     break;
                 case 2: mainMenu();
+                    break;
+                case 3:
+                    ms.viewMemberList();
+                    ms.newTrasaction();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");

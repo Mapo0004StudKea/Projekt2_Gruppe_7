@@ -1,11 +1,11 @@
 package Delfinen;
 
-public class Diciplin {
+public class Disciplin {
     String navn;
     double length;
 
 
-    public Diciplin(String navn, double length){
+    public Disciplin(String navn, double length){
         this.navn = navn;
         this.length = length;
     }

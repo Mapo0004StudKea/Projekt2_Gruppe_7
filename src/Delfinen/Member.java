@@ -13,6 +13,7 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
+    ArrayList<Transaction> listTransaction = new ArrayList<>();
 
     Member(int id, String name, LocalDate age) {
         this.name = name;
@@ -79,5 +80,21 @@ public class Member {
 
     public void setAge(LocalDate age) {
         this.age = age;
+    }
+
+    public ArrayList<Transaction> getListTransaction() {
+        return listTransaction;
+    }
+    void MemberShipPayment(double amount) {
+        listTransaction.add(new Transaction ("indbetalt", amount, price));
+        price = price - amount;
+    }
+    void printTransektions(){
+        System.out.println(this);
+        System.out.println("text"+"\t"+"dato"+"\t"+"saldo");
+        for ( Transaction t : listTransaction){
+            System.out.println(t);
+        }
+        System.out.println();
     }
 }

@@ -9,10 +9,12 @@ public class Accounting {
     final double passiveMemberPrice = 500;
     final double seniorMemberPrice = 1200; //over 60
     final double juniorMemberPrice = 1000; //under 18
+    Scanner scan = new Scanner(System.in);
 
     MemberSystem ms = new MemberSystem();
     static Accounting a = new Accounting();
     static ArrayList<Member> list = new ArrayList<>();
+
     public void seeAllExerciseMembers() {
         for (int i = 0; i<list.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
                 if (list.get(i).getExercise()==true) {
@@ -60,6 +62,16 @@ public class Accounting {
         mss.setExercise(false);
         a.seeAllExerciseMembers();
         a.viewPrices();
+
+    }
+    public void newTrasaction(){
+
+        System.out.println("vægl nr på medlem");
+        int chocie = scan.nextInt();
+        ms.listMember.get(chocie).MemberShipPayment(ms.listMember.get(chocie).getPrice());
+
+      // Transaction transaction = new Transaction();
+
     }
 
 }

@@ -18,5 +18,7 @@ public class Transaction {
     @Override
     public String toString() {
         return text + "\t" + date + "\t" + amount + "\t" + newBalance;
+
     }
+
 }
