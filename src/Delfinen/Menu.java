@@ -70,9 +70,9 @@ public class Menu {
                     ms.editMember();
                     break;
                 case 5: mainMenu();
-                        break;
+                    break;
                 case 6: ms.seeIfMemberHadPaid();
-                        break;
+                    break;
                 case 8:
                     ms.EkstraMember();
                     break;
@@ -87,23 +87,29 @@ public class Menu {
         while(true) {
             System.out.println("Accounting og finans menu");
             System.out.println("1: Se liste med passive medlemmer");
-            System.out.println("2: for at gå tilbage til hovedmenu");
-            System.out.println("3: for at et medlem kan betale");
+            System.out.println("2: for at et medlem kan betale");
+            System.out.println("3: Se kontingent priser");
+            System.out.println("4: Print transaction");
+            System.out.println("5: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1: ms.seeMemberPassive();
                     break;
-                case 2: mainMenu();
+                case 2:
+                    ms.viewMemberList();
+                    ms.newTransaction();
                     break;
                 case 3:
-                    ms.viewMemberList();
-                    ms.newTrasaction();
+                    acc.viewPrices();
+                    break;
+                case 5:
+                    mainMenu();
                     break;
                 case 4:
                     ms.viewMemberList();
-                    System.out.println("vægl hvem du gerne ville se");
+                    System.out.println("vælg hvem du gerne ville se");
                     int chocie = scanner.nextInt();
                     ms.listMember.get(chocie).printTransektions();
                     break;

@@ -11,7 +11,7 @@ public class MemberSystem {
     Scanner scanner = new Scanner(System.in);
 
 
-    // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
+    // der er problem med Array listen, id og Array listen plads er ikke den samme.
     public void addMember() {
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
@@ -64,7 +64,7 @@ public class MemberSystem {
         }
     }
 
-    // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
+    // der er problem med Array listen, id og Array listen plads er ikke den samme.
     public void setNewResult() {
         Scanner scan = new Scanner(System.in);
         Disciplin crawl = new Disciplin("Crawl - 500m", 500);
@@ -113,13 +113,11 @@ public class MemberSystem {
         for (int i = 0; i < listMember.size(); i++) {
             if (listMember.get(i).getPassive() == true) {
                 System.out.println(listMember.get(i));
-                System.out.println("medlemet er passivt");
-                System.out.println(listMember.get(i).getPrice());
+                System.out.println("medlem er passivt");
             }
             if (listMember.get(i).getExercise() == true) {
                 System.out.println(listMember.get(i));
                 System.out.println("medlem er motionist");
-                System.out.println(listMember.get(i).getPrice());
             }
         }
     }
@@ -127,17 +125,7 @@ public class MemberSystem {
     public void deleteMember() {
         System.out.println("Indtast medlemmets ID for at slette:");
         int memberIdToDelete = scanner.nextInt();
-/*
-        boolean memberFound = false;
-        for (Member member : listMember) {
-            if (member.getId() == memberIdToDelete) {
-                listMember.remove(member);
-                memberFound = true;
-                System.out.println("Medlem slettet!");
-            }
-        }
 
- */
         Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
         boolean memberFound = false;
 
@@ -209,12 +197,6 @@ public class MemberSystem {
         }
     }
 
-    /*public void deleteMembers(int index) {     //chatten hjalp til her.
-            if (index>=0 && index<listMember.size()) {
-                listMember.remove(index);
-            } else
-                System.out.println("invalid, try again.");
-        }*/
     public void EkstraMember() {
 
         int makeId = listMember.size() + (1);
@@ -224,35 +206,35 @@ public class MemberSystem {
         listMember.add(m1);
 
         int makeId2 = listMember.size() + (1);
-        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
+        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
         m2.setExercise(false);
         m2.setPassive(true);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
+        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 2, 21));
         m3.setExercise(true);
         m3.setPassive(false);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
-        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
+        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 2, 21));
         m4.setExercise(false);
         m4.setPassive(true);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
-        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
+        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
         m5.setExercise(true);
         m5.setPassive(false);
         listMember.add(m5);
     }
 
-    public void newTrasaction() {
-        System.out.println("vægl nr på medlem");
-        int chocie = scanner.nextInt();
-        listMember.get(chocie).MemberShipPayment(listMember.get(chocie).getPrice());
-        listMember.get(chocie).setHasPaid(true);
+    public void newTransaction() {
+        System.out.println("vælg nr på medlem");
+        int choice = scanner.nextInt();
+        listMember.get(choice).MemberShipPayment(listMember.get(choice).getPrice());
+        listMember.get(choice).setHasPaid(true);
         System.out.println("kontingent er betalt");
     }
 }
