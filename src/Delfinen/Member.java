@@ -11,7 +11,7 @@ public class Member {
     boolean passive;
     boolean exercise;
     double price;
-    boolean haspaid = true;
+    boolean haspaid=true;
     ArrayList<Result> listeResult = new ArrayList<>();
 
     Member(int id, String name, LocalDate age) {

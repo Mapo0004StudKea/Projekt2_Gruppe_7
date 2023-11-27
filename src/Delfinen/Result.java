@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class Result {
     double tid;
     LocalDate resultDate;
-    ArrayList<Disciplin> ListOfDisciplin = new ArrayList<>();
-    Disciplin displin = new Disciplin("Crawl", 100);
+    ArrayList<Diciplin> ListOfDisciplin = new ArrayList<>();
+    Diciplin displin = new Diciplin("Crawl", 100);
 
-    public Result(double tid, LocalDate resultatDate,Disciplin displin){
+    public Result(double tid, LocalDate resultatDate,Diciplin displin){
         this.tid = tid;
         this.resultDate = resultatDate;
         this.displin = displin;
@@ -21,7 +21,7 @@ public class Result {
         return "din nye tid "+tid +" dd "+ resultDate + " disciplin " + displin;
     }
 
-    public void setDisplin(Disciplin displin) {
+    public void setDisplin(Diciplin displin) {
         this.displin = displin;
     }
 }

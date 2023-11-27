@@ -63,9 +63,9 @@ public class MemberSystem {
         // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
-        Disciplin crawl = new Disciplin("Crawl - 500m",500);
-        Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m",500);
-        Disciplin freestyle = new Disciplin("freestyle - 500m",500);
+        Diciplin crawl = new Diciplin("crawl",500);
+        Diciplin rygsvømning = new Diciplin("rygsvømning",500);
+        Diciplin freestyle = new Diciplin("freestyle", 500);
 
         System.out.println("Liste over medlemmer:");
         viewMemberList();
@@ -104,7 +104,6 @@ public class MemberSystem {
         }
     }
 
-
     public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
             if (listMember.get(i).getPassive() == true){
@@ -117,6 +116,10 @@ public class MemberSystem {
                 System.out.println("medlem er motionist");
                 System.out.println(listMember.get(i).getPrice());
             }
+            if (listMember.get(i).getHasPaid() ) {
+                System.out.println("Medlemmet har betalt");
+
+            } else System.out.println("Medlemmet har ikke betalt");
         }
     }
     public void deleteMember() {
@@ -212,27 +215,27 @@ public class MemberSystem {
 
         int makeId = listMember.size() + (1);
         Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
-        m1.setExercise(true); m1.setPassive(false);
+        m1.setExercise(true); m1.setPassive(false); m1.setHaspaid(true);
         listMember.add(m1);
 
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
-        m2.setExercise(false); m2.setPassive(true);
+        m2.setExercise(false); m2.setPassive(true); m2.setHaspaid(false);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
         Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
-        m3.setExercise(true); m3.setPassive(false);
+        m3.setExercise(true); m3.setPassive(false); m3.setHaspaid(true);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
-        m4.setExercise(false); m4.setPassive(true);
+        m4.setExercise(false); m4.setPassive(true); m4.setHaspaid(false);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
         Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
-        m5.setExercise(true); m5.setPassive(false);
+        m5.setExercise(true); m5.setPassive(false); m5.setHaspaid(true);
         listMember.add(m5);
     }
 }
