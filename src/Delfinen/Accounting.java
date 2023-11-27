@@ -13,9 +13,6 @@ public class Accounting {
     MemberSystem ms = new MemberSystem();
     static Accounting a = new Accounting();
     static ArrayList<Member> list = new ArrayList<>();
-
-
-
     public void seeAllExerciseMembers() {
         for (int i = 0; i<list.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
                 if (list.get(i).getExercise()==true) {
@@ -64,6 +61,5 @@ public class Accounting {
         a.seeAllExerciseMembers();
         a.viewPrices();
     }
-
 
 }

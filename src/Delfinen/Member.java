@@ -1,7 +1,6 @@
 package Delfinen;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
 
 public class Member {
@@ -12,7 +11,7 @@ public class Member {
     boolean passive;
     boolean exercise;
     double price;
-    boolean hasPaid;
+    boolean haspaid=true;
     ArrayList<Result> listeResult = new ArrayList<>();
 
     Member(int id, String name, LocalDate age) {
@@ -22,21 +21,18 @@ public class Member {
     }
 
     public String toString() {
-        System.out.println();
-        System.out.println("ID       Fulde Navn           Alder        Medlemskab     Pris     Betalt?");
-        return String.format("%-5d    %-17s    %-10s   %-12s   %-5s    %-7s   ",
-                id, name, age, exercise, price, hasPaid);
+        return id + " " + name + " " + age;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setHasPaid(boolean hasPaid) {
-        this.hasPaid = hasPaid;
+    public void setHaspaid(boolean haspaid) {
+        this.haspaid = haspaid;
     }
     public boolean getHasPaid() {
-        return hasPaid;
+        return haspaid;
     }
 
     public String getName() {

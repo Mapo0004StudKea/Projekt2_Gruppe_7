@@ -35,9 +35,9 @@ public class MemberSystem {
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
-                m1.setHasPaid(true);
+                m1.getHasPaid();
             } else {
-                m1.setHasPaid(false);
+                m1.setHaspaid(false);
             }
             System.out.println("Du har oprettet et ny medlem");
 
@@ -46,27 +46,26 @@ public class MemberSystem {
             addMember();
         }
     }
-    public void seeIfMemberHadPaid() {
-        for (Member member : listMember) {
-            if(member.getHasPaid()) {
-                System.out.println(member);
-
+        public void seeIfMemberHadPaid() {
+            for (int i=0; i<listMember.size(); i++) {
+                if (listMember.get(i).getHasPaid()==true) {
+                    System.out.println(listMember.get(i));
+                }
             }
         }
-    }
     public void seeMemberPassive() {
-        for (Member member : listMember) {
-            if(member.getPassive()) {
-                System.out.println(member);
+        for (int i = 0; i<listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
+            if (listMember.get(i).getPassive() == true) {
+                System.out.println(listMember.get(i));
             }
         }
     }
         // der er problem med Arrylisten, id og Arrylisten plads er ikke den samme.
     public void setNewResult(){
         Scanner scan = new Scanner(System.in);
-        Disciplin crawl = new Disciplin("Crawl - 500m",500);
-        Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m",500);
-        Disciplin freestyle = new Disciplin("freestyle - 500m",500);
+        Diciplin crawl = new Diciplin("crawl",500);
+        Diciplin rygsvømning = new Diciplin("rygsvømning",500);
+        Diciplin freestyle = new Diciplin("freestyle", 500);
 
         System.out.println("Liste over medlemmer:");
         viewMemberList();
@@ -105,27 +104,41 @@ public class MemberSystem {
         }
     }
 
-
     public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
             if (listMember.get(i).getPassive() == true){
                 System.out.println(listMember.get(i));
-                System.out.println("Medlem er passivt");
-                //System.out.println(listMember.get(i).getPrice());
+                System.out.println("medlemet er passivt");
+                System.out.println(listMember.get(i).getPrice());
             }
             if (listMember.get(i).getExercise() == true ){
                 System.out.println(listMember.get(i));
-                System.out.println("Medlem er motionist");
-                //System.out.println(listMember.get(i).getPrice());
+                System.out.println("medlem er motionist");
+                System.out.println(listMember.get(i).getPrice());
             }
+            if (listMember.get(i).getHasPaid() ) {
+                System.out.println("Medlemmet har betalt");
+
+            } else System.out.println("Medlemmet har ikke betalt");
         }
     }
-
     public void deleteMember() {
         System.out.println("Indtast medlemmets ID for at slette:");
         int memberIdToDelete = scanner.nextInt();
+/*
+        boolean memberFound = false;
+        for (Member member : listMember) {
+            if (member.getId() == memberIdToDelete) {
+                listMember.remove(member);
+                memberFound = true;
+                System.out.println("Medlem slettet!");
+            }
+        }
+
+ */
         Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
         boolean memberFound = false;
+
         while (iterator.hasNext()) {
             Member member = iterator.next();
             if (member.getId() == memberIdToDelete) {
@@ -201,38 +214,28 @@ public class MemberSystem {
     public void EkstraMember() {
 
         int makeId = listMember.size() + (1);
-        Member m1 = new Member(makeId, "Sebastian Drumm", LocalDate.of(1960, 2, 21));
-        m1.setExercise(true); m1.setPassive(false);
-        m1.setHasPaid(true);
-        m1.setPrice(1200.0);
+        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
+        m1.setExercise(true); m1.setPassive(false); m1.setHaspaid(true);
         listMember.add(m1);
 
         int makeId2 = listMember.size() + (1);
-        Member m2 = new Member(makeId2, "Viktor Rasmussen", LocalDate.of(2017, 2, 21));
-        m2.setExercise(false); m2.setPassive(true);
-        m2.setHasPaid(true);
-        m2.setPrice(500.0);
+        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 02, 21));
+        m2.setExercise(false); m2.setPassive(true); m2.setHaspaid(false);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Laurits Larsen", LocalDate.of(1965, 2, 21));
-        m3.setExercise(true); m3.setPassive(false);
-        m3.setHasPaid(true);
-        m3.setPrice(1600.0);
+        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 02, 21));
+        m3.setExercise(true); m3.setPassive(false); m3.setHaspaid(true);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
-        Member m4 = new Member(makeId4, "Martin Poulsen", LocalDate.of(1997, 2, 21));
-        m4.setExercise(false); m4.setPassive(true);
-        m4.setHasPaid(true);
-        m4.setPrice(500.0);
+        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 02, 21));
+        m4.setExercise(false); m4.setPassive(true); m4.setHaspaid(false);
         listMember.add(m4);
 
         int makeId5 = listMember.size() + (1);
-        Member m5 = new Member(makeId5, "Tunahan Turan", LocalDate.of(2018, 2, 21));
-        m5.setExercise(true); m5.setPassive(false);
-        m5.setHasPaid(false);
-        m5.setPrice(1000.0);
+        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 02, 21));
+        m5.setExercise(true); m5.setPassive(false); m5.setHaspaid(true);
         listMember.add(m5);
     }
 }
