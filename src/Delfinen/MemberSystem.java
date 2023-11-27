@@ -31,12 +31,27 @@ public class MemberSystem {
                 m1.setPrice(1200);
             }
             System.out.println(m1.getPrice());
+            System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
+            String payNow = scanner.nextLine();
+            if (payNow.equals("j")) {
+                m1.getHasPaid();
+            } else {
+                m1.setHaspaid(false);
+            }
             System.out.println("Du har oprettet et ny medlem");
-    }catch (DateTimeParseException d){
+
+        }catch (DateTimeParseException d){
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
             addMember();
         }
     }
+        public void seeIfMemberHadPaid() {
+            for (int i=0; i<listMember.size(); i++) {
+                if (listMember.get(i).getHasPaid()==true) {
+                    System.out.println(listMember.get(i));
+                }
+            }
+        }
     public void seeMemberPassive() {
         for (int i = 0; i<listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
             if (listMember.get(i).getPassive() == true) {
@@ -70,9 +85,9 @@ public class MemberSystem {
     public void viewMemberList() {
         for (int i = 0; i < listMember.size() ; i++) {
             if (listMember.get(i).getPassive() == true){
-            System.out.println(listMember.get(i));
-            System.out.println("medlemet er passivt");
-            System.out.println(listMember.get(i).getPrice());
+                System.out.println(listMember.get(i));
+                System.out.println("medlemet er passivt");
+                System.out.println(listMember.get(i).getPrice());
             }
             if (listMember.get(i).getExercise() == true ){
                 System.out.println(listMember.get(i));

@@ -70,6 +70,7 @@ public class Menu {
                     ms.editMember();
                     break;
                 case 5: mainMenu();
+                case 6: ms.seeIfMemberHadPaid();
                 case 8:
                     ms.EkstraMember();
                     break;

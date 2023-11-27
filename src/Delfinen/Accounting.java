@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Accounting {
     final double exerciseMemberPrice = 1600;
     final double passiveMemberPrice = 500;
-    final double seniorMemberPrice = 1200; //over 65
+    final double seniorMemberPrice = 1200; //over 60
     final double juniorMemberPrice = 1000; //under 18
 
     MemberSystem ms = new MemberSystem();
@@ -23,7 +23,14 @@ public class Accounting {
                 }
         }
     }
-
+    public void viewPrices() {
+        System.out.println("Kontingent priser");
+        System.out.println("Under 18 år      =  "+juniorMemberPrice+" kr.");
+        System.out.println("Mellem 18-60 år  =  "+exerciseMemberPrice+" kr.");
+        System.out.println("Over 60 år       =  "+seniorMemberPrice+" kr.");
+        System.out.println("Passiv medlem    =  "+passiveMemberPrice+" kr.");
+        System.out.println("");
+    }
     public void chooseMembership() {
 
         while(true) {
@@ -55,8 +62,7 @@ public class Accounting {
         mss.setPassive(true);
         mss.setExercise(false);
         a.seeAllExerciseMembers();
-
-
+        a.viewPrices();
     }
 
 
