@@ -244,7 +244,6 @@ public class MemberSystem {
         listMember.get(choice).MemberShipPayment(listMember.get(choice).getPrice());
         listMember.get(choice).setHasPaid(true);
         System.out.println("kontingent er betalt");
-
     }
 
     public void listOfPayment(){

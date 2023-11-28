@@ -30,51 +30,5 @@ public class Accounting extends MemberSystem {
         System.out.println("Passiv medlem    =  "+passiveMemberPrice+" kr.");
         System.out.println("");
     }
-    public void chooseMembership() {
-        CompetitionSwimmer com = new CompetitionSwimmer( 0, "seb",LocalDate.of(1991,10,10));
-        CompetitionSwimmer com2 = new CompetitionSwimmer(1,"drumm",LocalDate.of(1991,10,10));
-
-        listMember.add(com);
-
-
-        while(true) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Vælg medlemskabstype");
-            System.out.println("Tast 1 for MotionSvømmer" + "\n" + "tast 2 for passivt medlemskab" + "\n" + "Tast 3 for Konkurrence");
-            System.out.print("Skriv dit valg: ");
-            int choice = scanner.nextInt();
-
-            switch(choice) {
-                case 1:
-
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default:
-                    System.out.println("Invalid try again. ");
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        Member mss = new Member(12, "Dromedar", LocalDate.of(1998,12,22));
-        Accounting.list.add(mss);
-        mss.setPassive(true);
-        mss.setExercise(false);
-        a.seeAllExerciseMembers();
-        a.viewPrices();
-
-    }
-    public void newTrasaction(){
-
-        System.out.println("vægl nr på medlem");
-        int chocie = scan.nextInt();
-        ms.listMember.get(chocie).MemberShipPayment(ms.listMember.get(chocie).getPrice());
-
-      // Transaction transaction = new Transaction();
-
-    }
 
 }
