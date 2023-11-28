@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Accounting {
+public class Accounting extends MemberSystem {
     final double exerciseMemberPrice = 1600; //Alm. Medlemskab
     final double passiveMemberPrice = 500; //passiv
     final double seniorMemberPrice = 1200; //over 60
@@ -31,6 +31,12 @@ public class Accounting {
         System.out.println("");
     }
     public void chooseMembership() {
+        CompetitionSwimmer com = new CompetitionSwimmer( 0, "seb",LocalDate.of(1991,10,10));
+        CompetitionSwimmer com2 = new CompetitionSwimmer(1,"drumm",LocalDate.of(1991,10,10));
+
+        listMember.add(com);
+
+
         while(true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Vælg medlemskabstype");

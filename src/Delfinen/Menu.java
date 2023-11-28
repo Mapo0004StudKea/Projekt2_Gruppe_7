@@ -47,12 +47,14 @@ public class Menu {
 
     public void memberInfoMenu() {
         while(true) {
+            System.out.println();
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("1: Opret nyt medlem");
             System.out.println("2: Se medlemsliste");
             System.out.println("3: slet medlem");
             System.out.println("4: Ændre medlemsdata");
             System.out.println("5: Tilbage til hovedmenu");
+            System.out.println("6: Se medlemmer som har betalt");
             System.out.println("8: for at putte medlemmer i ´se medlemsliste´");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
@@ -85,12 +87,14 @@ public class Menu {
 
     public void Accounting() {
         while(true) {
+            System.out.println();
             System.out.println("Accounting og finans menu");
             System.out.println("1: Se liste med passive medlemmer");
             System.out.println("2: for at et medlem kan betale");
             System.out.println("3: Se kontingent priser");
             System.out.println("4: Print transaction");
             System.out.println("5: Tilbage til hovedmenu");
+            System.out.println("6. Liste med total beløb");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -104,14 +108,18 @@ public class Menu {
                 case 3:
                     acc.viewPrices();
                     break;
-                case 5:
-                    mainMenu();
-                    break;
+
                 case 4:
                     ms.viewMemberList();
                     System.out.println("vælg hvem du gerne ville se");
                     int chocie = scanner.nextInt();
                     ms.listMember.get(chocie).printTransektions();
+                    break;
+                case 5:
+                    mainMenu();
+                    break;
+
+                case 6:ms.listOfPayment();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -123,6 +131,7 @@ public class Menu {
     }
     public void swimResults() {
         while(true) {
+            System.out.println();
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("1: sæt nyt svømmeresultat");
             System.out.println("2: tilbage til hovedmenu");

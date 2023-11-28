@@ -14,6 +14,7 @@ public class Member {
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
+    double totalPayment;
 
     Member(int id, String name, LocalDate age) {
         this.name = name;
@@ -88,13 +89,20 @@ public class Member {
     void MemberShipPayment(double amount) {
         listTransaction.add(new Transaction ("indbetalt", amount, price));
         price = price - amount;
+
     }
     void printTransektions(){
         System.out.println(this);
-        System.out.println("text"+"\t"+"dato"+"\t"+"saldo");
+        System.out.println("text"+"\t"+"dato"+"\t"+"indbetalt");
         for ( Transaction t : listTransaction){
             System.out.println(t);
         }
         System.out.println();
+    }
+    void totalPayment(){
+        for (int i = 0; i <listTransaction.size() ; i++) {
+            double payment = listTransaction.get(0).amount + totalPayment;
+            System.out.println(payment);
+        }
     }
 }

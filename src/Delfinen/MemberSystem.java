@@ -13,6 +13,7 @@ public class MemberSystem {
 
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
     public void addMember() {
+        System.out.println();
         System.out.println("Opret medlem");
         System.out.println("Indtast fulde navn på medlemmet");
         String name = scanner.nextLine();
@@ -36,7 +37,7 @@ public class MemberSystem {
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
-                m1.getHasPaid();
+                newTransaction();
             } else {
                 m1.setHasPaid(false);
             }
@@ -49,6 +50,7 @@ public class MemberSystem {
     }
 
     public void seeIfMemberHadPaid() {
+        System.out.println();
         for (int i = 0; i < listMember.size(); i++) {
             if (listMember.get(i).getHasPaid() == true) {
                 System.out.println(listMember.get(i));
@@ -57,6 +59,7 @@ public class MemberSystem {
     }
 
     public void seeMemberPassive() {
+        System.out.println();
         for (int i = 0; i < listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
             if (listMember.get(i).getPassive() == true) {
                 System.out.println(listMember.get(i));
@@ -66,6 +69,7 @@ public class MemberSystem {
 
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
     public void setNewResult() {
+        System.out.println();
         Scanner scan = new Scanner(System.in);
         Disciplin crawl = new Disciplin("Crawl - 500m", 500);
         Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
@@ -110,6 +114,7 @@ public class MemberSystem {
 
 
     public void viewMemberList() {
+        System.out.println();
         for (int i = 0; i < listMember.size(); i++) {
             if (listMember.get(i).getPassive() == true) {
                 System.out.println(listMember.get(i));
@@ -123,6 +128,7 @@ public class MemberSystem {
     }
 
     public void deleteMember() {
+        System.out.println();
         System.out.println("Indtast medlemmets ID for at slette:");
         int memberIdToDelete = scanner.nextInt();
 
@@ -145,6 +151,7 @@ public class MemberSystem {
 
     // der skal laves en rettelse så hvis man ændre sit fødsels år skal man ikke betale så meget.
     public void editMember() {
+        System.out.println();
         if (listMember.isEmpty()) {
             System.out.println("Ingen medlemmer at redigere.");
             return;
@@ -198,7 +205,7 @@ public class MemberSystem {
     }
 
     public void EkstraMember() {
-
+        System.out.println();
         int makeId = listMember.size() + (1);
         Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
         m1.setExercise(true);
@@ -231,10 +238,26 @@ public class MemberSystem {
     }
 
     public void newTransaction() {
+        System.out.println();
         System.out.println("vælg nr på medlem");
         int choice = scanner.nextInt();
         listMember.get(choice).MemberShipPayment(listMember.get(choice).getPrice());
         listMember.get(choice).setHasPaid(true);
         System.out.println("kontingent er betalt");
+
+    }
+
+    public void listOfPayment(){
+        double total=0;
+        double total3=0;
+
+        for (int i = 0; i < listMember.size(); i++) {
+            if (listMember.get(i).hasPaid == true) {
+                total = listMember.get(i).listTransaction.get(0).amount;
+               total3 += total;
+            }
+        }
+        System.out.println(total3);
+        
     }
 }
