@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class MemberSystem {
-    ArrayList<Member> listMember = new ArrayList<>();
+    static ArrayList<Member> listMember = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
 
