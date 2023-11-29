@@ -82,6 +82,12 @@ public class MemberSystem {
                 System.out.println(listMember.get(i));
                 System.out.println("medlem er motionist");
             }
+
+            if (listMember.get(i).getCompetitionSwimmer() == true) {
+                System.out.println(listMember.get(i));
+                System.out.println("Medlemmet er konkurrencesvømmer");
+            }
+
         }
     }
 
