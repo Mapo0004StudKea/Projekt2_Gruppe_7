@@ -7,8 +7,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class MemberSystem {
-    ArrayList<Member> listMember = new ArrayList<>();
+    static ArrayList<Member> listMember = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    Accounting acc = new Accounting();
 
 
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
@@ -20,24 +21,24 @@ public class MemberSystem {
         try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
-            int makeId = listMember.size() + (1);
+            int makeId = listMember.size();
             Member m1 = new Member(makeId, name, date);
             listMember.add(m1);
             System.out.println("sæt medlemskab");
             m1.setExercise(true);
             int checkAge = LocalDate.now().compareTo(date);
             if (m1.getExercise() == true && checkAge >= 18 && checkAge <= 65) {
-                m1.setPrice(1600);
+                m1.setPrice(Accounting.exerciseMemberPrice);
             } else if (m1.getExercise() == true && checkAge < 18) {
-                m1.setPrice(1000);
+                m1.setPrice(Accounting.juniorMemberPrice);
             } else if (m1.getExercise() == true && checkAge > 65) {
-                m1.setPrice(1200);
+                m1.setPrice(Accounting.seniorMemberPrice);
             }
             System.out.println(m1.getPrice());
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
-                newTransaction();
+                acc.newTransaction();
             } else {
                 m1.setHasPaid(false);
             }
@@ -68,50 +69,6 @@ public class MemberSystem {
     }
 
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
-    public void setNewResult() {
-        System.out.println();
-        Scanner scan = new Scanner(System.in);
-        Disciplin crawl = new Disciplin("Crawl - 500m", 500);
-        Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
-        Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
-
-        System.out.println("Liste over medlemmer:");
-        viewMemberList();
-        System.out.println("vælg en et medlem");
-        int choice = scan.nextInt();
-
-        System.out.println("set ny resultat, skriv tid");
-        double tid = scan.nextDouble();
-
-        Result re = new Result(tid, LocalDate.now(), rygsvømning);
-
-        System.out.println("vægle en disciplin: ");
-        System.out.println("1. for at vægle Rygsvømning - 500m");
-        System.out.println("2. for at vægle Crawl - 500m");
-        System.out.println("3. for at vægle freestyle - 500m");
-        int menuChoice = scan.nextInt();
-
-        switch (menuChoice) {
-            case 1:
-                re.setDisplin(rygsvømning);
-                break;
-            case 2:
-                re.setDisplin(crawl);
-                break;
-            case 3:
-                re.setDisplin(freestyle);
-                break;
-        }
-
-
-        listMember.get(choice).listeResult.add(re);
-        System.out.println(listMember.get(choice));
-
-        for (int i = 0; i < listMember.get(choice).listeResult.size(); i++) {
-            System.out.println(listMember.get(choice).listeResult.get(i));
-        }
-    }
-
 
     public void viewMemberList() {
         System.out.println();
@@ -183,7 +140,7 @@ public class MemberSystem {
                 System.out.println("Ønsker medlemmet at være passivt? j/n");
                 String passive = scanner.nextLine();
                 if (passive.equals("j")) {
-                    member.setPrice(500);
+                    member.setPrice(Accounting.passiveMemberPrice);
                     member.setPassive(true);
                     System.out.println("Medlemskabet er nu passivt");
                     if (passive.equals("j")) {
@@ -237,26 +194,4 @@ public class MemberSystem {
         listMember.add(m5);
     }
 
-    public void newTransaction() {
-        System.out.println();
-        System.out.println("vælg nr på medlem");
-        int choice = scanner.nextInt();
-        listMember.get(choice).MemberShipPayment(listMember.get(choice).getPrice());
-        listMember.get(choice).setHasPaid(true);
-        System.out.println("kontingent er betalt");
-    }
-
-    public void listOfPayment(){
-        double total=0;
-        double total3=0;
-
-        for (int i = 0; i < listMember.size(); i++) {
-            if (listMember.get(i).hasPaid == true) {
-                total = listMember.get(i).listTransaction.get(0).amount;
-               total3 += total;
-            }
-        }
-        System.out.println(total3);
-        
-    }
 }
