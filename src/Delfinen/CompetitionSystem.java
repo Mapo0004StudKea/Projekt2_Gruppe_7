@@ -21,6 +21,14 @@ public class CompetitionSystem {
             int age = LocalDate.now().getYear() - member.age.getYear();
 
             if (userInput.equalsIgnoreCase("Ja")) {
+                if (juniorTeam.contains(member)) {
+                    System.out.println("Der findes allerede en juniorsvømmer" + member);
+                    continue;
+                }
+                if (seniorTeam.contains(member)) {
+                    System.out.println("Der findes allerede en seniorsvømmer" + member);
+                    continue;
+                }
                 if (member.getCompetitionSwimmer() && age < 18) {
                     System.out.println(member.name + " er tilføjet juniorholdet.");
                     juniorTeam.add(member);
@@ -38,11 +46,15 @@ public class CompetitionSystem {
     }
     public void viewJuniorTeamList() {
         System.out.println();
+        System.out.println("Ungdomsholdet: ");
+        System.out.println();
             for (int i = 0; i < juniorTeam.size(); i++) {
                 System.out.println(juniorTeam.get(i));
             }
     }
     public void viewSeniorTeamList() {
+        System.out.println();
+        System.out.println("Seniorholdet: ");
         System.out.println();
         for (int i = 0; i < seniorTeam.size(); i++) {
             System.out.println(seniorTeam.get(i));

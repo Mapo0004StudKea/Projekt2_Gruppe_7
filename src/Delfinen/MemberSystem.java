@@ -291,7 +291,7 @@ public class MemberSystem {
         Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
         m5.setExercise(true);
         m5.setPassive(false);
-        m4.setCompetitionSwimmer(true);
+        m5.setCompetitionSwimmer(true);
         listMember.add(m5);
     }
 }

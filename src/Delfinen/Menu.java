@@ -79,13 +79,7 @@ public class Menu {
                 case 8:
                     ms.EkstraMember();
                     break;
-                case 9:
-                    cs.addMemberToTeams();
-                    break;
-                case 10:
-                        cs.viewJuniorTeamList();
-                        cs.viewSeniorTeamList();
-                    break;
+
                 default:
                     System.out.println("Ugyldigt valg.");
                     break;
@@ -143,6 +137,8 @@ public class Menu {
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("1: sæt nyt svømmeresultat");
             System.out.println("2: tilbage til hovedmenu");
+            System.out.println("3: Tilføj medlem til hold");
+            System.out.println("4: Se hold liste");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -150,6 +146,13 @@ public class Menu {
                 case 1:  cs.setNewResult();
                     break;
                 case 2: mainMenu();
+                    break;
+                case 3:
+                    cs.addMemberToTeams();
+                    break;
+                case 4:
+                    cs.viewJuniorTeamList();
+                    cs.viewSeniorTeamList();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");

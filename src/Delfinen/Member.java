@@ -8,9 +8,9 @@ public class Member {
     LocalDate age;
     String address;
     int id;
+    boolean competitionSwimmer;
     boolean passive;
     boolean exercise;
-    boolean competitionSwimmer;
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
@@ -58,15 +58,20 @@ public class Member {
         return passive;
     }
 
-    public boolean getExercise() {
-        return exercise;
+    public void setCompetitionSwimmer(boolean competitionSwimmer) {
+        this.competitionSwimmer = competitionSwimmer;
     }
 
     public boolean getCompetitionSwimmer() {
         return competitionSwimmer;
     }
-    public void setCompetitionSwimmer(boolean competitionSwimmer) {
-        this.competitionSwimmer = competitionSwimmer;
+
+    public LocalDate getAge() {
+        return age;
+    }
+
+    public boolean getExercise() {
+        return exercise;
     }
 
     public void setPrice(double price) {
@@ -89,10 +94,9 @@ public class Member {
         this.age = age;
     }
 
-    public LocalDate getAge() {
-        return age;
+    public ArrayList<Transaction> getListTransaction() {
+        return listTransaction;
     }
-
     void MemberShipPayment(double amount) {
         listTransaction.add(new Transaction ("indbetalt", amount, price));
         price = price - amount;
