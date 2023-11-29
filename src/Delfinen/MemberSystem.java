@@ -20,26 +20,26 @@ public class MemberSystem {
         try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
-            int makeId = listMember.size() + (1);
-            Member m1 = new Member(makeId, name, date);
-            listMember.add(m1);
+            int makeId = listMember.size() + 1;
+            Member addMember = new Member(makeId, name, date);
+            listMember.add(addMember);
             System.out.println("sæt medlemskab");
-            m1.setExercise(true);
+            addMember.setExercise(true);
             int checkAge = LocalDate.now().compareTo(date);
-            if (m1.getExercise() == true && checkAge >= 18 && checkAge <= 65) {
-                m1.setPrice(1600);
-            } else if (m1.getExercise() == true && checkAge < 18) {
-                m1.setPrice(1000);
-            } else if (m1.getExercise() == true && checkAge > 65) {
-                m1.setPrice(1200);
+            if (addMember.getExercise() == true && checkAge >= 18 && checkAge <= 65) {
+                addMember.setPrice(1600);
+            } else if (addMember.getExercise() == true && checkAge < 18) {
+                addMember.setPrice(1000);
+            } else if (addMember.getExercise() == true && checkAge > 65) {
+                addMember.setPrice(1200);
             }
-            System.out.println(m1.getPrice());
+            System.out.println(addMember.getPrice());
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
                 newTransaction();
             } else {
-                m1.setHasPaid(false);
+                addMember.setHasPaid(false);
             }
             System.out.println("Du har oprettet et ny medlem");
 
@@ -83,28 +83,29 @@ public class MemberSystem {
         System.out.println("set ny resultat, skriv tid");
         double tid = scan.nextDouble();
 
-        Result re = new Result(tid, LocalDate.now(), rygsvømning);
+        Result newResult = new Result(tid, LocalDate.now(), rygsvømning);
 
         System.out.println("vægle en disciplin: ");
         System.out.println("1. for at vægle Rygsvømning - 500m");
         System.out.println("2. for at vægle Crawl - 500m");
         System.out.println("3. for at vægle freestyle - 500m");
+        System.out.print("Skriv dit valg: ");
         int menuChoice = scan.nextInt();
 
         switch (menuChoice) {
             case 1:
-                re.setDisplin(rygsvømning);
+                newResult.setDisplin(rygsvømning);
                 break;
             case 2:
-                re.setDisplin(crawl);
+                newResult.setDisplin(crawl);
                 break;
             case 3:
-                re.setDisplin(freestyle);
+                newResult.setDisplin(freestyle);
                 break;
         }
 
 
-        listMember.get(choice).listeResult.add(re);
+        listMember.get(choice).listeResult.add(newResult);
         System.out.println(listMember.get(choice));
 
         for (int i = 0; i < listMember.get(choice).listeResult.size(); i++) {
@@ -129,7 +130,7 @@ public class MemberSystem {
 
     public void deleteMember() {
         System.out.println();
-        System.out.println("Indtast medlemmets ID for at slette:");
+        System.out.println("Indtast ID nummer for at slette medlem: ");
         int memberIdToDelete = scanner.nextInt();
 
         Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
@@ -207,34 +208,34 @@ public class MemberSystem {
     public void EkstraMember() {
         System.out.println();
         int makeId = listMember.size() + (1);
-        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
-        m1.setExercise(true);
-        m1.setPassive(false);
-        listMember.add(m1);
+        Member ekstraMember1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
+        ekstraMember1.setExercise(true);
+        ekstraMember1.setPassive(false);
+        listMember.add(ekstraMember1);
 
         int makeId2 = listMember.size() + (1);
-        Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
-        m2.setExercise(false);
-        m2.setPassive(true);
-        listMember.add(m2);
+        Member ekstraMember2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
+        ekstraMember2.setExercise(false);
+        ekstraMember2.setPassive(true);
+        listMember.add(ekstraMember2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 2, 21));
-        m3.setExercise(true);
-        m3.setPassive(false);
-        listMember.add(m3);
+        Member ekstraMember3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 2, 21));
+        ekstraMember3.setExercise(true);
+        ekstraMember3.setPassive(false);
+        listMember.add(ekstraMember3);
 
         int makeId4 = listMember.size() + (1);
-        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 2, 21));
-        m4.setExercise(false);
-        m4.setPassive(true);
-        listMember.add(m4);
+        Member ekstraMember4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 2, 21));
+        ekstraMember4.setExercise(false);
+        ekstraMember4.setPassive(true);
+        listMember.add(ekstraMember4);
 
         int makeId5 = listMember.size() + (1);
-        Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
-        m5.setExercise(true);
-        m5.setPassive(false);
-        listMember.add(m5);
+        Member ekstraMember5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
+        ekstraMember5.setExercise(true);
+        ekstraMember5.setPassive(false);
+        listMember.add(ekstraMember5);
     }
 
     public void newTransaction() {

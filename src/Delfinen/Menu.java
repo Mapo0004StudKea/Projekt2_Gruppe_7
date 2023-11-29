@@ -4,8 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
-    Accounting acc = new Accounting();
-    MemberSystem ms = new MemberSystem();
+    Accounting accounting = new Accounting();
+    MemberSystem memberSystem = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
 
     public void mainMenu() {
@@ -60,23 +60,23 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: ms.addMember();
+                case 1: memberSystem.addMember();
                     break;
-                case 2: ms.viewMemberList();
+                case 2: memberSystem.viewMemberList();
                     break;
                 case 3:
-                    ms.viewMemberList();
-                    ms.deleteMember();
+                    memberSystem.viewMemberList();
+                    memberSystem.deleteMember();
                     break;
                 case 4:
-                    ms.editMember();
+                    memberSystem.editMember();
                     break;
                 case 5: mainMenu();
                     break;
-                case 6: ms.seeIfMemberHadPaid();
+                case 6: memberSystem.seeIfMemberHadPaid();
                     break;
                 case 8:
-                    ms.EkstraMember();
+                    memberSystem.EkstraMember();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -99,27 +99,28 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: ms.seeMemberPassive();
+                case 1: memberSystem.seeMemberPassive();
                     break;
                 case 2:
-                    ms.viewMemberList();
-                    ms.newTransaction();
+                    memberSystem.viewMemberList();
+                    memberSystem.newTransaction();
                     break;
                 case 3:
-                    acc.viewPrices();
+                    accounting.viewPrices();
                     break;
 
                 case 4:
-                    ms.viewMemberList();
+                    memberSystem.viewMemberList();
                     System.out.println("vælg hvem du gerne ville se");
                     int chocie = scanner.nextInt();
-                    ms.listMember.get(chocie).printTransektions();
+                    memberSystem.listMember.get(chocie).printTransektions();
                     break;
                 case 5:
                     mainMenu();
                     break;
 
-                case 6:ms.listOfPayment();
+                case 6:
+                    memberSystem.listOfPayment();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -139,7 +140,7 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:  ms.setNewResult();
+                case 1:  memberSystem.setNewResult();
                     break;
                 case 2: mainMenu();
                     break;
