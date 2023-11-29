@@ -11,7 +11,6 @@ public class MemberSystem {
     static ArrayList<Member> listMember = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
     public void addMember() {
         System.out.println();
@@ -25,19 +24,21 @@ public class MemberSystem {
             Member m1 = new Member(makeId, name, date);
             listMember.add(m1);
             System.out.println("sæt medlemskab");
+            System.out.println(m1);
             chooseMembership();
             int checkAge = LocalDate.now().compareTo(date);
-            if (m1.getExercise() == true || m1.getCompetition() == true && checkAge >= 18 && checkAge <= 65) {
-                m1.setPrice(1600);
-            } else if (m1.getExercise() == true || m1.getCompetition() == true   && checkAge < 18) {
-                m1.setPrice(1000);
-            } else if (m1.getExercise() == true || m1.getCompetition() == true && checkAge > 65) {
-                m1.setPrice(1200);
+            if (m1.getExercise() == true || m1.getCompetitionSwimmer() == true && checkAge >= 18 && checkAge <= 65) {
+                m1.setPrice(Accounting.exerciseMemberPrice);
+            } else if (m1.getExercise() == true || m1.getCompetitionSwimmer() == true   && checkAge < 18) {
+                m1.setPrice(Accounting.juniorMemberPrice);
+            } else if (m1.getExercise() == true || m1.getCompetitionSwimmer() == true && checkAge > 65) {
+                m1.setPrice(Accounting.seniorMemberPrice);
             }
 
             System.out.println(m1.getPrice());
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
             String scan = scanner.nextLine(); //Hvorfor er det nødvendigt med denne scanner. Hvis vi kke har den, ryger den ud af conditionsne inden vi kan trykke "betal nu".
+            System.out.println(m1);
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
                 acc.newTransaction();
@@ -45,10 +46,6 @@ public class MemberSystem {
                 m1.setHasPaid(false);
             }
             System.out.println("Du har oprettet et ny medlem");
-
-            System.out.println(m1.getCompetition());
-            System.out.println(m1.getPassive());
-            System.out.println(m1.getExercise());
 
         } catch (DateTimeParseException d) {
             System.out.println("Du har trykket forkert husk! YYYY-MM-DD");
@@ -73,52 +70,6 @@ public class MemberSystem {
             }
         }
     }
-
-    // der er problem med Array listen, id og Array listen plads er ikke den samme.
-    public void setNewResult() {
-        System.out.println();
-        Scanner scan = new Scanner(System.in);
-        Disciplin crawl = new Disciplin("Crawl - 500m", 500);
-        Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
-        Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
-
-        System.out.println("Liste over medlemmer:");
-        viewMemberList();
-        System.out.println("vælg en et medlem");
-        int choice = scan.nextInt();
-
-        System.out.println("set ny resultat, skriv tid");
-        double tid = scan.nextDouble();
-
-        Result re = new Result(tid, LocalDate.now(), rygsvømning);
-
-        System.out.println("vægle en disciplin: ");
-        System.out.println("1. for at vægle Rygsvømning - 500m");
-        System.out.println("2. for at vægle Crawl - 500m");
-        System.out.println("3. for at vægle freestyle - 500m");
-        int menuChoice = scan.nextInt();
-
-        switch (menuChoice) {
-            case 1:
-                re.setDisplin(rygsvømning);
-                break;
-            case 2:
-                re.setDisplin(crawl);
-                break;
-            case 3:
-                re.setDisplin(freestyle);
-                break;
-        }
-
-
-        listMember.get(choice).listeResult.add(re);
-        System.out.println(listMember.get(choice));
-
-        for (int i = 0; i < listMember.get(choice).listeResult.size(); i++) {
-            System.out.println(listMember.get(choice).listeResult.get(i));
-        }
-    }
-
 
     public void viewMemberList() {
         System.out.println();
@@ -224,7 +175,7 @@ public class MemberSystem {
                 if (choice == m.getId()) {
                     m.setExercise(true);
                     m.setPassive(false);
-                    m.setCompetition(false);
+                    m.setCompetitionSwimmer(false);
                     return m;
                 }
             }
@@ -234,7 +185,7 @@ public class MemberSystem {
             int choice = scanner.nextInt();
             for (Member m : listMember) {
                 if (choice == m.getId()) {
-                    m.setCompetition(true);
+                    m.setCompetitionSwimmer(true);
                     m.setExercise(false);
                     m.setPassive(false);
                     return m;
