@@ -136,29 +136,85 @@ public class MemberSystem {
             if (member.getId() == memberIdToEdit) {
                 System.out.println("Nuværende medlemsoplysninger: " + member);
 
+                System.out.println("Ønsker du at ændre navn på medlemmet? j/n");
+                String newName2 = scanner.nextLine();
+                if(newName2.equals("j")){
                 System.out.println("Indtast nyt fulde navn på medlemmet:");
                 String newName = scanner.nextLine();
-                member.setName(newName);
+                member.setName(newName);}
 
+                System.out.println("Ønsker du at ændre fødselsdag? j/n");
+                String newBDay = scanner.nextLine();
+                if(newBDay.equals("j")){
                 System.out.println("Indtast ny fødselsdato. yyyy-mm-dd:");
                 LocalDate newDate = LocalDate.parse(scanner.nextLine());
-                member.setAge(newDate);
+                member.setAge(newDate);}
 
-                System.out.println("Ønsker medlemmet at være passivt? j/n");
-                String passive = scanner.nextLine();
-                if (passive.equals("j")) {
-                    member.setPrice(500);
-                    member.setPassive(true);
-                    System.out.println("Medlemskabet er nu passivt");
-                    if (passive.equals("j")) {
-                        member.setExercise(false);
-                    }
+                System.out.println("1. for at ændre til passivt medlem");
+                System.out.println("2. for at ændre til korrance medlem");
+                System.out.println("3. for at ændre til motionist medlem");
+                int checkAge = LocalDate.now().compareTo(member.getAge());
+                int chose = scanner.nextInt();
+
+                switch (chose) {
+                    case 1:
+                        scanner.nextLine();
+                        System.out.println("Ønsker medlemmet at sin medlem status j/n");
+                        String passiv = scanner.nextLine();
+                        if (passiv.equals("j")) {
+                            member.setPrice(Accounting.passiveMemberPrice);
+                            member.setPassive(true);
+                            System.out.println("Medlemskabet er nu passivt");
+                            if (passiv.equals("n")) {
+                                member.setExercise(false);
+                                member.setCompetitionSwimmer(false);
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        scanner.nextLine();
+                        System.out.println("Ønsker medlemmet at ændre sin medlem status j/n");
+                        String competition = scanner.nextLine();
+
+                        if (competition.equals("j")) {
+                            if (checkAge < 18){member.setPrice(Accounting.juniorMemberPrice);}
+                            if (checkAge >=65){member.setPrice(Accounting.seniorMemberPrice);}
+                            else member.setPrice(Accounting.exerciseMemberPrice);
+                            member.setCompetitionSwimmer(true);
+                            System.out.println("Medlemskabet er nu passivt");
+                            if (competition.equals("n")) {
+                                member.setPassive(false);
+                                member.setExercise(false);
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        scanner.nextLine();
+                        System.out.println("Ønsker medlemmet at sin medlem status j/n");
+                        String exerciser = scanner.nextLine();
+
+                        if (exerciser.equals("j")) {
+                            if (checkAge < 18){member.setPrice(Accounting.juniorMemberPrice);}
+                            if (checkAge >=65){member.setPrice(Accounting.seniorMemberPrice);}
+                            else member.setPrice(Accounting.exerciseMemberPrice);
+                            member.setExercise(true);
+                            System.out.println("Medlemskabet er nu passivt");
+                            if (exerciser.equals("n")) {
+                                member.setPassive(false);
+                                member.setCompetitionSwimmer(false);
+                            }
+                        }
+                        break;
                 }
 
                 System.out.println("Medlemsoplysninger opdateret!");
                 System.out.println(member);
                 System.out.println(member.getPrice());
-                System.out.println("medlem er nu passiv: " + member.getPassive());
+                System.out.println("medlem passive status er: " + member.getPassive());
+                System.out.println("medlem Kunkurrance status er: " + member.getCompetitionSwimmer());
+                System.out.println("medlem motion status er: " + member.getExercise());
                 memberFound = true;
                 break;
             }

@@ -75,7 +75,6 @@ public class CompetitionSystem {
                 break;
         }
 
-
         MemberSystem.listMember.get(choice).listeResult.add(re);
         System.out.println(MemberSystem.listMember.get(choice));
 
