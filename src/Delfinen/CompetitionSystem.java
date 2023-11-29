@@ -1,15 +1,48 @@
 package Delfinen;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompetitionSystem {
+    public ArrayList<Member> juniorTeam = new ArrayList<>();
+    public ArrayList<Member> seniorTeam = new ArrayList<>();
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
     Disciplin crawl = new Disciplin("Crawl - 500m", 500);
     Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
     Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
+    public void addMemberToTeams(){
+        for(int i=0; i<MemberSystem.listMember.size(); i++) {
+            Member member = MemberSystem.listMember.get(i);
+            System.out.println("Vil du tilføje "+member.name+" til hold? (Ja/Nej)");
+            String userInput = scan.nextLine();
+            int age = LocalDate.now().getYear() - member.age.getYear();
+            if (userInput.equals("Ja")) {
+               if (member.getCompetitionSwimmer() == true && age < 18) {
+                   juniorTeam.add(member);
+               } else if (member.getCompetitionSwimmer() == true && age < 18){
+                    seniorTeam.add(member);
+               }
+               System.out.println(member.name + " er tilføjet holdet.");
+            } else if (userInput.equals("Nej")) {
+                System.out.println("Bliver ikke gjort mere...");
+            }
+        }
+    }
+    public void viewJuniorTeamList() {
+        System.out.println();
+            for (int i = 0; i < juniorTeam.size(); i++) {
+                System.out.println(juniorTeam.get(i));
+            }
+    }
+    public void viewSeniorTeamList() {
+        System.out.println();
+        for (int i = 0; i < seniorTeam.size(); i++) {
+            System.out.println(seniorTeam.get(i));
+        }
+    }
     public void setNewResult() {
         System.out.println();
 
@@ -28,7 +61,7 @@ public class CompetitionSystem {
         System.out.println("2. for at vægle Crawl - 500m");
         System.out.println("3. for at vægle freestyle - 500m");
         int menuChoice = scan.nextInt();
-    
+
 
         switch (menuChoice) {
             case 1:

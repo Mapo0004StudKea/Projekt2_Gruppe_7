@@ -25,5 +25,3 @@ public class Result {
         this.displin = displin;
     }
 }
-
-

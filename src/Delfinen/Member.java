@@ -84,6 +84,10 @@ public class Member {
         return listeResult;
     }
 
+    public LocalDate getAge() {
+        return age;
+    }
+
     public void setAge(LocalDate age) {
         this.age = age;
     }

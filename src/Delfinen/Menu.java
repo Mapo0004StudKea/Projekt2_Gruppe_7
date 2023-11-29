@@ -7,6 +7,7 @@ public class Menu {
     CompetitionSystem cs = new CompetitionSystem();
     Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
+    CompetitionSystem competitionSystem = new CompetitionSystem();
     Scanner scanner = new Scanner(System.in);
 
     public void mainMenu() {
@@ -78,6 +79,13 @@ public class Menu {
                     break;
                 case 8:
                     ms.EkstraMember();
+                    break;
+                case 9:
+                    competitionSystem.addMemberToTeams();
+                    break;
+                case 10:
+                        competitionSystem.viewJuniorTeamList();
+                        competitionSystem.viewSeniorTeamList();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
