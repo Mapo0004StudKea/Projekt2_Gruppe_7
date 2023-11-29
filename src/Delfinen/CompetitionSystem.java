@@ -3,7 +3,7 @@ package Delfinen;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class CompetitionSystem{
+public class CompetitionSystem {
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
     Disciplin crawl = new Disciplin("Crawl - 500m", 500);
@@ -12,6 +12,7 @@ public class CompetitionSystem{
 
     public void setNewResult() {
         System.out.println();
+
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
         System.out.println("vælg en et medlem");
@@ -27,6 +28,7 @@ public class CompetitionSystem{
         System.out.println("2. for at vægle Crawl - 500m");
         System.out.println("3. for at vægle freestyle - 500m");
         int menuChoice = scan.nextInt();
+    
 
         switch (menuChoice) {
             case 1:
@@ -48,6 +50,5 @@ public class CompetitionSystem{
             System.out.println(MemberSystem.listMember.get(choice).listeResult.get(i));
         }
     }
-
 
 }

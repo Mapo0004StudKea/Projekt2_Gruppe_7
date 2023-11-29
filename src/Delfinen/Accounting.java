@@ -21,13 +21,17 @@ public class Accounting {
     }
     public void newTransaction() {
         System.out.println();
-        System.out.println("vælg nr på medlem");
+        System.out.println("vælg ID nr. på medlemmet");
         int choice = scan.nextInt();
-        int index = choice - 1;
-        MemberSystem.listMember.get(choice).MemberShipPayment(MemberSystem.listMember.get(choice).getPrice());
-        MemberSystem.listMember.get(choice).setHasPaid(true);
-        System.out.println("kontingent er betalt");
+        for (Member m : MemberSystem.listMember) {
+            if (choice == m.getId()) {
+                m.MemberShipPayment(m.getPrice());
+                m.setHasPaid(true);
+                System.out.println("kontingent er betalt");
+            }
+        }
     }
+
 
     public void listOfPayment(){
         double total=0;
