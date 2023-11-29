@@ -14,22 +14,27 @@ public class CompetitionSystem {
     Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
     public void addMemberToTeams(){
-        for(int i=0; i<MemberSystem.listMember.size(); i++) {
+        for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            System.out.println("Vil du tilføje "+member.name+" til hold? (Ja/Nej)");
+            System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
             String userInput = scan.nextLine();
             int age = LocalDate.now().getYear() - member.age.getYear();
-            if (userInput.equals("Ja")) {
-               if (member.getCompetitionSwimmer() == true && age < 18) {
-                   juniorTeam.add(member);
-               } else if (member.getCompetitionSwimmer() == true && age < 18){
+
+            if (userInput.equalsIgnoreCase("Ja")) {
+                if (member.getCompetitionSwimmer() && age < 18) {
+                    System.out.println(member.name + " er tilføjet juniorholdet.");
+                    juniorTeam.add(member);
+                } else if (member.getCompetitionSwimmer() && age >= 18) {
+                    System.out.println(member.name + " er tilføjet seniorholdet.");
                     seniorTeam.add(member);
-               }
-               System.out.println(member.name + " er tilføjet holdet.");
-            } else if (userInput.equals("Nej")) {
+                }
+            } else if (userInput.equalsIgnoreCase("Nej")) {
                 System.out.println("Bliver ikke gjort mere...");
             }
         }
+
+        System.out.println("Junior Team Size: " + juniorTeam.size());
+        System.out.println("Senior Team Size: " + seniorTeam.size());
     }
     public void viewJuniorTeamList() {
         System.out.println();

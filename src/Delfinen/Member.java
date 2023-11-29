@@ -25,9 +25,10 @@ public class Member {
 
     public String toString() {
         System.out.println();
+        String memberType = exercise ? "Motionist" : "Passivt";
         System.out.println("ID       Fulde Navn           Alder        Medlemskab     Pris     Betalt?");
         return String.format("%-5d    %-17s    %-10s   %-12s   %-5s    %-7s   ",
-                id, name, age, exercise, price, hasPaid);
+                id, name, age, memberType, price, hasPaid);
     }
 
     public void setName(String name) {
