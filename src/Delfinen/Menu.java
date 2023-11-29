@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Menu {
     Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
-    CompetitionSystem cs = new CompetitionSystem();
     Scanner scanner = new Scanner(System.in);
 
     public void mainMenu() {
@@ -104,7 +103,7 @@ public class Menu {
                     break;
                 case 2:
                     ms.viewMemberList();
-                    acc.newTransaction();
+                    ms.newTransaction();
                     break;
                 case 3:
                     acc.viewPrices();
@@ -120,7 +119,7 @@ public class Menu {
                     mainMenu();
                     break;
 
-                case 6:acc.listOfPayment();
+                case 6:ms.listOfPayment();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -140,7 +139,7 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:  cs.setNewResult();
+                case 1:  ms.setNewResult();
                     break;
                 case 2: mainMenu();
                     break;
