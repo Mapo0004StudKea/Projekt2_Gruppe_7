@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+    CompetitionSystem cs = new CompetitionSystem();
     Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
@@ -103,7 +104,7 @@ public class Menu {
                     break;
                 case 2:
                     ms.viewMemberList();
-                    ms.newTransaction();
+                    acc.newTransaction();
                     break;
                 case 3:
                     acc.viewPrices();
@@ -119,7 +120,7 @@ public class Menu {
                     mainMenu();
                     break;
 
-                case 6:ms.listOfPayment();
+                case 6:acc.listOfPayment();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -139,7 +140,7 @@ public class Menu {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:  ms.setNewResult();
+                case 1:  cs.setNewResult();
                     break;
                 case 2: mainMenu();
                     break;
