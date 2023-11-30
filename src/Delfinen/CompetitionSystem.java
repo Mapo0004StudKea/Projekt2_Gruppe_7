@@ -13,22 +13,7 @@ public class CompetitionSystem {
     Disciplin crawl = new Disciplin("Crawl - 500m", 500);
     Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
     Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
-/*     ArrayList<Member> bestResult = new ArrayList<>();
-        for (int i = 0; i < juniorTeam.size(); i++) {
-            juniorTeam.get(i).listeResult.get(i).getTid();
-            if (bestResult == null){
-                bestResult.add(juniorTeam.get(i));
-            }
-            for (int j = 0; j <juniorTeam.size() ; j++) {
-                if(juniorTeam.get(i).listeResult.get(0).getTid() > juniorTeam.get(j).listeResult.get(0).getTid()){
 
-                    bestResult.add(juniorTeam.get(j));
-                }
-            }
-        }
-        for (int i = 0; i < bestResult.size() ; i++) {
-            System.out.println(bestResult.get(i));
-        }*/
 
 
     public void addMemberToTeams() {
@@ -104,18 +89,13 @@ public class CompetitionSystem {
     }
 
     public void listOfResultJunior() {
-
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
 
         for (Member member : juniorTeam) {
             System.out.println(member);
+
             System.out.println(member.listeResult);
         }
-
-/*
-        for (int i = 0; i < juniorTeam.size(); i++) {
-            System.out.println(juniorTeam.get(i));
-            System.out.println(juniorTeam.get(i).listeResult);*/
 
     }
 
@@ -132,7 +112,9 @@ public class CompetitionSystem {
 
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
+
         System.out.println("vælg ID nr. på medlemmet");
+        // hvis du skriver forkert kan du ikke komme ind i metoden igen.
         int choice = scan.nextInt();
 
         System.out.println("set ny resultat, skriv tid");
@@ -145,7 +127,6 @@ public class CompetitionSystem {
         System.out.println("2. for at vægle Crawl - 500m");
         System.out.println("3. for at vægle freestyle - 500m");
         int menuChoice = scan.nextInt();
-
 
         switch (menuChoice) {
             case 1:
