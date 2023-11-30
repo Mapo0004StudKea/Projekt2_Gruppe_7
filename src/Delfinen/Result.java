@@ -2,8 +2,9 @@ package Delfinen;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Result {
+public class Result implements Comparable <Result> {
     double tid;
     LocalDate resultDate;
     ArrayList<Disciplin> ListOfDisciplin = new ArrayList<>();
@@ -14,6 +15,26 @@ public class Result {
         this.resultDate = resultatDate;
         this.displin = displin;
         //this.ListOfDisciplin = ListOfDisciplin;
+    }
+
+    public static void main(String[] args) {
+        Disciplin displin = new Disciplin("Crawl", 100);
+        ArrayList<Result> listRe = new ArrayList<>();
+
+        Result re = new Result(7,LocalDate.now(),displin);
+        Result re1 = new Result(8,LocalDate.now(),displin);
+        Result re2 = new Result(5,LocalDate.now(),displin);
+        listRe.add(re);
+        listRe.add(re1);
+        listRe.add(re2);
+
+        listRe.sort(null);
+
+        //Collections.sort(listRe);
+
+        System.out.println(listRe);
+
+
     }
 
     @Override
@@ -39,5 +60,10 @@ public class Result {
 
     public void setResultDate(LocalDate resultDate) {
         this.resultDate = resultDate;
+    }
+
+    @Override
+    public int compareTo(Result o) {
+        return Double.compare(this.tid,o.tid);
     }
 }

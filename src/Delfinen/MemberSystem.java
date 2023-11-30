@@ -248,10 +248,10 @@ public class MemberSystem {
     public void EkstraMember() {
         System.out.println();
         int makeId = listMember.size() + (1);
-        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(1960, 2, 21));
-        m1.setPassive(false);
+        Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(2015, 2, 21));
+        m1.setPassive(true);
         m1.setExercise(false);
-        m1.setCompetitionSwimmer(false);
+        m1.setCompetitionSwimmer(true);
         m1.setJunSen(false);
         m1.setPrice(500);
         m1.setHasPaid(true);
@@ -260,25 +260,25 @@ public class MemberSystem {
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
         m2.setPassive(true);
-        m2.setExercise(true);
-        m2.setCompetitionSwimmer(false);
+        m2.setExercise(false);
+        m2.setCompetitionSwimmer(true);
         m2.setJunSen(true);
         m2.setPrice(1000);
         m2.setHasPaid(false);
         listMember.add(m2);
 
         int makeId3 = listMember.size() + (1);
-        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(1965, 2, 21));
+        Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(2015, 2, 21));
         m3.setPassive(true);
-        m3.setExercise(true);
-        m3.setCompetitionSwimmer(false);
+        m3.setExercise(false);
+        m3.setCompetitionSwimmer(true);
         m3.setJunSen(false);
         m3.setPrice(1600);
         m3.setHasPaid(true);
         listMember.add(m3);
 
         int makeId4 = listMember.size() + (1);
-        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(1997, 2, 21));
+        Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(2020, 2, 21));
         m4.setPassive(true);
         m4.setExercise(false);
         m4.setCompetitionSwimmer(true);
@@ -296,5 +296,15 @@ public class MemberSystem {
         m5.setPrice(1000);
         m5.setHasPaid(false);
         listMember.add(m5);
+
+        int makeId6 = listMember.size() + (1);
+        Member m6 = new Member(makeId6, "Godmorgen Poulsen 2", LocalDate.of(2018, 2, 21));
+        m5.setPassive(true);
+        m5.setExercise(false);
+        m5.setCompetitionSwimmer(true);
+        m5.setJunSen(true);
+        m5.setPrice(1000);
+        m5.setHasPaid(false);
+        listMember.add(m6);
     }
 }

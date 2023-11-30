@@ -2,6 +2,8 @@ package Delfinen;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Member {
     String name;
@@ -35,6 +37,7 @@ public class Member {
         return String.format("%-5d    %-17s    %-10s   %-12s   %-10s    %-19s    %-28s    %-1s     %-12s    ",
                 id, name, age, memberType, exerciser, konkurrenceSvømmer, juniorSeniorSvømmer, price, harBetalt);
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -91,9 +94,14 @@ public class Member {
         this.exercise = exercise;
     }
 
-    public ArrayList<Result> getListMember() {
-        return listeResult;
+
+
+    public double getListeResult() {
+        if (!listeResult.isEmpty()){
+        return  Collections.min(listeResult).tid;}
+        return Double.MAX_VALUE;
     }
+
     public boolean getJunSen() {
         return JunSen;
     }

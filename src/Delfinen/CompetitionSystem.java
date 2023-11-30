@@ -2,6 +2,7 @@ package Delfinen;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class CompetitionSystem {
@@ -12,34 +13,49 @@ public class CompetitionSystem {
     Disciplin crawl = new Disciplin("Crawl - 500m", 500);
     Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
     Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
+/*     ArrayList<Member> bestResult = new ArrayList<>();
+        for (int i = 0; i < juniorTeam.size(); i++) {
+            juniorTeam.get(i).listeResult.get(i).getTid();
+            if (bestResult == null){
+                bestResult.add(juniorTeam.get(i));
+            }
+            for (int j = 0; j <juniorTeam.size() ; j++) {
+                if(juniorTeam.get(i).listeResult.get(0).getTid() > juniorTeam.get(j).listeResult.get(0).getTid()){
 
-    public void addMemberToTeams(){
+                    bestResult.add(juniorTeam.get(j));
+                }
+            }
+        }
+        for (int i = 0; i < bestResult.size() ; i++) {
+            System.out.println(bestResult.get(i));
+        }*/
+
+
+    public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            if (member.getCompetitionSwimmer()) {
-                System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
-                String userInput = scan.nextLine();
-                int age = LocalDate.now().getYear() - member.age.getYear();
+            System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
+            String userInput = scan.nextLine();
+            int age = LocalDate.now().getYear() - member.age.getYear();
 
-                if (userInput.equalsIgnoreCase("Ja")) {
-                    if (juniorTeam.contains(member)) {
-                        System.out.println("Der findes allerede en juniorsvømmer" + member);
-                        continue;
-                    }
-                    if (seniorTeam.contains(member)) {
-                        System.out.println("Der findes allerede en seniorsvømmer" + member);
-                        continue;
-                    }
-                    if (member.getCompetitionSwimmer() && age < 18) {
-                        System.out.println(member.name + " er tilføjet juniorholdet.");
-                        juniorTeam.add(member);
-                    } else if (member.getCompetitionSwimmer() && age >= 18) {
-                        System.out.println(member.name + " er tilføjet seniorholdet.");
-                        seniorTeam.add(member);
-                    }
-                } else if (userInput.equalsIgnoreCase("Nej")) {
-                    System.out.println("Bliver ikke gjort mere...");
+            if (userInput.equalsIgnoreCase("Ja")) {
+                if (juniorTeam.contains(member)) {
+                    System.out.println("Der findes allerede en juniorsvømmer" + member);
+                    continue;
                 }
+                if (seniorTeam.contains(member)) {
+                    System.out.println("Der findes allerede en seniorsvømmer" + member);
+                    continue;
+                }
+                if (member.getCompetitionSwimmer() && age < 18) {
+                    System.out.println(member.name + " er tilføjet juniorholdet.");
+                    juniorTeam.add(member);
+                } else if (member.getCompetitionSwimmer() && age >= 18) {
+                    System.out.println(member.name + " er tilføjet seniorholdet.");
+                    seniorTeam.add(member);
+                }
+            } else if (userInput.equalsIgnoreCase("Nej")) {
+                System.out.println("Bliver ikke gjort mere...");
             }
         }
 
@@ -82,10 +98,27 @@ public class CompetitionSystem {
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");
-            for (int i = 0; i < juniorTeam.size(); i++) {
-                System.out.println(juniorTeam.get(i));
-            }
+        for (int i = 0; i < juniorTeam.size(); i++) {
+            System.out.println(juniorTeam.get(i));
+        }
     }
+
+    public void listOfResultJunior() {
+
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+
+        for (Member member : juniorTeam) {
+            System.out.println(member);
+            System.out.println(member.listeResult);
+        }
+
+/*
+        for (int i = 0; i < juniorTeam.size(); i++) {
+            System.out.println(juniorTeam.get(i));
+            System.out.println(juniorTeam.get(i).listeResult);*/
+
+    }
+
     public void viewSeniorTeamList() {
         System.out.println();
         System.out.println("Seniorholdet: ");
@@ -93,12 +126,13 @@ public class CompetitionSystem {
             System.out.println(seniorTeam.get(i));
         }
     }
+
     public void setNewResult() {
         System.out.println();
 
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
-        System.out.println("vælg en et medlem");
+        System.out.println("vælg ID nr. på medlemmet");
         int choice = scan.nextInt();
 
         System.out.println("set ny resultat, skriv tid");
@@ -125,12 +159,16 @@ public class CompetitionSystem {
                 break;
         }
 
-        MemberSystem.listMember.get(choice).listeResult.add(re);
-        System.out.println(MemberSystem.listMember.get(choice));
-
-        for (int i = 0; i < MemberSystem.listMember.get(choice).listeResult.size(); i++) {
-            System.out.println(MemberSystem.listMember.get(choice).listeResult.get(i));
+        for (Member m : MemberSystem.listMember) {
+            if (choice == m.getId()) {
+                m.listeResult.add(re);
+                System.out.println(m);
+            }
+            // mangler fejltastning
+            for (int i = 0; i < m.listeResult.size(); i++) {
+                System.out.println(m.listeResult.get(i));
+            }
         }
-    }
 
+    }
 }
