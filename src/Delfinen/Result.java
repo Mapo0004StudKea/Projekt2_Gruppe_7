@@ -20,8 +20,24 @@ public class Result {
     public String toString() {
         return "din nye tid "+tid +" dd "+ resultDate + " disciplin " + displin;
     }
-
+    public Disciplin getDisplin() {
+        return displin;
+    }
     public void setDisplin(Disciplin displin) {
         this.displin = displin;
+    }
+    public double getTid() {
+        return tid;
+    }
+
+    public void setTid(double tid) {
+        this.tid = tid;
+    }
+    public LocalDate getResultDate() {
+        return resultDate;
+    }
+
+    public void setResultDate(LocalDate resultDate) {
+        this.resultDate = resultDate;
     }
 }

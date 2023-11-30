@@ -139,6 +139,7 @@ public class Menu {
             System.out.println("2: tilbage til hovedmenu");
             System.out.println("3: Tilføj medlem til hold");
             System.out.println("4: Se hold liste");
+            System.out.println("5: fjern medlem fra hold");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -153,6 +154,12 @@ public class Menu {
                 case 4:
                     cs.viewJuniorTeamList();
                     cs.viewSeniorTeamList();
+                    break;
+
+
+
+                case 6:
+                    cs.removeMemberFromTeams();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");

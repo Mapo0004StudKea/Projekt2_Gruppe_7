@@ -16,34 +16,69 @@ public class CompetitionSystem {
     public void addMemberToTeams(){
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
-            String userInput = scan.nextLine();
-            int age = LocalDate.now().getYear() - member.age.getYear();
+            if (member.getCompetitionSwimmer()) {
+                System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
+                String userInput = scan.nextLine();
+                int age = LocalDate.now().getYear() - member.age.getYear();
 
-            if (userInput.equalsIgnoreCase("Ja")) {
-                if (juniorTeam.contains(member)) {
-                    System.out.println("Der findes allerede en juniorsvømmer" + member);
-                    continue;
+                if (userInput.equalsIgnoreCase("Ja")) {
+                    if (juniorTeam.contains(member)) {
+                        System.out.println("Der findes allerede en juniorsvømmer" + member);
+                        continue;
+                    }
+                    if (seniorTeam.contains(member)) {
+                        System.out.println("Der findes allerede en seniorsvømmer" + member);
+                        continue;
+                    }
+                    if (member.getCompetitionSwimmer() && age < 18) {
+                        System.out.println(member.name + " er tilføjet juniorholdet.");
+                        juniorTeam.add(member);
+                    } else if (member.getCompetitionSwimmer() && age >= 18) {
+                        System.out.println(member.name + " er tilføjet seniorholdet.");
+                        seniorTeam.add(member);
+                    }
+                } else if (userInput.equalsIgnoreCase("Nej")) {
+                    System.out.println("Bliver ikke gjort mere...");
                 }
-                if (seniorTeam.contains(member)) {
-                    System.out.println("Der findes allerede en seniorsvømmer" + member);
-                    continue;
-                }
-                if (member.getCompetitionSwimmer() && age < 18) {
-                    System.out.println(member.name + " er tilføjet juniorholdet.");
-                    juniorTeam.add(member);
-                } else if (member.getCompetitionSwimmer() && age >= 18) {
-                    System.out.println(member.name + " er tilføjet seniorholdet.");
-                    seniorTeam.add(member);
-                }
-            } else if (userInput.equalsIgnoreCase("Nej")) {
-                System.out.println("Bliver ikke gjort mere...");
             }
         }
 
         System.out.println("Junior Team Size: " + juniorTeam.size());
         System.out.println("Senior Team Size: " + seniorTeam.size());
     }
+
+    public void removeMemberFromTeams() {
+        System.out.println("Vælg hold (Junior/Senior) for at fjerne et medlem:");
+        String teamChoice = scan.nextLine();
+        ArrayList<Member> selectedTeam;
+        if (teamChoice.equalsIgnoreCase("Junior")) {
+            selectedTeam = juniorTeam;
+        } else if (teamChoice.equalsIgnoreCase("Senior")) {
+            selectedTeam = seniorTeam;
+        } else {
+            System.out.println("Ugyldigt valg. Vælg enten Junior eller Senior.");
+            return;
+        }
+        System.out.println("Liste over medlemmer på " + teamChoice + "holdet:");
+        displayTeamMembers(selectedTeam);
+        System.out.println("Indtast ID på medlemmet, som du vil fjerne:");
+        int memberIdToRemove = scan.nextInt();
+        scan.nextLine();
+        boolean removed = selectedTeam.removeIf(member -> member.getId() == memberIdToRemove);
+        if (removed) {
+            System.out.println("Medlemmet er fjernet fra " + teamChoice + "holdet.");
+        } else {
+            System.out.println("Medlemmet med ID " + memberIdToRemove + " blev ikke fundet på " + teamChoice + "holdet.");
+        }
+    }
+
+    private void displayTeamMembers(ArrayList<Member> team) {
+        for (Member member : team) {
+            System.out.println("ID: " + member.getId() + ", Navn: " + member.getName());
+        }
+    }
+
+
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");

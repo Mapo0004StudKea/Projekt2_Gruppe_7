@@ -67,6 +67,7 @@ public class MemberSystem {
         for (int i = 0; i < listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
             if (listMember.get(i).getPassive() == true) {
                 System.out.println(listMember.get(i));
+
             }
         }
     }
