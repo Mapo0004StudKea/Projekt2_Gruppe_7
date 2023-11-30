@@ -47,7 +47,6 @@ public class CompetitionSystem {
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");
-        System.out.println();
             for (int i = 0; i < juniorTeam.size(); i++) {
                 System.out.println(juniorTeam.get(i));
             }
@@ -55,7 +54,6 @@ public class CompetitionSystem {
     public void viewSeniorTeamList() {
         System.out.println();
         System.out.println("Seniorholdet: ");
-        System.out.println();
         for (int i = 0; i < seniorTeam.size(); i++) {
             System.out.println(seniorTeam.get(i));
         }
