@@ -15,7 +15,20 @@ public class CompetitionSystem {
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
 
+    /* public ArrayList<Result> TestListe(){
 
+
+         ArrayList<Disciplin> testliste = new ArrayList<>();
+         for (int i = 0; i < juniorTeam.size() ; i++) {
+             for (int j = 0; j < juniorTeam.get(i).listeResult.size(); j++) {
+
+                 if(juniorTeam.get(i).listeResult.get(j).getDisplin().equals("Rygsvømning - 500m")){
+                     testliste.add(juniorTeam.get(i).listeResult.get());
+                 }
+             }
+
+     }return
+ }*/
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
@@ -88,26 +101,43 @@ public class CompetitionSystem {
         }
     }
 
-    public void listOfResultJunior() {
-
-        for (int i = 0; i < juniorTeam.size(); i++) {
+    public void sortListResultInJuniorTeam(){
+        for (int i = 0; i < juniorTeam.size() ; i++) {
+            juniorTeam.get(i).listeResult.sort(null);
         }
-
+    }
+    public void listOfResultJuniorRygsvømning500() {
+        sortListResultInJuniorTeam();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
-                    for (Member member : juniorTeam) {
+            for (Member member : juniorTeam) {
 
-                    if (!member.listeResult.contains("Rygsvømning - 500m")){
-                    System.out.println(member.getName() + " Id nr: " + member.getId());
+            if (!member.listeResult.contains("Rygsvømning - 500m")){
+                System.out.println();
+                System.out.println(member.getName() + " Id nr: " + member.getId());
+
+                 for (Result result : member.listeResult) {
+                System.out.println(result);
+            }
+            }
+        }
+        }
+    public void listOfResultJuniorCarlw500() {
+        sortListResultInJuniorTeam();
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        for (Member member : juniorTeam) {
+
+            if (!member.listeResult.contains("Crawl - 500m")){
+                System.out.println();
+                System.out.println(member.getName() + " Id nr: " + member.getId());
 
                 for (Result result : member.listeResult) {
-                    if (result.getDisplin().equals("Rygsvømning - 500m")) {
+                    if (result.getDisplin().equals("Crawl - 500m")) {
                         System.out.println(result);
                     }
                 }
-                }
             }
-
         }
+    }
 
     public void viewSeniorTeamList() {
         System.out.println();

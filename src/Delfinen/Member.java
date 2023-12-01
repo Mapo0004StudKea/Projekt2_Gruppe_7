@@ -135,4 +135,5 @@ public class Member {
             System.out.println(payment);
         }
     }
+
 }

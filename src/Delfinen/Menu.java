@@ -139,8 +139,9 @@ public class Menu {
             System.out.println("2: tilbage til hovedmenu");
             System.out.println("3: Tilføj medlem til hold");
             System.out.println("4: Se hold liste");
-            System.out.println("5:se juniorholdet bedste træningstider");
-            System.out.println("6: fjern medlem fra hold");
+            System.out.println("5:se juniorholdet bedste træningstider i Rygsvømning - 500m");
+            System.out.println("6:se juniorholdet bedste træningstider i Carlw - 500m");
+            System.out.println("7: fjern medlem fra hold");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -157,9 +158,11 @@ public class Menu {
                     cs.viewSeniorTeamList();
                     break;
                 case 5:
-                    cs.listOfResultJunior();
-                        break;
-                case 6:
+                    cs.listOfResultJuniorRygsvømning500();
+                    break;
+                case 6:cs.listOfResultJuniorCarlw500();
+                    break;
+                case 7:
                     cs.removeMemberFromTeams();
                     break;
                 default:

@@ -262,6 +262,9 @@ public class MemberSystem {
         re1.setDisplin(CompetitionSystem.rygsvømning);
         m1.listeResult.add(re);
         m1.listeResult.add(re1);
+        Result re15 = new Result(10, LocalDate.now());
+        re15.setDisplin(CompetitionSystem.crawl);
+        m1.listeResult.add(re15);
 
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
@@ -274,10 +277,10 @@ public class MemberSystem {
         listMember.add(m2);
         Result re2 = new Result(6, LocalDate.now());
         Result re3 = new Result(3, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
-        m1.listeResult.add(re2);
-        m1.listeResult.add(re3);
+        re2.setDisplin(CompetitionSystem.rygsvømning);
+        re3.setDisplin(CompetitionSystem.rygsvømning);
+        m2.listeResult.add(re2);
+        m2.listeResult.add(re3);
 
         int makeId3 = listMember.size() + (1);
         Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(2015, 2, 21));
@@ -290,10 +293,10 @@ public class MemberSystem {
         listMember.add(m3);
         Result re4 = new Result(8, LocalDate.now());
         Result re5 = new Result(1.2, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
-        m1.listeResult.add(re4);
-        m1.listeResult.add(re5);
+        re4.setDisplin(CompetitionSystem.rygsvømning);
+        re5.setDisplin(CompetitionSystem.rygsvømning);
+        m3.listeResult.add(re4);
+        m3.listeResult.add(re5);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(2020, 2, 21));
@@ -306,10 +309,13 @@ public class MemberSystem {
         listMember.add(m4);
         Result re6 = new Result(6.5, LocalDate.now());
         Result re7 = new Result(3.1, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
-        m1.listeResult.add(re6);
-        m1.listeResult.add(re7);
+        re6.setDisplin(CompetitionSystem.rygsvømning);
+        re7.setDisplin(CompetitionSystem.rygsvømning);
+        m4.listeResult.add(re6);
+        m4.listeResult.add(re7);
+        Result re14 = new Result(3, LocalDate.now());
+        re14.setDisplin(CompetitionSystem.crawl);
+        m4.listeResult.add(re14);
 
         int makeId5 = listMember.size() + (1);
         Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
@@ -322,25 +328,32 @@ public class MemberSystem {
         listMember.add(m5);
         Result re8 = new Result(4, LocalDate.now());
         Result re9 = new Result(7, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
-        m1.listeResult.add(re8);
-        m1.listeResult.add(re9);
+        re8.setDisplin(CompetitionSystem.rygsvømning);
+        re9.setDisplin(CompetitionSystem.rygsvømning);
+        m5.listeResult.add(re8);
+        m5.listeResult.add(re9);
+        Result re13 = new Result(2.7, LocalDate.now());
+        re13.setDisplin(CompetitionSystem.crawl);
+        m5.listeResult.add(re13);
 
         int makeId6 = listMember.size() + (1);
         Member m6 = new Member(makeId6, "Godmorgen Poulsen 2", LocalDate.of(2018, 2, 21));
-        m5.setPassive(true);
-        m5.setExercise(false);
-        m5.setCompetitionSwimmer(true);
-        m5.setJunSen(true);
-        m5.setPrice(1000);
-        m5.setHasPaid(false);
+        m6.setPassive(true);
+        m6.setExercise(false);
+        m6.setCompetitionSwimmer(true);
+        m6.setJunSen(true);
+        m6.setPrice(1000);
+        m6.setHasPaid(false);
         listMember.add(m6);
         Result re10 = new Result(4, LocalDate.now());
+        re10.setDisplin(CompetitionSystem.rygsvømning);
         Result re11 = new Result(2.9, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
-        m1.listeResult.add(re10);
-        m1.listeResult.add(re11);
+        re11.setDisplin(CompetitionSystem.rygsvømning);
+        m6.listeResult.add(re11);
+        m6.listeResult.add(re10);
+        Result re12 = new Result(2.6, LocalDate.now());
+        re12.setDisplin(CompetitionSystem.crawl);
+        m6.listeResult.add(re12);
+
     }
 }
