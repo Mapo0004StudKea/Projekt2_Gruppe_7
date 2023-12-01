@@ -10,9 +10,9 @@ public class CompetitionSystem {
     public ArrayList<Member> seniorTeam = new ArrayList<>();
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
-    Disciplin crawl = new Disciplin("Crawl - 500m", 500);
-    Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
-    Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
+   static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
+    static Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
+    static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
 
 
@@ -91,13 +91,20 @@ public class CompetitionSystem {
     public void listOfResultJunior() {
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
 
-        for (Member member : juniorTeam) {
-            System.out.println(member);
 
-            System.out.println(member.listeResult);
+            for (Member member : juniorTeam) {
+                    if (member.listeResult.contains("Rygsvømning - 500m")){
+                    System.out.println(member.getName() + member.getId());
+
+                for (Result result : member.listeResult) {
+                    if (result.getDisplin().equals("Rygsvømning - 500m")) {
+                        System.out.println(result);
+                    }
+                }
+                }
+            }
+
         }
-
-    }
 
     public void viewSeniorTeamList() {
         System.out.println();
@@ -120,7 +127,7 @@ public class CompetitionSystem {
         System.out.println("set ny resultat, skriv tid");
         double tid = scan.nextDouble();
 
-        Result re = new Result(tid, LocalDate.now(), rygsvømning);
+        Result re = new Result(tid, LocalDate.now());
 
         System.out.println("vægle en disciplin: ");
         System.out.println("1. for at vægle Rygsvømning - 500m");
