@@ -89,12 +89,15 @@ public class CompetitionSystem {
     }
 
     public void listOfResultJunior() {
+
+        for (int i = 0; i < juniorTeam.size(); i++) {
+        }
+
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+                    for (Member member : juniorTeam) {
 
-
-            for (Member member : juniorTeam) {
-                    if (member.listeResult.contains("Rygsvømning - 500m")){
-                    System.out.println(member.getName() + member.getId());
+                    if (!member.listeResult.contains("Rygsvømning - 500m")){
+                    System.out.println(member.getName() + " Id nr: " + member.getId());
 
                 for (Result result : member.listeResult) {
                     if (result.getDisplin().equals("Rygsvømning - 500m")) {

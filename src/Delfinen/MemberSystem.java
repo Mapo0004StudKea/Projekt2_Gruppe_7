@@ -256,6 +256,12 @@ public class MemberSystem {
         m1.setPrice(500);
         m1.setHasPaid(true);
         listMember.add(m1);
+        Result re = new Result(2, LocalDate.now());
+        Result re1 = new Result(1, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re);
+        m1.listeResult.add(re1);
 
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
@@ -266,6 +272,12 @@ public class MemberSystem {
         m2.setPrice(1000);
         m2.setHasPaid(false);
         listMember.add(m2);
+        Result re2 = new Result(6, LocalDate.now());
+        Result re3 = new Result(3, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re2);
+        m1.listeResult.add(re3);
 
         int makeId3 = listMember.size() + (1);
         Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(2015, 2, 21));
@@ -276,6 +288,12 @@ public class MemberSystem {
         m3.setPrice(1600);
         m3.setHasPaid(true);
         listMember.add(m3);
+        Result re4 = new Result(8, LocalDate.now());
+        Result re5 = new Result(1.2, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re4);
+        m1.listeResult.add(re5);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(2020, 2, 21));
@@ -286,6 +304,12 @@ public class MemberSystem {
         m4.setPrice(1600);
         m4.setHasPaid(true);
         listMember.add(m4);
+        Result re6 = new Result(6.5, LocalDate.now());
+        Result re7 = new Result(3.1, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re6);
+        m1.listeResult.add(re7);
 
         int makeId5 = listMember.size() + (1);
         Member m5 = new Member(makeId5, "Godmorgen Poulsen", LocalDate.of(2018, 2, 21));
@@ -296,6 +320,12 @@ public class MemberSystem {
         m5.setPrice(1000);
         m5.setHasPaid(false);
         listMember.add(m5);
+        Result re8 = new Result(4, LocalDate.now());
+        Result re9 = new Result(7, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re8);
+        m1.listeResult.add(re9);
 
         int makeId6 = listMember.size() + (1);
         Member m6 = new Member(makeId6, "Godmorgen Poulsen 2", LocalDate.of(2018, 2, 21));
@@ -306,5 +336,11 @@ public class MemberSystem {
         m5.setPrice(1000);
         m5.setHasPaid(false);
         listMember.add(m6);
+        Result re10 = new Result(4, LocalDate.now());
+        Result re11 = new Result(2.9, LocalDate.now());
+        re.setDisplin(CompetitionSystem.rygsvømning);
+        re1.setDisplin(CompetitionSystem.rygsvømning);
+        m1.listeResult.add(re10);
+        m1.listeResult.add(re11);
     }
 }
