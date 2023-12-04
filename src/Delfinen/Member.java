@@ -17,6 +17,7 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
+    ArrayList<Result> rygsvømningListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 
@@ -97,8 +98,8 @@ public class Member {
 
 
     public double getListeResult() {
-        if (!listeResult.isEmpty()){
-        return  Collections.min(listeResult).tid;}
+        if (!rygsvømningListe.isEmpty()){
+        return  Collections.min(rygsvømningListe).tid;}
         return Double.MAX_VALUE;
     }
 

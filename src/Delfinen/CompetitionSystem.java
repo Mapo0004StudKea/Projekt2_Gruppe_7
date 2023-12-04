@@ -10,9 +10,10 @@ public class CompetitionSystem {
     public ArrayList<Member> seniorTeam = new ArrayList<>();
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
-   static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
+    static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
     static Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
+
 
 
     /* public ArrayList<Result> TestListe(){
@@ -103,24 +104,21 @@ public class CompetitionSystem {
 
     public void sortListResultInJuniorTeam(){
         for (int i = 0; i < juniorTeam.size() ; i++) {
-            juniorTeam.get(i).listeResult.sort(null);
+            juniorTeam.get(i).rygsvømningListe.sort(null);
         }
     }
     public void listOfResultJuniorRygsvømning500() {
         sortListResultInJuniorTeam();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
-            for (Member member : juniorTeam) {
-
-            if (!member.listeResult.contains("Rygsvømning - 500m")){
-                System.out.println();
-                System.out.println(member.getName() + " Id nr: " + member.getId());
-
-                 for (Result result : member.listeResult) {
+        for (Member member : juniorTeam) {
+            System.out.println(member.getName() + " id nr: " + member.getId());
+            for (Result result : member.rygsvømningListe) {
                 System.out.println(result);
             }
-            }
+            System.out.println();
         }
-        }
+    }
+
     public void listOfResultJuniorCarlw500() {
         sortListResultInJuniorTeam();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
@@ -171,6 +169,16 @@ public class CompetitionSystem {
         switch (menuChoice) {
             case 1:
                 re.setDisplin(rygsvømning);
+                for (Member m : MemberSystem.listMember) {
+                    if (choice == m.getId()) {
+                        m.rygsvømningListe.add(re);
+                        System.out.println(m);
+                    }
+                    // mangler fejltastning
+                    for (int i = 0; i < m.rygsvømningListe.size(); i++) {
+                        System.out.println(m.rygsvømningListe.get(i));
+                    }
+                }
                 break;
             case 2:
                 re.setDisplin(crawl);
@@ -180,7 +188,7 @@ public class CompetitionSystem {
                 break;
         }
 
-        for (Member m : MemberSystem.listMember) {
+       /* for (Member m : MemberSystem.listMember) {
             if (choice == m.getId()) {
                 m.listeResult.add(re);
                 System.out.println(m);
@@ -189,7 +197,9 @@ public class CompetitionSystem {
             for (int i = 0; i < m.listeResult.size(); i++) {
                 System.out.println(m.listeResult.get(i));
             }
-        }
+        }*/
 
     }
+
+
 }
