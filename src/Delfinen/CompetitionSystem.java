@@ -119,6 +119,21 @@ public class CompetitionSystem {
         }
     }
 
+    public void bedst5OfRygsvømningJunior() {
+        if (juniorTeam.isEmpty()){
+            System.out.println("Junior teamet er tomt");
+        }
+        if (!juniorTeam.isEmpty()) {
+            sortListResultInJuniorTeam();
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
+                System.out.println(juniorTeam.get(i).rygsvømningListe.get(0));
+                System.out.println();
+            }
+        }
+
+    }
     public void listOfResultJuniorCarlw500() {
         sortListResultInJuniorTeam();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
@@ -187,17 +202,6 @@ public class CompetitionSystem {
                 re.setDisplin(freestyle);
                 break;
         }
-
-       /* for (Member m : MemberSystem.listMember) {
-            if (choice == m.getId()) {
-                m.listeResult.add(re);
-                System.out.println(m);
-            }
-            // mangler fejltastning
-            for (int i = 0; i < m.listeResult.size(); i++) {
-                System.out.println(m.listeResult.get(i));
-            }
-        }*/
 
     }
 
