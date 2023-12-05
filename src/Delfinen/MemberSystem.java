@@ -20,7 +20,8 @@ public class MemberSystem {
         try {
             System.out.println("Indtast fødselsdato. yyyy-mm-dd");
             LocalDate date = LocalDate.parse(scanner.nextLine());
-            int makeId = listMember.size() + (1);
+            System.out.println("indtast telefon nummer: ");
+            int makeId = scanner.nextInt();
             Member m1 = new Member(makeId, name, date);
             listMember.add(m1);
             System.out.println("sæt medlemskab");

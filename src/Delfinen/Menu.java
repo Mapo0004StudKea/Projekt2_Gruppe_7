@@ -51,30 +51,28 @@ public class Menu {
             System.out.println();
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("1: Opret nyt medlem");
-            System.out.println("2: Se medlemsliste");
-            System.out.println("3: slet medlem");
-            System.out.println("4: Ændre medlemsdata");
-            System.out.println("5: Tilbage til hovedmenu");
-            System.out.println("6: Se medlemmer som har betalt");
+            System.out.println("2: Slet et medlem");
+            System.out.println("3: Rediger medlemsdata");
+            System.out.println("4: Se medlemsliste");
+            System.out.println("5: Se medlemmer som har betalt");
+            System.out.println("6: Tilbage til hovedmenu");
             System.out.println("8: for at putte medlemmer i ´se medlemsliste´");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: ms.addMember();
+                case 1:
+                    ms.addMember();
                     break;
-                case 2: ms.viewMemberList();
+                case 2: ms.viewMemberList();ms.deleteMember();
                     break;
-                case 3:
-                    ms.viewMemberList();
-                    ms.deleteMember();
+                case 3: ms.editMember();
                     break;
-                case 4:
-                    ms.editMember();
+                case 4: ms.viewMemberList();
                     break;
-                case 5: mainMenu();
+                case 5: ms.seeIfMemberHadPaid();
                     break;
-                case 6: ms.seeIfMemberHadPaid();
+                case 6: mainMenu();
                     break;
                 case 8:
                     ms.EkstraMember();
@@ -91,37 +89,33 @@ public class Menu {
         while(true) {
             System.out.println();
             System.out.println("Accounting og finans menu");
-            System.out.println("1: Se liste med passive medlemmer");
-            System.out.println("2: for at et medlem kan betale");
-            System.out.println("3: Se kontingent priser");
-            System.out.println("4: Print transaction");
-            System.out.println("5: Tilbage til hovedmenu");
-            System.out.println("6. Liste med total beløb");
+            System.out.println("1: Se kontingent priser");
+            System.out.println("2: For at et medlem kan betale");
+            System.out.println("3: Print transaktion");
+            System.out.println("4. Liste med total beløb");
+            System.out.println("5: Se liste med passive medlemmer");
+            System.out.println("6: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: ms.seeMemberPassive();
+                case 1: acc.viewPrices();
                     break;
                 case 2:
                     ms.viewMemberList();
                     acc.newTransaction();
                     break;
                 case 3:
-                    acc.viewPrices();
-                    break;
-
-                case 4:
                     ms.viewMemberList();
                     System.out.println("vælg hvem du gerne ville se");
                     int chocie = scanner.nextInt();
                     ms.listMember.get(chocie).printTransektions();
                     break;
-                case 5:
-                    mainMenu();
+                case 4: acc.listOfPayment();
                     break;
-
-                case 6:acc.listOfPayment();
+                case 5: ms.seeMemberPassive();
+                    break;
+                case 6:mainMenu();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -135,30 +129,29 @@ public class Menu {
         while(true) {
             System.out.println();
             System.out.println("Menu for medlemsoplysninger");
-            System.out.println("1: sæt nyt svømmeresultat");
-            System.out.println("2: tilbage til hovedmenu");
-            System.out.println("3: Tilføj medlem til hold");
-            System.out.println("4: Se hold liste");
+            System.out.println("1: Tilføj medlem til hold");
+            System.out.println("2: fjern medlem fra hold");
+            System.out.println("3: Se hold liste");
+            System.out.println("4: sæt nyt svømmeresultat");
             System.out.println("5: se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
             System.out.println("6: se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
             System.out.println("7: se de bedste 5 i rygsvømning for junior og senior");
             System.out.println("8: se de bedste 5 i crawl for junior og senior ");
             System.out.println("9: se de bedste 5 i freestyle for junior og senior");
-            System.out.println("11: fjern medlem fra hold");
+            System.out.println("10: tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:  cs.setNewResult();
+                case 1:  cs.addMemberToTeams();
                     break;
-                case 2: mainMenu();
+                case 2: cs.removeMemberFromTeams();
                     break;
                 case 3:
-                    cs.addMemberToTeams();
-                    break;
-                case 4:
                     cs.viewJuniorTeamList();
                     cs.viewSeniorTeamList();
+                    break;
+                case 4: cs.setNewResult();
                     break;
                 case 5:
                     cs.listOfResultJuniorRygsvømning500();
@@ -179,8 +172,7 @@ public class Menu {
                 case 9:
                     cs.bedst5OfFreeStyleJuniorSenior();
                     break;
-                case 11:
-                    cs.removeMemberFromTeams();
+                case 10: mainMenu();
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
