@@ -20,7 +20,7 @@ public class ReadFill {
             int id = Integer.parseInt(bidder[0].trim());
             String name = bidder[1].trim();
             LocalDate age = LocalDate.parse(bidder[2].trim());
-            double tid = Double.parseDouble(bidder[3]);
+            double tid = Double.parseDouble(bidder[3].trim());
             Member member = new Member(id, name, age);
 
            int checkAge = LocalDate.now().compareTo(age);
@@ -34,11 +34,18 @@ public class ReadFill {
                 member.setJunSen(true);
             } else if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge > 65) {
                 member.setPrice(Accounting.seniorMemberPrice);}
-
-
+            if (MemberSystem.listMember.size() > 21){
                 Result re1 = new Result(tid, LocalDate.now());
+                member.crawlListe.add(re1);}
 
-                member.crawlListe.add(re1);
+            if (MemberSystem.listMember.size() < 21 && MemberSystem.listMember.size() >40){
+                Result re1 = new Result(tid, LocalDate.now());
+                member.backstrokeListe.add(re1);
+            }
+            if (MemberSystem.listMember.size() < 40){
+                Result re1 = new Result(tid, LocalDate.now());
+                member.freestyleListe.add(re1);
+            }
 
                 MemberSystem.listMember.add(member);
                 linje = ind.readLine();

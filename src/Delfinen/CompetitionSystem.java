@@ -14,14 +14,26 @@ public class CompetitionSystem {
     static Disciplin backstroke = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
+    public void setMemberlist(){
+        for (int i = 0; i <=20; i++) {
+            MemberSystem.listMember.get(i).crawlListe.get(i).setDisciplin(crawl);
+        }
+        for (int i = 21; i <=40 ; i++) {
+            MemberSystem.listMember.get(i).backstrokeListe.get(0).setDisciplin(backstroke);
+        }
+        for (int i = 41; i < 53; i++) {
+            MemberSystem.listMember.get(i).freestyleListe.get(0).setDisciplin(backstroke);
+        }
+    }
+
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
+            //  System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
             String userInput = scan.nextLine();
             int age = LocalDate.now().getYear() - member.age.getYear();
 
-            if (userInput.equalsIgnoreCase("Ja")) {
+        /*    if (userInput.equalsIgnoreCase("Ja")) {
                 if (juniorTeam.contains(member)) {
                     System.out.println("Der findes allerede en juniorsvømmer" + member);
                     continue;
@@ -29,22 +41,25 @@ public class CompetitionSystem {
                 if (seniorTeam.contains(member)) {
                     System.out.println("Der findes allerede en seniorsvømmer" + member);
                     continue;
-                }
-                if (member.getCompetitionSwimmer() && age < 18) {
-                    System.out.println(member.name + " er tilføjet juniorholdet.");
-                    juniorTeam.add(member);
-                } else if (member.getCompetitionSwimmer() && age >= 18) {
-                    System.out.println(member.name + " er tilføjet seniorholdet.");
-                    seniorTeam.add(member);
-                }
-            } else if (userInput.equalsIgnoreCase("Nej")) {
-                System.out.println("Bliver ikke gjort mere...");
+                }*/
+            if (member.getCompetitionSwimmer() && age < 18) {
+                System.out.println(member.name + " er tilføjet juniorholdet.");
+                juniorTeam.add(member);
+            } else if (member.getCompetitionSwimmer() && age >= 18) {
+                System.out.println(member.name + " er tilføjet seniorholdet.");
+                seniorTeam.add(member);
             }
-        }
 
-        System.out.println("Junior Team Size: " + juniorTeam.size());
-        System.out.println("Senior Team Size: " + seniorTeam.size());
+            System.out.println("Junior Team Size: " + juniorTeam.size());
+            System.out.println("Senior Team Size: " + seniorTeam.size());
+        }/* else if (userInput.equalsIgnoreCase("Nej")) {
+                System.out.println("Bliver ikke gjort mere...");
+            }*/
     }
+
+
+
+
 
     public void removeMemberFromTeams() {
         System.out.println("Vælg hold (Junior/Senior) for at fjerne et medlem:");

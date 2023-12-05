@@ -14,7 +14,9 @@ public class Menu {
 
     public void mainMenu() throws IOException {
         Scanner sc = new Scanner(System.in);
+        //cs.setMemberlist();
         ReadFill.ReadMyFill();
+
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
             System.out.println("1: Medlemsoplysninger");
