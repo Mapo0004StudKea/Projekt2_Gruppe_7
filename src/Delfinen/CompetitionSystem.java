@@ -129,6 +129,7 @@ public class CompetitionSystem {
     }
     public void listOfResultJuniorCrawl500() {
         sortListResultInJuniorTeamCrawl();
+
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());

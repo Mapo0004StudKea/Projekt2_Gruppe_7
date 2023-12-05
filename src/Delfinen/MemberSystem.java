@@ -356,5 +356,117 @@ public class MemberSystem {
         re12.setDisciplin(CompetitionSystem.crawl);
         m6.listeResult.add(re12);
 
+        int makeId7 = listMember.size() + 1;
+        Member m7 = new Member(makeId7, "Alice Johnson", LocalDate.of(1990, 5, 10));
+
+// Set the desired characteristics for the new member
+        m7.setPassive(true);
+        m7.setExercise(true);
+        m7.setCompetitionSwimmer(false);
+        m7.setJunSen(true);
+        m7.setPrice(800);
+        m7.setHasPaid(true);
+
+// Add result times for backstroke
+        Result re16 = new Result(5, LocalDate.now());
+        Result re17 = new Result(2.5, LocalDate.now());
+        re16.setDisciplin(CompetitionSystem.backstroke);
+        re17.setDisciplin(CompetitionSystem.backstroke);
+        m7.backstrokeListe.add(re16);
+        m7.backstrokeListe.add(re17);
+
+// Add result times for crawl
+        Result re18 = new Result(3.8, LocalDate.now());
+        re18.setDisciplin(CompetitionSystem.crawl);
+        m7.listeResult.add(re18);
+
+// Add the new member to the list
+        listMember.add(m7);
+
+        for (int i = 0; i < 10; i++) {
+            int memberId = listMember.size() + 1;
+            Member member = new Member(memberId, "Member " + (i + 1), LocalDate.of(1990 - i, 1, 1));
+
+            // Set random characteristics for the member
+            member.setPassive(true);
+            member.setExercise(false);
+            member.setCompetitionSwimmer(true);
+            member.setJunSen(Math.random() < 0.5);
+            member.setPrice(500 + i * 100);
+            member.setHasPaid(Math.random() < 0.8); // 80% chance of having paid
+
+            // Add random result times for backstroke
+            Result backstrokeResult1 = new Result(Math.random() * 20, LocalDate.now());
+            Result backstrokeResult2 = new Result(Math.random() * 20, LocalDate.now());
+            backstrokeResult1.setDisciplin(CompetitionSystem.backstroke);
+            backstrokeResult2.setDisciplin(CompetitionSystem.backstroke);
+            member.backstrokeListe.add(backstrokeResult1);
+            member.backstrokeListe.add(backstrokeResult2);
+
+            // Add random result times for crawl
+            Result crawlResult = new Result(Math.random() * 20, LocalDate.now());
+            crawlResult.setDisciplin(CompetitionSystem.backstroke);
+            member.backstrokeListe.add(crawlResult);
+
+            // Add the new member to the list
+            listMember.add(member);
+        }
+        for (int i = 0; i < 10; i++) {
+            int memberId = listMember.size() + 1;
+            Member member = new Member(memberId, "Member " + (i + 1), LocalDate.of(1990 - i, 1, 1));
+
+            // Set random characteristics for the member
+            member.setPassive(true);
+            member.setExercise(false);
+            member.setCompetitionSwimmer(true);
+            member.setJunSen(Math.random() < 0.5);
+            member.setPrice(500 + i * 100);
+            member.setHasPaid(Math.random() < 0.8); // 80% chance of having paid
+
+            // Add random result times for backstroke
+            Result backstrokeResult1 = new Result(Math.random() * 20, LocalDate.now());
+            Result backstrokeResult2 = new Result(Math.random() * 20, LocalDate.now());
+            backstrokeResult1.setDisciplin(CompetitionSystem.crawl);
+            backstrokeResult2.setDisciplin(CompetitionSystem.crawl);
+            member.crawlListe.add(backstrokeResult1);
+            member.crawlListe.add(backstrokeResult2);
+
+            // Add random result times for crawl
+            Result crawlResult = new Result(Math.random() * 20, LocalDate.now());
+            crawlResult.setDisciplin(CompetitionSystem.crawl);
+            member.crawlListe.add(crawlResult);
+
+            // Add the new member to the list
+            listMember.add(member);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            int memberId = listMember.size() + 1;
+            Member member = new Member(memberId, "Member " + (i + 1), LocalDate.of(1990 - i, 1, 1));
+
+            // Set random characteristics for the member
+            member.setPassive(true);
+            member.setExercise(false);
+            member.setCompetitionSwimmer(true);
+            member.setJunSen(Math.random() < 0.5);
+            member.setPrice(500 + i * 100);
+            member.setHasPaid(Math.random() < 0.8); // 80% chance of having paid
+
+            // Add random result times for backstroke
+            Result backstrokeResult1 = new Result(Math.random() * 20, LocalDate.now());
+            Result backstrokeResult2 = new Result(Math.random() * 20, LocalDate.now());
+            backstrokeResult1.setDisciplin(CompetitionSystem.freestyle);
+            backstrokeResult2.setDisciplin(CompetitionSystem.freestyle);
+            member.freestyleListe.add(backstrokeResult1);
+            member.freestyleListe.add(backstrokeResult2);
+
+            // Add random result times for crawl
+            Result crawlResult = new Result(Math.random() * 20, LocalDate.now());
+            crawlResult.setDisciplin(CompetitionSystem.freestyle);
+            member.freestyleListe.add(crawlResult);
+
+            // Add the new member to the list
+            listMember.add(member);
+        }
     }
 }
