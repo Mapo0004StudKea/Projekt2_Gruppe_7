@@ -16,7 +16,7 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
-    ArrayList<Result> rygsvømningListe = new ArrayList<>();
+    ArrayList<Result> backstrokeListe = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
     ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
@@ -99,13 +99,9 @@ public class Member {
 
 
     public double getListeResult() {
-        if (!rygsvømningListe.isEmpty()){
-        return  Collections.min(rygsvømningListe).tid;}
+        if (!backstrokeListe.isEmpty()){
+        return  Collections.min(backstrokeListe).tid;}
         return Double.MAX_VALUE;
-    }
-
-    public boolean getJunSen() {
-        return JunSen;
     }
 
     public void setJunSen(boolean junSen) {

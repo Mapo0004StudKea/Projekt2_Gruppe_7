@@ -38,7 +38,7 @@ public class MemberSystem {
 
             System.out.println(m1.getPrice());
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
-            String scan = scanner.nextLine(); //Hvorfor er det nødvendigt med denne scanner. Hvis vi kke har den, ryger den ud af conditionsne inden vi kan trykke "betal nu".
+            String scan = scanner.nextLine(); //Hvorfor er det nødvendigt med denne scanner. Hvis vi kke har den, ryger den ud af conditions inden vi kan trykke "betal nu".
             System.out.println(m1);
             String payNow = scanner.nextLine();
             if (payNow.equals("j")) {
@@ -140,7 +140,7 @@ public class MemberSystem {
                 member.setAge(newDate);}
 
                 System.out.println("1. for at ændre til passivt medlem");
-                System.out.println("2. for at ændre til korrance medlem");
+                System.out.println("2. for at ændre til konkurrence medlem");
                 System.out.println("3. for at ændre til motionist medlem");
                 int checkAge = LocalDate.now().compareTo(member.getAge());
                 int chose = scanner.nextInt();
@@ -202,7 +202,7 @@ public class MemberSystem {
                 System.out.println(member);
                 System.out.println(member.getPrice());
                 System.out.println("medlem passive status er: " + member.getPassive());
-                System.out.println("medlem Kunkurrance status er: " + member.getCompetitionSwimmer());
+                System.out.println("medlem konkurrence status er: " + member.getCompetitionSwimmer());
                 System.out.println("medlem motion status er: " + member.getExercise());
                 memberFound = true;
                 break;
@@ -259,10 +259,10 @@ public class MemberSystem {
         listMember.add(m1);
         Result re = new Result(2, LocalDate.now());
         Result re1 = new Result(1, LocalDate.now());
-        re.setDisciplin(CompetitionSystem.rygsvømning);
-        re1.setDisciplin(CompetitionSystem.rygsvømning);
-        m1.rygsvømningListe.add(re);
-        m1.rygsvømningListe.add(re1);
+        re.setDisciplin(CompetitionSystem.backstroke);
+        re1.setDisciplin(CompetitionSystem.backstroke);
+        m1.backstrokeListe.add(re);
+        m1.backstrokeListe.add(re1);
         Result re15 = new Result(10, LocalDate.now());
         re15.setDisciplin(CompetitionSystem.crawl);
         m1.listeResult.add(re15);
@@ -278,10 +278,10 @@ public class MemberSystem {
         listMember.add(m2);
         Result re2 = new Result(6, LocalDate.now());
         Result re3 = new Result(3, LocalDate.now());
-        re2.setDisciplin(CompetitionSystem.rygsvømning);
-        re3.setDisciplin(CompetitionSystem.rygsvømning);
-        m2.rygsvømningListe.add(re2);
-        m2.rygsvømningListe.add(re3);
+        re2.setDisciplin(CompetitionSystem.backstroke);
+        re3.setDisciplin(CompetitionSystem.backstroke);
+        m2.backstrokeListe.add(re2);
+        m2.backstrokeListe.add(re3);
 
         int makeId3 = listMember.size() + (1);
         Member m3 = new Member(makeId3, "Hej Poulsen", LocalDate.of(2015, 2, 21));
@@ -294,10 +294,10 @@ public class MemberSystem {
         listMember.add(m3);
         Result re4 = new Result(8, LocalDate.now());
         Result re5 = new Result(1.2, LocalDate.now());
-        re4.setDisciplin(CompetitionSystem.rygsvømning);
-        re5.setDisciplin(CompetitionSystem.rygsvømning);
-        m3.rygsvømningListe.add(re4);
-        m3.rygsvømningListe.add(re5);
+        re4.setDisciplin(CompetitionSystem.backstroke);
+        re5.setDisciplin(CompetitionSystem.backstroke);
+        m3.backstrokeListe.add(re4);
+        m3.backstrokeListe.add(re5);
 
         int makeId4 = listMember.size() + (1);
         Member m4 = new Member(makeId4, "Erik Poulsen", LocalDate.of(2020, 2, 21));
@@ -310,10 +310,10 @@ public class MemberSystem {
         listMember.add(m4);
         Result re6 = new Result(6.5, LocalDate.now());
         Result re7 = new Result(3.1, LocalDate.now());
-        re6.setDisciplin(CompetitionSystem.rygsvømning);
-        re7.setDisciplin(CompetitionSystem.rygsvømning);
-        m4.rygsvømningListe.add(re6);
-        m4.rygsvømningListe.add(re7);
+        re6.setDisciplin(CompetitionSystem.backstroke);
+        re7.setDisciplin(CompetitionSystem.backstroke);
+        m4.backstrokeListe.add(re6);
+        m4.backstrokeListe.add(re7);
         Result re14 = new Result(3, LocalDate.now());
         re14.setDisciplin(CompetitionSystem.crawl);
         m4.listeResult.add(re14);
@@ -329,10 +329,10 @@ public class MemberSystem {
         listMember.add(m5);
         Result re8 = new Result(4, LocalDate.now());
         Result re9 = new Result(7, LocalDate.now());
-        re8.setDisciplin(CompetitionSystem.rygsvømning);
-        re9.setDisciplin(CompetitionSystem.rygsvømning);
-        m5.rygsvømningListe.add(re8);
-        m5.rygsvømningListe.add(re9);
+        re8.setDisciplin(CompetitionSystem.backstroke);
+        re9.setDisciplin(CompetitionSystem.backstroke);
+        m5.backstrokeListe.add(re8);
+        m5.backstrokeListe.add(re9);
         Result re13 = new Result(2.7, LocalDate.now());
         re13.setDisciplin(CompetitionSystem.crawl);
         m5.listeResult.add(re13);
@@ -347,11 +347,11 @@ public class MemberSystem {
         m6.setHasPaid(false);
         listMember.add(m6);
         Result re10 = new Result(4, LocalDate.now());
-        re10.setDisciplin(CompetitionSystem.rygsvømning);
+        re10.setDisciplin(CompetitionSystem.backstroke);
         Result re11 = new Result(2.9, LocalDate.now());
-        re11.setDisciplin(CompetitionSystem.rygsvømning);
-        m6.rygsvømningListe.add(re11);
-        m6.rygsvømningListe.add(re10);
+        re11.setDisciplin(CompetitionSystem.backstroke);
+        m6.backstrokeListe.add(re11);
+        m6.backstrokeListe.add(re10);
         Result re12 = new Result(2.6, LocalDate.now());
         re12.setDisciplin(CompetitionSystem.crawl);
         m6.listeResult.add(re12);

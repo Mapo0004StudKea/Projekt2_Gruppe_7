@@ -59,28 +59,38 @@ public class Menu {
             System.out.println("8: for at putte medlemmer i ´se medlemsliste´");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
+            try {
+                switch (choice) {
+                    case 1:
+                        ms.addMember();
+                        break;
+                    case 2:
+                        ms.viewMemberList();
+                        ms.deleteMember();
+                        break;
+                    case 3:
+                        ms.editMember();
+                        break;
+                    case 4:
+                        ms.viewMemberList();
+                        break;
+                    case 5:
+                        ms.seeIfMemberHadPaid();
+                        break;
+                    case 6:
+                        mainMenu();
+                        break;
+                    case 8:
+                        ms.EkstraMember();
+                        break;
 
-            switch (choice) {
-                case 1:
-                    ms.addMember();
-                    break;
-                case 2: ms.viewMemberList();ms.deleteMember();
-                    break;
-                case 3: ms.editMember();
-                    break;
-                case 4: ms.viewMemberList();
-                    break;
-                case 5: ms.seeIfMemberHadPaid();
-                    break;
-                case 6: mainMenu();
-                    break;
-                case 8:
-                    ms.EkstraMember();
-                    break;
-
-                default:
-                    System.out.println("Ugyldigt valg.");
-                    break;
+                    default:
+                        System.out.println("Ugyldigt valg.");
+                        break;
+                }
+            }   catch (InputMismatchException e) {
+                System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+                scanner.nextLine();
             }
         }
     }
@@ -97,29 +107,37 @@ public class Menu {
             System.out.println("6: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1: acc.viewPrices();
-                    break;
-                case 2:
-                    ms.viewMemberList();
-                    acc.newTransaction();
-                    break;
-                case 3:
-                    ms.viewMemberList();
-                    System.out.println("vælg hvem du gerne ville se");
-                    int choices = scanner.nextInt();
-                    ms.listMember.get(choices).printTransaction();
-                    break;
-                case 4: acc.listOfPayment();
-                    break;
-                case 5: ms.seeMemberPassive();
-                    break;
-                case 6:mainMenu();
-                    break;
-                default:
-                    System.out.println("Ugyldigt valg.");
-                    break;
+            try {
+                switch (choice) {
+                    case 1:
+                        acc.viewPrices();
+                        break;
+                    case 2:
+                        ms.viewMemberList();
+                        acc.newTransaction();
+                        break;
+                    case 3:
+                        ms.viewMemberList();
+                        System.out.println("vælg hvem du gerne ville se");
+                        int choices = scanner.nextInt();
+                        ms.listMember.get(choices).printTransaction();
+                        break;
+                    case 4:
+                        acc.listOfPayment();
+                        break;
+                    case 5:
+                        ms.seeMemberPassive();
+                        break;
+                    case 6:
+                        mainMenu();
+                        break;
+                    default:
+                        System.out.println("Ugyldigt valg.");
+                        break;
+                }
+            }   catch (InputMismatchException e) {
+                System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+                scanner.nextLine();
             }
         }
 
@@ -141,42 +159,50 @@ public class Menu {
             System.out.println("10: tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:  cs.addMemberToTeams();
-                    break;
-                case 2: cs.removeMemberFromTeams();
-                    break;
-                case 3:
-                    cs.viewJuniorTeamList();
-                    cs.viewSeniorTeamList();
-                    break;
-                case 4: cs.setNewResult();
-                    break;
-                case 5:
-                    cs.listOfResultJuniorRygsvømning500();
-                    cs.listOfResultJuniorCrawl500();
-                    cs.listOfResultJuniorFreeStyle500();
-                    break;
-                case 6:
-                    cs.listOfResultSeniorRygsvømning500();
-                    cs.listOfResultSeniorCrawl500();
-                    cs.listOfResultSeniorFreeStyle500();
-                    break;
-                case 7:
-                    cs.bedst5OfRygsvømningJuniorSenior();
-                    break;
-                case 8:
-                    cs.bedst5OfCrawlJuniorSenior();
-                    break;
-                case 9:
-                    cs.bedst5OfFreeStyleJuniorSenior();
-                    break;
-                case 10: mainMenu();
-                    break;
-                default:
-                    System.out.println("Ugyldigt valg.");
-                    break;
+            try {
+                switch (choice) {
+                    case 1:
+                        cs.addMemberToTeams();
+                        break;
+                    case 2:
+                        cs.removeMemberFromTeams();
+                        break;
+                    case 3:
+                        cs.viewJuniorTeamList();
+                        cs.viewSeniorTeamList();
+                        break;
+                    case 4:
+                        cs.setNewResult();
+                        break;
+                    case 5:
+                        cs.listOfResultJuniorBackstroke500();
+                        cs.listOfResultJuniorCrawl500();
+                        cs.listOfResultJuniorFreeStyle500();
+                        break;
+                    case 6:
+                        cs.listOfResultSeniorBackstroke500();
+                        cs.listOfResultSeniorCrawl500();
+                        cs.listOfResultSeniorFreeStyle500();
+                        break;
+                    case 7:
+                        cs.bedst5OfBackstrokeJuniorSenior();
+                        break;
+                    case 8:
+                        cs.bedst5OfCrawlJuniorSenior();
+                        break;
+                    case 9:
+                        cs.bedst5OfFreeStyleJuniorSenior();
+                        break;
+                    case 10:
+                        mainMenu();
+                        break;
+                    default:
+                        System.out.println("Ugyldigt valg.");
+                        break;
+                }
+            }   catch (InputMismatchException e) {
+                System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+                scanner.nextLine();
             }
         }
     }

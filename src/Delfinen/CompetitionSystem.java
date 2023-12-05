@@ -10,8 +10,8 @@ public class CompetitionSystem {
     public ArrayList<Member> seniorTeam = new ArrayList<>();
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
-   static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
-    static Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
+    static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
+    static Disciplin backstroke = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
     public void addMemberToTeams() {
@@ -86,9 +86,9 @@ public class CompetitionSystem {
         }
     }
 
-    public void sortListResultInJuniorTeamBackSwim(){
+    public void sortListResultInJuniorTeamBackstroke(){
         for (int i = 0; i < juniorTeam.size() ; i++) {
-            juniorTeam.get(i).rygsvømningListe.sort(null);
+            juniorTeam.get(i).backstrokeListe.sort(null);
         }
     }
     public void sortListResultInJuniorTeamCrawl(){
@@ -101,9 +101,9 @@ public class CompetitionSystem {
             juniorTeam.get(i).freestyleListe.sort(null);
         }
     }
-    public void sortListResultInSeniorTeamBackSwim(){
+    public void sortListResultInSeniorTeamBackstroke(){
         for (int i = 0; i < seniorTeam.size() ; i++) {
-            seniorTeam.get(i).rygsvømningListe.sort(null);
+            seniorTeam.get(i).backstrokeListe.sort(null);
         }
     }
     public void sortListResultInSeniorTeamCrawl(){
@@ -116,12 +116,12 @@ public class CompetitionSystem {
             seniorTeam.get(i).freestyleListe.sort(null);
         }
     }
-    public void listOfResultJuniorRygsvømning500() {
-        sortListResultInJuniorTeamBackSwim();
+    public void listOfResultJuniorBackstroke500() {
+        sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.rygsvømningListe) {
+            for (Result result : member.backstrokeListe) {
                 System.out.println(result);
             }
             System.out.println();
@@ -139,7 +139,7 @@ public class CompetitionSystem {
         }
     }
     public void listOfResultJuniorFreeStyle500() {
-        sortListResultInJuniorTeamBackSwim();
+        sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
@@ -149,19 +149,19 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
-    public void listOfResultSeniorRygsvømning500() {
-        sortListResultInJuniorTeamBackSwim();
+    public void listOfResultSeniorBackstroke500() {
+        sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.rygsvømningListe) {
+            for (Result result : member.backstrokeListe) {
                 System.out.println(result);
             }
             System.out.println();
         }
     }
     public void listOfResultSeniorCrawl500() {
-        sortListResultInJuniorTeamBackSwim();
+        sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
@@ -172,7 +172,7 @@ public class CompetitionSystem {
         }
     }
     public void listOfResultSeniorFreeStyle500() {
-        sortListResultInJuniorTeamBackSwim();
+        sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
@@ -182,16 +182,16 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
-    public void bedst5OfRygsvømningJuniorSenior() {
+    public void bedst5OfBackstrokeJuniorSenior() {
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
         }
         if (!juniorTeam.isEmpty()) {
-            sortListResultInJuniorTeamBackSwim();
+            sortListResultInJuniorTeamBackstroke();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
-                System.out.println(juniorTeam.get(i).rygsvømningListe.get(0));
+                System.out.println(juniorTeam.get(i).backstrokeListe.get(0));
                 System.out.println();
             }
         }
@@ -199,11 +199,11 @@ public class CompetitionSystem {
             System.out.println("Senior teamet er tomt");
         }
         if (!seniorTeam.isEmpty()) {
-            sortListResultInSeniorTeamBackSwim();
+            sortListResultInSeniorTeamBackstroke();
             seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
-                System.out.println(seniorTeam.get(i).rygsvømningListe.get(0));
+                System.out.println(seniorTeam.get(i).backstrokeListe.get(0));
                 System.out.println();
             }
         }
@@ -293,15 +293,15 @@ public class CompetitionSystem {
 
         switch (menuChoice) {
             case 1:
-                re.setDisciplin(rygsvømning);
+                re.setDisciplin(backstroke);
                 for (Member m : MemberSystem.listMember) {
                     if (choice == m.getId()) {
-                        m.rygsvømningListe.add(re);
+                        m.backstrokeListe.add(re);
                         System.out.println(m);
                     }
                     // mangler fejltastning
-                    for (int i = 0; i < m.rygsvømningListe.size(); i++) {
-                        System.out.println(m.rygsvømningListe.get(i));
+                    for (int i = 0; i < m.backstrokeListe.size(); i++) {
+                        System.out.println(m.backstrokeListe.get(i));
                     }
                 }
                 break;
