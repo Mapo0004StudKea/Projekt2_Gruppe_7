@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Result implements Comparable <Result> {
     double tid;
     LocalDate resultDate;
-    Disciplin displin = new Disciplin("Crawl", 100);
+    Disciplin disciplin = new Disciplin("Crawl", 100);
 
     public Result(double tid, LocalDate resultatDate){
         this.tid = tid;
@@ -15,13 +15,13 @@ public class Result implements Comparable <Result> {
 
     @Override
     public String toString() {
-        return "din nye tid "+tid +" dd "+ resultDate + " disciplin " + displin;
+        return "din nye tid "+tid +" dd "+ resultDate + " disciplin " + disciplin;
     }
-    public String getDisplin() {
-        return displin.navn;
+    public String getDisciplin() {
+        return disciplin.navn;
     }
-    public void setDisplin(Disciplin displin) {
-        this.displin = displin;
+    public void setDisciplin(Disciplin disciplin) {
+        this.disciplin = disciplin;
     }
     public double getTid() {
         return tid;

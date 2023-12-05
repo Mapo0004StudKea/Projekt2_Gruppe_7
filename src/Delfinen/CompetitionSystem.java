@@ -14,22 +14,6 @@ public class CompetitionSystem {
     static Disciplin rygsvømning = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
-
-
-    /* public ArrayList<Result> TestListe(){
-
-
-         ArrayList<Disciplin> testliste = new ArrayList<>();
-         for (int i = 0; i < juniorTeam.size() ; i++) {
-             for (int j = 0; j < juniorTeam.get(i).listeResult.size(); j++) {
-
-                 if(juniorTeam.get(i).listeResult.get(j).getDisplin().equals("Rygsvømning - 500m")){
-                     testliste.add(juniorTeam.get(i).listeResult.get());
-                 }
-             }
-
-     }return
- }*/
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
@@ -309,7 +293,7 @@ public class CompetitionSystem {
 
         switch (menuChoice) {
             case 1:
-                re.setDisplin(rygsvømning);
+                re.setDisciplin(rygsvømning);
                 for (Member m : MemberSystem.listMember) {
                     if (choice == m.getId()) {
                         m.rygsvømningListe.add(re);
@@ -322,7 +306,7 @@ public class CompetitionSystem {
                 }
                 break;
             case 2:
-                re.setDisplin(crawl);
+                re.setDisciplin(crawl);
                 for (Member m2 : MemberSystem.listMember) {
                     if (choice == m2.getId()) {
                         m2.crawlListe.add(re);
@@ -334,7 +318,7 @@ public class CompetitionSystem {
                 }
                 break;
             case 3:
-                re.setDisplin(freestyle);
+                re.setDisciplin(freestyle);
                 for (Member m3 : MemberSystem.listMember) {
                     if (choice == m3.getId()) {
                         m3.freestyleListe.add(re);

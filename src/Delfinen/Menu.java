@@ -108,8 +108,8 @@ public class Menu {
                 case 3:
                     ms.viewMemberList();
                     System.out.println("vælg hvem du gerne ville se");
-                    int chocie = scanner.nextInt();
-                    ms.listMember.get(chocie).printTransektions();
+                    int choices = scanner.nextInt();
+                    ms.listMember.get(choices).printTransaction();
                     break;
                 case 4: acc.listOfPayment();
                     break;

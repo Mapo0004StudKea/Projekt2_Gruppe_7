@@ -259,12 +259,12 @@ public class MemberSystem {
         listMember.add(m1);
         Result re = new Result(2, LocalDate.now());
         Result re1 = new Result(1, LocalDate.now());
-        re.setDisplin(CompetitionSystem.rygsvømning);
-        re1.setDisplin(CompetitionSystem.rygsvømning);
+        re.setDisciplin(CompetitionSystem.rygsvømning);
+        re1.setDisciplin(CompetitionSystem.rygsvømning);
         m1.rygsvømningListe.add(re);
         m1.rygsvømningListe.add(re1);
         Result re15 = new Result(10, LocalDate.now());
-        re15.setDisplin(CompetitionSystem.crawl);
+        re15.setDisciplin(CompetitionSystem.crawl);
         m1.listeResult.add(re15);
 
         int makeId2 = listMember.size() + (1);
@@ -278,8 +278,8 @@ public class MemberSystem {
         listMember.add(m2);
         Result re2 = new Result(6, LocalDate.now());
         Result re3 = new Result(3, LocalDate.now());
-        re2.setDisplin(CompetitionSystem.rygsvømning);
-        re3.setDisplin(CompetitionSystem.rygsvømning);
+        re2.setDisciplin(CompetitionSystem.rygsvømning);
+        re3.setDisciplin(CompetitionSystem.rygsvømning);
         m2.rygsvømningListe.add(re2);
         m2.rygsvømningListe.add(re3);
 
@@ -294,8 +294,8 @@ public class MemberSystem {
         listMember.add(m3);
         Result re4 = new Result(8, LocalDate.now());
         Result re5 = new Result(1.2, LocalDate.now());
-        re4.setDisplin(CompetitionSystem.rygsvømning);
-        re5.setDisplin(CompetitionSystem.rygsvømning);
+        re4.setDisciplin(CompetitionSystem.rygsvømning);
+        re5.setDisciplin(CompetitionSystem.rygsvømning);
         m3.rygsvømningListe.add(re4);
         m3.rygsvømningListe.add(re5);
 
@@ -310,12 +310,12 @@ public class MemberSystem {
         listMember.add(m4);
         Result re6 = new Result(6.5, LocalDate.now());
         Result re7 = new Result(3.1, LocalDate.now());
-        re6.setDisplin(CompetitionSystem.rygsvømning);
-        re7.setDisplin(CompetitionSystem.rygsvømning);
+        re6.setDisciplin(CompetitionSystem.rygsvømning);
+        re7.setDisciplin(CompetitionSystem.rygsvømning);
         m4.rygsvømningListe.add(re6);
         m4.rygsvømningListe.add(re7);
         Result re14 = new Result(3, LocalDate.now());
-        re14.setDisplin(CompetitionSystem.crawl);
+        re14.setDisciplin(CompetitionSystem.crawl);
         m4.listeResult.add(re14);
 
         int makeId5 = listMember.size() + (1);
@@ -329,12 +329,12 @@ public class MemberSystem {
         listMember.add(m5);
         Result re8 = new Result(4, LocalDate.now());
         Result re9 = new Result(7, LocalDate.now());
-        re8.setDisplin(CompetitionSystem.rygsvømning);
-        re9.setDisplin(CompetitionSystem.rygsvømning);
+        re8.setDisciplin(CompetitionSystem.rygsvømning);
+        re9.setDisciplin(CompetitionSystem.rygsvømning);
         m5.rygsvømningListe.add(re8);
         m5.rygsvømningListe.add(re9);
         Result re13 = new Result(2.7, LocalDate.now());
-        re13.setDisplin(CompetitionSystem.crawl);
+        re13.setDisciplin(CompetitionSystem.crawl);
         m5.listeResult.add(re13);
 
         int makeId6 = listMember.size() + (1);
@@ -347,13 +347,13 @@ public class MemberSystem {
         m6.setHasPaid(false);
         listMember.add(m6);
         Result re10 = new Result(4, LocalDate.now());
-        re10.setDisplin(CompetitionSystem.rygsvømning);
+        re10.setDisciplin(CompetitionSystem.rygsvømning);
         Result re11 = new Result(2.9, LocalDate.now());
-        re11.setDisplin(CompetitionSystem.rygsvømning);
+        re11.setDisciplin(CompetitionSystem.rygsvømning);
         m6.rygsvømningListe.add(re11);
         m6.rygsvømningListe.add(re10);
         Result re12 = new Result(2.6, LocalDate.now());
-        re12.setDisplin(CompetitionSystem.crawl);
+        re12.setDisciplin(CompetitionSystem.crawl);
         m6.listeResult.add(re12);
 
     }

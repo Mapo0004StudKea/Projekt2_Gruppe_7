@@ -2,7 +2,6 @@ package Delfinen;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Member {
@@ -124,7 +123,7 @@ public class Member {
         price = price - amount;
 
     }
-    void printTransektions(){
+    void printTransaction(){
         System.out.println(this);
         System.out.println("text"+"\t"+"dato"+"\t"+"indbetalt");
         for ( Transaction t : listTransaction){
