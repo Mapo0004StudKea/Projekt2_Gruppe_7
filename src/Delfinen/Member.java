@@ -18,6 +18,8 @@ public class Member {
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Result> rygsvømningListe = new ArrayList<>();
+    ArrayList<Result> crawlListe = new ArrayList<>();
+    ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 

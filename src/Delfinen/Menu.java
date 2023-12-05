@@ -139,10 +139,12 @@ public class Menu {
             System.out.println("2: tilbage til hovedmenu");
             System.out.println("3: Tilføj medlem til hold");
             System.out.println("4: Se hold liste");
-            System.out.println("5: se juniorholdet bedste træningstider i Rygsvømning - 500m");
-            System.out.println("6: se juniorholdet bedste træningstider i Carlw - 500m");
-            System.out.println("7: se de bedste 5 i rygsvømning");
-            System.out.println("8: fjern medlem fra hold");
+            System.out.println("5: se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+            System.out.println("6: se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+            System.out.println("7: se de bedste 5 i rygsvømning for junior og senior");
+            System.out.println("8: se de bedste 5 i crawl for junior og senior ");
+            System.out.println("9: se de bedste 5 i freestyle for junior og senior");
+            System.out.println("11: fjern medlem fra hold");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
 
@@ -160,12 +162,24 @@ public class Menu {
                     break;
                 case 5:
                     cs.listOfResultJuniorRygsvømning500();
+                    cs.listOfResultJuniorCrawl500();
+                    cs.listOfResultJuniorFreeStyle500();
                     break;
-                case 6:cs.listOfResultJuniorCarlw500();
+                case 6:
+                    cs.listOfResultSeniorRygsvømning500();
+                    cs.listOfResultSeniorCrawl500();
+                    cs.listOfResultSeniorFreeStyle500();
                     break;
-                case 7:cs.bedst5OfRygsvømningJunior();
+                case 7:
+                    cs.bedst5OfRygsvømningJuniorSenior();
                     break;
                 case 8:
+                    cs.bedst5OfCrawlJuniorSenior();
+                    break;
+                case 9:
+                    cs.bedst5OfFreeStyleJuniorSenior();
+                    break;
+                case 11:
                     cs.removeMemberFromTeams();
                     break;
                 default:
