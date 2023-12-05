@@ -1,5 +1,6 @@
 package Delfinen;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,9 +9,12 @@ public class Menu {
     Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
+    ReadFill Rfill = new ReadFill();
 
-    public void mainMenu() {
+
+    public void mainMenu() throws IOException {
         Scanner sc = new Scanner(System.in);
+        ReadFill.ReadMyFill();
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
             System.out.println("1: Medlemsoplysninger");
@@ -91,6 +95,8 @@ public class Menu {
             }   catch (InputMismatchException e) {
                 System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
                 scanner.nextLine();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -138,6 +144,8 @@ public class Menu {
             }   catch (InputMismatchException e) {
                 System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
                 scanner.nextLine();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -203,6 +211,8 @@ public class Menu {
             }   catch (InputMismatchException e) {
                 System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
                 scanner.nextLine();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }

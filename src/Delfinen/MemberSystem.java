@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class MemberSystem {
     Accounting acc = new Accounting();
-    static ArrayList<Member> listMember = new ArrayList<>();
+    public static ArrayList<Member> listMember = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
     // der er problem med Array listen, id og Array listen plads er ikke den samme.
