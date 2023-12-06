@@ -16,9 +16,9 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
-    static ArrayList<Result> backstrokeListe = new ArrayList<>();
-    static ArrayList<Result> crawlListe = new ArrayList<>();
-    static ArrayList<Result> freestyleListe = new ArrayList<>();
+    ArrayList<Result> backstrokeListe = new ArrayList<>();
+    ArrayList<Result> crawlListe = new ArrayList<>();
+    ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 
@@ -98,9 +98,21 @@ public class Member {
 
 
 
-    public double getListeResult() {
+    public double getListeResultBackstrokeListe() {
         if (!backstrokeListe.isEmpty()){
         return  Collections.min(backstrokeListe).tid;}
+        return Double.MAX_VALUE;
+    }
+
+    public double getListeResultCralwList() {
+        if (crawlListe.isEmpty()){
+            return  Collections.min(crawlListe).tid;}
+        return Double.MAX_VALUE;
+    }
+
+    public double getListeResultfreestyleListe() {
+        if (!freestyleListe.isEmpty()){
+            return  Collections.min(freestyleListe).tid;}
         return Double.MAX_VALUE;
     }
 

@@ -34,6 +34,7 @@ public class ReadFill {
                 member.setJunSen(true);
             } else if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge > 65) {
                 member.setPrice(Accounting.seniorMemberPrice);}
+
             MemberSystem.listMember.add(member);
 
             if (MemberSystem.listMember.size() < 21){
@@ -52,8 +53,6 @@ public class ReadFill {
                 member.freestyleListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.freestyle);
             }
-
-                MemberSystem.listMember.add(member);
                 linje = ind.readLine();
 
             }

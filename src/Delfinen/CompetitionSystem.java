@@ -134,7 +134,7 @@ public class CompetitionSystem {
     }
     public void listOfResultJuniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
-        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.backstrokeListe) {
@@ -146,7 +146,7 @@ public class CompetitionSystem {
     public void listOfResultJuniorCrawl500() {
         sortListResultInJuniorTeamCrawl();
 
-        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.crawlListe) {
@@ -157,7 +157,7 @@ public class CompetitionSystem {
     }
     public void listOfResultJuniorFreeStyle500() {
         sortListResultInJuniorTeamBackstroke();
-        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
         for (Member member : juniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.freestyleListe) {
@@ -168,7 +168,7 @@ public class CompetitionSystem {
     }
     public void listOfResultSeniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
-        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.backstrokeListe) {
@@ -179,7 +179,7 @@ public class CompetitionSystem {
     }
     public void listOfResultSeniorCrawl500() {
         sortListResultInJuniorTeamBackstroke();
-        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.crawlListe) {
@@ -190,7 +190,7 @@ public class CompetitionSystem {
     }
     public void listOfResultSeniorFreeStyle500() {
         sortListResultInJuniorTeamBackstroke();
-        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+        seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (Result result : member.freestyleListe) {
@@ -205,7 +205,7 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamBackstroke();
-            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
                 System.out.println(juniorTeam.get(i).backstrokeListe.get(0));
@@ -217,7 +217,7 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamBackstroke();
-            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
                 System.out.println(seniorTeam.get(i).backstrokeListe.get(0));
@@ -231,7 +231,7 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamCrawl();
-            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
                 System.out.println(juniorTeam.get(i).crawlListe.get(0));
@@ -243,7 +243,7 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamCrawl();
-            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
                 System.out.println(seniorTeam.get(i).crawlListe.get(0));
@@ -258,7 +258,7 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamFree();
-            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
                 System.out.println(juniorTeam.get(i).freestyleListe.get(0));
@@ -270,7 +270,7 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamFree();
-            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResult()));
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
                 System.out.println(seniorTeam.get(i).freestyleListe.get(0));
