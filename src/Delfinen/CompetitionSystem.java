@@ -15,14 +15,15 @@ public class CompetitionSystem {
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
     public void setMemberlist(){
+        System.out.println();
         for (int i = 0; i <=20; i++) {
             MemberSystem.listMember.get(i).crawlListe.get(i).setDisciplin(crawl);
         }
         for (int i = 21; i <=40 ; i++) {
-            MemberSystem.listMember.get(i).backstrokeListe.get(0).setDisciplin(backstroke);
+            MemberSystem.listMember.get(i).backstrokeListe.get(i).setDisciplin(backstroke);
         }
         for (int i = 41; i < 53; i++) {
-            MemberSystem.listMember.get(i).freestyleListe.get(0).setDisciplin(backstroke);
+            MemberSystem.listMember.get(i).freestyleListe.get(i).setDisciplin(backstroke);
         }
     }
 

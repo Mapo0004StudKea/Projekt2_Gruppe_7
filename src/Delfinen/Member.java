@@ -16,9 +16,9 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
-    ArrayList<Result> backstrokeListe = new ArrayList<>();
-    ArrayList<Result> crawlListe = new ArrayList<>();
-    ArrayList<Result> freestyleListe = new ArrayList<>();
+    static ArrayList<Result> backstrokeListe = new ArrayList<>();
+    static ArrayList<Result> crawlListe = new ArrayList<>();
+    static ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 

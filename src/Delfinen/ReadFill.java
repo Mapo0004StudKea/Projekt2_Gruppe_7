@@ -25,7 +25,7 @@ public class ReadFill {
 
            int checkAge = LocalDate.now().compareTo(age);
             member.setExercise(false);
-            member.setPassive(false);
+            member.setPassive(true);
             member.setCompetitionSwimmer(true);
             if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge >= 18 && checkAge <= 65) {
                 member.setPrice(Accounting.exerciseMemberPrice);
@@ -34,17 +34,23 @@ public class ReadFill {
                 member.setJunSen(true);
             } else if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge > 65) {
                 member.setPrice(Accounting.seniorMemberPrice);}
-            if (MemberSystem.listMember.size() > 21){
-                Result re1 = new Result(tid, LocalDate.now());
-                member.crawlListe.add(re1);}
+            MemberSystem.listMember.add(member);
 
-            if (MemberSystem.listMember.size() < 21 && MemberSystem.listMember.size() >40){
+            if (MemberSystem.listMember.size() < 21){
+                Result re1 = new Result(tid, LocalDate.now());
+                member.crawlListe.add(re1);
+                re1.setDisciplin(CompetitionSystem.crawl);
+            }
+
+            if (MemberSystem.listMember.size() > 21 && MemberSystem.listMember.size() <40){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.backstrokeListe.add(re1);
+                re1.setDisciplin(CompetitionSystem.backstroke);
             }
-            if (MemberSystem.listMember.size() < 40){
+            if (MemberSystem.listMember.size() > 40){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.freestyleListe.add(re1);
+                re1.setDisciplin(CompetitionSystem.freestyle);
             }
 
                 MemberSystem.listMember.add(member);

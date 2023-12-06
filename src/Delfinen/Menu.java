@@ -172,6 +172,7 @@ public class Menu {
             try {
                 switch (choice) {
                     case 1:
+
                         cs.addMemberToTeams();
                         break;
                     case 2:
