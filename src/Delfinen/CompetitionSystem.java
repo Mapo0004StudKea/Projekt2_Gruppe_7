@@ -464,7 +464,4 @@ public class CompetitionSystem {
         }
 
     }
-
-
-
 }
