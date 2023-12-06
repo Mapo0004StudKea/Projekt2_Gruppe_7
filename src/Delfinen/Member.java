@@ -15,6 +15,7 @@ public class Member {
     boolean JunSen;
     double price;
     boolean hasPaid =true;
+    ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Result> backstrokeListe = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
     ArrayList<Result> freestyleListe = new ArrayList<>();

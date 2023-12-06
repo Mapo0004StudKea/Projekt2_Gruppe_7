@@ -26,20 +26,20 @@
 56780901, Victoria Martinez,  1992-08-10, 2.6
 91230456, Wyatt Lewis,  1985-01-14, 4.7
 45607890, Xander Thomas,  1993-07-06, 3.4
-89001234, Yasmine Brown, 1987-10-28, 1.5
-12345678, Oscar Robertson, 1942-08-17, 5.6
-87654321, Isabella Davis, 1985-11-25, 4.7
-34567890, Victor Lopez, 1967-04-12,3.6
-90123456, Eleanor Parker, 1950-09-08, 7,5
-23456789, Benjamin Clark, 1988-12-29, 2.4
-78901234, Lily Rodriguez, 1945-06-23, 4.6
-45678901, Gavin Turner, 1972-02-15, 5.2
-23456789, Stella Adams, 1937-07-18, 7.4
-56789012, Jasper Taylor, 1992-03-03, 6.1
-89012345, Sophia Anderson, 1958-01-19, 4.2
-34567890, Leo Martinez, 1978-10-07, 1.1
-98765432, Chloe White, 1982-04-30, 3.2
-56789012, Sebastian Brown, 1996-11-13, 3.4
+89001234, Yasmine Brown, 2010-10-28, 1.5
+12345678, Oscar Robertson, 2010-08-17, 5.6
+87654321, Isabella Davis, 2010-11-25, 4.7
+34567890, Victor Lopez, 2012-04-12,3.6
+90123456, Eleanor Parker, 2017-09-08, 7,5
+23456789, Benjamin Clark, 2102-12-29, 2.4
+78901234, Lily Rodriguez, 2013-06-23, 4.6
+45678901, Gavin Turner, 2012-02-15, 5.2
+23456789, Stella Adams, 2013-07-18, 7.4
+56789012, Jasper Taylor, 2014-03-03, 6.1
+89012345, Sophia Anderson, 2012-01-19, 4.2
+34567890, Leo Martinez, 2012-10-07, 1.1
+98765432, Chloe White, 2016-04-30, 3.2
+56789012, Sebastian Brown, 2015-11-13, 3.4
 90123456, Lucy Harris, 2011-05-05, 7.6
 23456789, Zachary Wilson, 2011-09-28, 2.6
 56789012, Emma Turner, 2011-12-11, 9.2

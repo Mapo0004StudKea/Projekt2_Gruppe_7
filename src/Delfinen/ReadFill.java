@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ReadFill {
 
     public static void ReadMyFill() throws IOException {
-        FileReader fil = new FileReader("src\\Memberlist.txt");
+        FileReader fil = new FileReader("Memberlist.txt");
         BufferedReader ind = new BufferedReader(fil);
 
         String linje = ind.readLine();
@@ -24,8 +24,8 @@ public class ReadFill {
             Member member = new Member(id, name, age);
 
            int checkAge = LocalDate.now().compareTo(age);
-            member.setPassive(true);
             member.setExercise(false);
+            member.setPassive(true);
             member.setCompetitionSwimmer(true);
             if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge >= 18 && checkAge <= 65) {
                 member.setPrice(Accounting.exerciseMemberPrice);
@@ -41,14 +41,12 @@ public class ReadFill {
                 Result re1 = new Result(tid, LocalDate.now());
                 member.crawlListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.crawl);
-
             }
 
             if (MemberSystem.listMember.size() > 21 && MemberSystem.listMember.size() <40){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.backstrokeListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.backstroke);
-
             }
             if (MemberSystem.listMember.size() > 40){
                 Result re1 = new Result(tid, LocalDate.now());
