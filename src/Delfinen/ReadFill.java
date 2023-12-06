@@ -41,12 +41,14 @@ public class ReadFill {
                 Result re1 = new Result(tid, LocalDate.now());
                 member.crawlListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.crawl);
+
             }
 
             if (MemberSystem.listMember.size() > 21 && MemberSystem.listMember.size() <40){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.backstrokeListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.backstroke);
+
             }
             if (MemberSystem.listMember.size() > 40){
                 Result re1 = new Result(tid, LocalDate.now());

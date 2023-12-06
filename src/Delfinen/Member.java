@@ -15,7 +15,6 @@ public class Member {
     boolean JunSen;
     double price;
     boolean hasPaid =true;
-    ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Result> backstrokeListe = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
     ArrayList<Result> freestyleListe = new ArrayList<>();
@@ -96,8 +95,6 @@ public class Member {
         this.exercise = exercise;
     }
 
-
-
     public double getListeResultBackstrokeListe() {
         if (!backstrokeListe.isEmpty()){
         return  Collections.min(backstrokeListe).tid;}
@@ -105,7 +102,7 @@ public class Member {
     }
 
     public double getListeResultCralwList() {
-        if (crawlListe.isEmpty()){
+        if (!crawlListe.isEmpty()){
             return  Collections.min(crawlListe).tid;}
         return Double.MAX_VALUE;
     }

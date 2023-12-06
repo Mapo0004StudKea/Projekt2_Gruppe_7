@@ -14,23 +14,10 @@ public class CompetitionSystem {
     static Disciplin backstroke = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
-    public void setMemberlist(){
-        System.out.println();
-        for (int i = 0; i <=20; i++) {
-            MemberSystem.listMember.get(i).crawlListe.get(i).setDisciplin(crawl);
-        }
-        for (int i = 21; i <=40 ; i++) {
-            MemberSystem.listMember.get(i).backstrokeListe.get(i).setDisciplin(backstroke);
-        }
-        for (int i = 41; i < 53; i++) {
-            MemberSystem.listMember.get(i).freestyleListe.get(i).setDisciplin(backstroke);
-        }
-    }
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
             //  System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
-            //String userInput = scan.nextLine();
             int age = LocalDate.now().getYear() - member.age.getYear();
 
         /*    if (userInput.equalsIgnoreCase("Ja")) {
@@ -56,6 +43,7 @@ public class CompetitionSystem {
                 System.out.println("Bliver ikke gjort mere...");
             }*/
     }
+
     public void removeMemberFromTeams() {
         System.out.println("Vælg hold (Junior/Senior) for at fjerne et medlem:");
         String teamChoice = scan.nextLine();
@@ -80,11 +68,14 @@ public class CompetitionSystem {
             System.out.println("Medlemmet med ID " + memberIdToRemove + " blev ikke fundet på " + teamChoice + "holdet.");
         }
     }
+
     private void displayTeamMembers(ArrayList<Member> team) {
         for (Member member : team) {
             System.out.println("ID: " + member.getId() + ", Navn: " + member.getName());
         }
     }
+
+
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");
@@ -266,10 +257,12 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamBackstroke();
+            System.out.println("de bedste 5 rygsvømning for junoir");
+            System.out.println();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
-                System.out.println(juniorTeam.get(i).backstrokeListe.get(0));
+                System.out.println(juniorTeam.get(i).backstrokeListe);
                 System.out.println();
             }
         }
@@ -278,10 +271,12 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamBackstroke();
+            System.out.println("de bedste 5 rygsvømning for senior");
+            System.out.println();
             seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
-                System.out.println(seniorTeam.get(i).backstrokeListe.get(0));
+                System.out.println(seniorTeam.get(i).backstrokeListe);
                 System.out.println();
             }
         }
@@ -292,10 +287,12 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamCrawl();
+            System.out.println("de bedste 5 crawl for junior");
+            System.out.println();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
-                System.out.println(juniorTeam.get(i).crawlListe.get(0));
+                System.out.println(juniorTeam.get(i).crawlListe);
                 System.out.println();
             }
         }
@@ -304,10 +301,12 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamCrawl();
+            System.out.println(" de bedste 5 crawl for senior");
+            System.out.println();
             seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
-                System.out.println(seniorTeam.get(i).crawlListe.get(0));
+                System.out.println(seniorTeam.get(i).crawlListe);
                 System.out.println();
             }
         }
@@ -319,10 +318,12 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamFree();
+            System.out.println("de bedste 5 freestyle for junior");
+            System.out.println();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
-                System.out.println(juniorTeam.get(i).freestyleListe.get(0));
+                System.out.println(juniorTeam.get(i).freestyleListe);
                 System.out.println();
             }
         }
@@ -331,10 +332,12 @@ public class CompetitionSystem {
         }
         if (!seniorTeam.isEmpty()) {
             sortListResultInSeniorTeamFree();
+            System.out.println("de bedste 5 freestyle for senior");
+            System.out.println();
             seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
             for (int i = 0; i <= 4; i++) {
                 System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
-                System.out.println(seniorTeam.get(i).freestyleListe.get(0));
+                System.out.println(seniorTeam.get(i).freestyleListe);
                 System.out.println();
             }
         }

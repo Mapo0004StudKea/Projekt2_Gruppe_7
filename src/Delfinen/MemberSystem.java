@@ -246,7 +246,7 @@ public class MemberSystem {
         return null;
     }
 
-    public void EkstraMember() {
+  /*  public void EkstraMember() {
         System.out.println();
         int makeId = listMember.size() + (1);
         Member m1 = new Member(makeId, "Martin Poulsen", LocalDate.of(2015, 2, 21));
@@ -265,7 +265,7 @@ public class MemberSystem {
         m1.backstrokeListe.add(re1);
         Result re15 = new Result(10, LocalDate.now());
         re15.setDisciplin(CompetitionSystem.crawl);
-        m1.listeResult.add(re15);
+
 
         int makeId2 = listMember.size() + (1);
         Member m2 = new Member(makeId2, "Lars Poulsen", LocalDate.of(2017, 2, 21));
@@ -468,5 +468,5 @@ public class MemberSystem {
             // Add the new member to the list
             listMember.add(member);
         }
-    }
+    }*/
 }
