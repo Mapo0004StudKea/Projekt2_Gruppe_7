@@ -15,7 +15,6 @@ public class Member {
     boolean JunSen;
     double price;
     boolean hasPaid =true;
-    ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Result> backstrokeListe = new ArrayList<>();
     ArrayList<ResultTournament> backstrokeListTournament = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
@@ -123,18 +122,17 @@ public class Member {
     public void setJunSen(boolean junSen) {
         JunSen = junSen;
     }
+
     public void setAge(LocalDate age) {
         this.age = age;
     }
 
-    public ArrayList<Transaction> getListTransaction() {
-        return listTransaction;
-    }
     void MemberShipPayment(double amount) {
-        listTransaction.add(new Transaction ("indbetalt", amount, price));
-        price = price - amount;
-
+        double remainingBalance = price - amount;
+        listTransaction.add(new Transaction("indbetalt", amount, remainingBalance));
+        price = remainingBalance;
     }
+
     void printTransaction(){
         System.out.println(this);
         System.out.println("text"+"\t"+"dato"+"\t"+"indbetalt");

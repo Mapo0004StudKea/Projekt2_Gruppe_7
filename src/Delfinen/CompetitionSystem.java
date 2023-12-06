@@ -465,7 +465,7 @@ public class CompetitionSystem {
         }
     }
 
-        public void listOfResultBackstroke500Tournament() {
+    public void listOfResultBackstroke500Tournament() {
             sortListResultInJuniorTeamBackstrokeTournament();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
             for (Member member : juniorTeam) {

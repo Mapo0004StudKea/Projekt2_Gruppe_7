@@ -11,11 +11,12 @@ public class Accounting {
 
     public void viewPrices() {
         System.out.println("Kontingent priser: ");
-        System.out.println("Under 18 år      =  "+juniorMemberPrice+" kr.");
-        System.out.println("Mellem 18-60 år  =  "+exerciseMemberPrice+" kr.");
-        System.out.println("Over 60 år       =  "+seniorMemberPrice+" kr.");
-        System.out.println("Passiv medlem    =  "+passiveMemberPrice+" kr.");
+        System.out.println("Under 18 år      =  " + juniorMemberPrice + " kr.");
+        System.out.println("Mellem 18-60 år  =  " + exerciseMemberPrice + " kr.");
+        System.out.println("Over 60 år       =  " + seniorMemberPrice + " kr.");
+        System.out.println("Passiv medlem    =  " + passiveMemberPrice + " kr.");
     }
+
     public void newTransaction() {
         System.out.println();
         System.out.println("vælg ID nr. på medlemmet");
@@ -30,18 +31,16 @@ public class Accounting {
         }
     }
 
-    public void listOfPayment(){
-        double total;
-        double total3=0;
-
+    // mangler fejlløsning
+    public void listOfPayment() {
+        double total = 0;
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             if (MemberSystem.listMember.get(i).hasPaid) {
-                total = MemberSystem.listMember.get(i).listTransaction.get(0).amount;
-                total3 += total;
+                if (MemberSystem.listMember.get(i).hasPaid && !MemberSystem.listMember.get(i).listTransaction.isEmpty()) {
+                    total += MemberSystem.listMember.get(i).listTransaction.get(0).amount;
+                }
             }
         }
-        System.out.println(total3);
-
+        System.out.println(total);
     }
-
 }

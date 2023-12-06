@@ -9,13 +9,9 @@ public class Menu {
     Accounting acc = new Accounting();
     MemberSystem ms = new MemberSystem();
     Scanner scanner = new Scanner(System.in);
-    ReadFill Rfill = new ReadFill();
-
 
     public void mainMenu() throws IOException {
         Scanner sc = new Scanner(System.in);
-        //cs.setMemberlist();
-        ReadFill.ReadMyFill();
 
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
@@ -23,6 +19,7 @@ public class Menu {
             System.out.println("2: Kontingenter");
             System.out.println("3: Svømmeresultater");
             System.out.println("4: Stop program");
+            System.out.println("5: indlæse medlemslister");
             System.out.print("Skriv dit valg: ");
             int choice = sc.nextInt();
             try {
@@ -40,6 +37,10 @@ public class Menu {
                         System.out.println("Stopper programmet.");
                         scanner.close();
                         System.exit(0);
+                        break;
+                    case 5:
+                        ReadFillMotionister.ReadMyFillMotionister();
+                       // ReadFill.ReadMyFill();
                         break;
                     default:
                         System.out.println("Ugyldigt valg.");
@@ -85,9 +86,6 @@ public class Menu {
                         break;
                     case 6:
                         mainMenu();
-                        break;
-                    case 8:
-                        //ms.EkstraMember();
                         break;
 
                     default:
