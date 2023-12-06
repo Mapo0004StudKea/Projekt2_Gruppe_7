@@ -51,7 +51,6 @@ public class Menu {
             }
         }
     }
-
     public void memberInfoMenu() {
         while(true) {
             System.out.println();
@@ -102,7 +101,6 @@ public class Menu {
             }
         }
     }
-
     public void Accounting() {
         while(true) {
             System.out.println();
@@ -179,8 +177,7 @@ public class Menu {
                         cs.removeMemberFromTeams();
                         break;
                     case 3:
-                        cs.viewJuniorTeamList();
-                        cs.viewSeniorTeamList();
+                        displayTeams();
                         break;
                     case 4:
                         cs.setNewResult();
@@ -217,6 +214,33 @@ public class Menu {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+    }
+    public void displayTeams() {
+        System.out.println("Junior Team Size: " + cs.juniorTeam.size());
+        System.out.println("Senior Team Size: " + cs.seniorTeam.size());
+
+        System.out.println("Vil du se holdlisterne? ");
+        System.out.println("1: for Junior Holdet.");
+        System.out.println("2: for Senior Holdet.");
+        System.out.println("3: tilmage til medlemsoplysninger Menu");
+        System.out.print("Skriv dit valg: ");
+        int choice = scanner.nextInt();
+        try {
+            switch (choice) {
+                case 1:
+                    cs.viewJuniorTeamList();
+                    break;
+                case 2:
+                    cs.viewSeniorTeamList();
+                    break;
+                case 3:
+                    swimResults();
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
         }
     }
 }

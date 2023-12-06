@@ -1,7 +1,5 @@
 package Delfinen;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Accounting {
@@ -17,7 +15,6 @@ public class Accounting {
         System.out.println("Mellem 18-60 år  =  "+exerciseMemberPrice+" kr.");
         System.out.println("Over 60 år       =  "+seniorMemberPrice+" kr.");
         System.out.println("Passiv medlem    =  "+passiveMemberPrice+" kr.");
-        System.out.println("");
     }
     public void newTransaction() {
         System.out.println();
@@ -33,13 +30,12 @@ public class Accounting {
         }
     }
 
-
     public void listOfPayment(){
-        double total=0;
+        double total;
         double total3=0;
 
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
-            if (MemberSystem.listMember.get(i).hasPaid == true) {
+            if (MemberSystem.listMember.get(i).hasPaid) {
                 total = MemberSystem.listMember.get(i).listTransaction.get(0).amount;
                 total3 += total;
             }

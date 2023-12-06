@@ -24,8 +24,8 @@ public class ReadFill {
             Member member = new Member(id, name, age);
 
            int checkAge = LocalDate.now().compareTo(age);
-            member.setExercise(false);
             member.setPassive(true);
+            member.setExercise(false);
             member.setCompetitionSwimmer(true);
             if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge >= 18 && checkAge <= 65) {
                 member.setPrice(Accounting.exerciseMemberPrice);
