@@ -17,6 +17,7 @@ public class Member {
     boolean hasPaid =true;
     ArrayList<Result> listeResult = new ArrayList<>();
     ArrayList<Result> backstrokeListe = new ArrayList<>();
+    ArrayList<ResultTournament> backstrokeListTournament = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
     ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
@@ -99,6 +100,11 @@ public class Member {
     public double getListeResultBackstrokeListe() {
         if (!backstrokeListe.isEmpty()){
         return  Collections.min(backstrokeListe).tid;}
+        return Double.MAX_VALUE;
+    }
+    public double getListeResultBackstrokeListeTournament() {
+        if (!backstrokeListTournament.isEmpty()){
+            return  Collections.min(backstrokeListTournament).tid;}
         return Double.MAX_VALUE;
     }
 

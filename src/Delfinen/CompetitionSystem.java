@@ -456,4 +456,98 @@ public class CompetitionSystem {
         }
 
     }
+    //-----------------------------------------------------------\\
+
+
+    public void sortListResultInJuniorTeamBackstrokeTournament() {
+        for (int i = 0; i < juniorTeam.size() ; i++) {
+            juniorTeam.get(i).backstrokeListTournament.sort(null);
+        }
+    }
+
+        public void listOfResultBackstroke500Tournament() {
+            sortListResultInJuniorTeamBackstrokeTournament();
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
+            for (Member member : juniorTeam) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.backstrokeListTournament) {
+                    System.out.println(res);
+                }
+                System.out.println();
+            }
+    }
+
+    public void setNewResultTournament() {
+        System.out.println();
+
+        System.out.println("Liste over medlemmer:");
+        ms.viewMemberList();
+
+        System.out.println("vælg ID nr. på medlemmet");
+        // hvis du skriver forkert kan du ikke komme ind i metoden igen.
+        int choice = scan.nextInt();
+
+        System.out.println("set ny resultat, skriv tid");
+        double tid = scan.nextDouble();
+
+        System.out.println("Skriv navnet på stævnet");
+        String tournamentName = scan.next();
+
+        System.out.println("Skriv hvilken placerig svømmeren fik til stævnet");
+        int placement = scan.nextInt();
+
+        ResultTournament res = new ResultTournament(tid, LocalDate.now(), tournamentName, placement);
+
+        System.out.println("vægle en disciplin: ");
+        System.out.println("1. for at vægle Rygsvømning - 500m");
+        System.out.println("2. for at vægle Crawl - 500m");
+        System.out.println("3. for at vægle freestyle - 500m");
+        int menuChoice = scan.nextInt();
+
+        switch (menuChoice) {
+            case 1:
+                res.setDisciplin(backstroke);
+                for (Member m : MemberSystem.listMember) {
+                    if (choice == m.getId()) {
+                        m.backstrokeListTournament.add(res);
+                        System.out.println(m);
+                    }
+                    // mangler fejltastning
+                    for (int i = 0; i < m.backstrokeListTournament.size(); i++) {
+                        System.out.println(m.backstrokeListTournament.get(i));
+                    }
+                }
+                break;
+            case 2:
+                res.setDisciplin(crawl);
+                for (Member m2 : MemberSystem.listMember) {
+                    if (choice == m2.getId()) {
+                        m2.crawlListe.add(res);
+                        System.out.println(m2);
+                    }
+                    for (int i=0; i<m2.crawlListe.size(); i++) {
+                        System.out.println(m2.crawlListe.get(i));
+                    }
+                }
+                break;
+            case 3:
+                res.setDisciplin(freestyle);
+                for (Member m3 : MemberSystem.listMember) {
+                    if (choice == m3.getId()) {
+                        m3.freestyleListe.add(res);
+                        System.out.println(m3);
+                    }
+                    for (int i=0; i<m3.freestyleListe.size(); i++) {
+                        System.out.println(m3.freestyleListe.get(i));
+                    }
+                }
+                break;
+        }
+
+    }
+
+
+
+
+
 }

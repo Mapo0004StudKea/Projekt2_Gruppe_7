@@ -169,11 +169,14 @@ public class Menu {
             System.out.println("10: For at redigere resultater");
             System.out.println("11: for at slette et resultat");
             System.out.println("12: Tilbage til hovedmenu");
+            System.out.println("13: Sæt nyt svømmeresultat for turnering");
+            System.out.println("14: Se liste for resultater backstroke i turnering");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
             try {
                 switch (choice) {
                     case 1:
+
                         cs.addMemberToTeams();
                         break;
                     case 2:
@@ -211,6 +214,13 @@ public class Menu {
                     case 12:
                         mainMenu();
                         break;
+                    case 13:
+                        cs.setNewResultTournament();
+                        break;
+                    case 14:
+                        cs.listOfResultBackstroke500Tournament();
+                        break;
+
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;
