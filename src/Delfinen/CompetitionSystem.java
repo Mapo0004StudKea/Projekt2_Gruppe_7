@@ -3,6 +3,7 @@ package Delfinen;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class CompetitionSystem {
@@ -43,7 +44,6 @@ public class CompetitionSystem {
                 System.out.println("Bliver ikke gjort mere...");
             }*/
     }
-
     public void removeMemberFromTeams() {
         System.out.println("Vælg hold (Junior/Senior) for at fjerne et medlem:");
         String teamChoice = scan.nextLine();
@@ -68,14 +68,11 @@ public class CompetitionSystem {
             System.out.println("Medlemmet med ID " + memberIdToRemove + " blev ikke fundet på " + teamChoice + "holdet.");
         }
     }
-
-    private void displayTeamMembers(ArrayList<Member> team) {
+    public void displayTeamMembers(ArrayList<Member> team) {
         for (Member member : team) {
             System.out.println("ID: " + member.getId() + ", Navn: " + member.getName());
         }
     }
-
-
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");
@@ -153,6 +150,130 @@ public class CompetitionSystem {
                 break;
         }
 
+    }
+    public void editResult() {
+        Menu menu = new Menu();
+        System.out.println("Liste over medlemmer:");
+        ms.viewMemberList();
+        System.out.println("vælg ID på medlemmet: ");
+        int choice = scan.nextInt();
+        Member selectedMember = null;
+        for (Member m : MemberSystem.listMember) {
+            if (choice == m.getId()) {
+                selectedMember = m;
+                break;
+            }
+        }
+        if (selectedMember == null) {
+            System.out.println("Medlem ikke fundet.");
+            return;
+        }
+
+        System.out.println("Vælg disciplin:");
+        System.out.println("1. Rygsvømning - 500m");
+        System.out.println("2. Crawl - 500m");
+        System.out.println("3. Freestyle - 500m");
+        int disciplineChoice = scan.nextInt();
+
+        switch (disciplineChoice) {
+            case 1:
+                editDisciplineResults(selectedMember.backstrokeListe);
+                menu.swimResults();
+                break;
+            case 2:
+                editDisciplineResults(selectedMember.crawlListe);
+                menu.swimResults();
+                break;
+            case 3:
+                editDisciplineResults(selectedMember.freestyleListe);
+                menu.swimResults();
+                break;
+            default:
+                System.out.println("Ugyldigt valg.");
+        }
+    }
+    private void editDisciplineResults(List<Result> resultList) {
+        System.out.println("Vælg indeks for den resultat, du vil redigere:");
+        for (int i = 0; i < resultList.size(); i++) {
+            System.out.println(i + ". " + resultList.get(i));
+        }
+
+        int resultIndex = scan.nextInt();
+
+        if (resultIndex >= 0 && resultIndex < resultList.size()) {
+
+            System.out.println("Indtast ny tid:");
+            double newTime = scan.nextDouble();
+            resultList.get(resultIndex).setTid(newTime);
+
+            System.out.println("Resultatet er blevet redigeret:");
+            System.out.println(resultList.get(resultIndex));
+        } else {
+            System.out.println("Ugyldigt indeks.");
+        }
+    }
+    public void deleteResult() {
+        Menu menu = new Menu();
+        System.out.println();
+
+        System.out.println("Liste over medlemmer:");
+        ms.viewMemberList();
+
+        System.out.println("Vælg ID nr. på medlemmet:");
+        int memberId = scan.nextInt();
+
+        Member selectedMember = null;
+        for (Member m : MemberSystem.listMember) {
+            if (memberId == m.getId()) {
+                selectedMember = m;
+                break;
+            }
+        }
+
+        if (selectedMember == null) {
+            System.out.println("Medlem ikke fundet.");
+            return;
+        }
+
+        System.out.println("Vælg disciplin:");
+        System.out.println("1. Rygsvømning - 500m");
+        System.out.println("2. Crawl - 500m");
+        System.out.println("3. Freestyle - 500m");
+        int disciplineChoice = scan.nextInt();
+
+        switch (disciplineChoice) {
+            case 1:
+                deleteDisciplineResults(selectedMember.backstrokeListe);
+                menu.swimResults();
+                break;
+            case 2:
+                deleteDisciplineResults(selectedMember.crawlListe);
+                menu.swimResults();
+                break;
+            case 3:
+                deleteDisciplineResults(selectedMember.freestyleListe);
+                menu.swimResults();
+                break;
+            default:
+                System.out.println("Ugyldigt valg.");
+        }
+    }
+    private void deleteDisciplineResults(List<Result> resultList) {
+        System.out.println("Vælg indeks for det resultat, du vil slette:");
+        for (int i = 0; i < resultList.size(); i++) {
+            System.out.println(i + ". " + resultList.get(i));
+        }
+
+        int resultIndex = scan.nextInt();
+
+        if (resultIndex >= 0 && resultIndex < resultList.size()) {
+            Result deletedResult = resultList.remove(resultIndex);
+            System.out.println("Resultatet er blevet slettet:");
+            System.out.println(deletedResult);
+
+        } else {
+            System.out.println("Ugyldigt indeks.");
+        }
     }
     public void sortListResultInJuniorTeamBackstroke(){
         for (int i = 0; i < juniorTeam.size() ; i++) {

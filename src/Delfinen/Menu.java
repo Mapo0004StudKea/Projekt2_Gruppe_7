@@ -158,21 +158,22 @@ public class Menu {
             System.out.println();
             System.out.println("Menu for medlemsoplysninger");
             System.out.println("1: Tilføj medlem til hold");
-            System.out.println("2: fjern medlem fra hold");
-            System.out.println("3: Se hold liste");
-            System.out.println("4: sæt nyt svømmeresultat");
-            System.out.println("5: se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
-            System.out.println("6: se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
-            System.out.println("7: se de bedste 5 i rygsvømning for junior og senior");
-            System.out.println("8: se de bedste 5 i crawl for junior og senior ");
-            System.out.println("9: se de bedste 5 i freestyle for junior og senior");
-            System.out.println("10: tilbage til hovedmenu");
+            System.out.println("2: Fjern medlem fra hold");
+            System.out.println("3: Se holdliste");
+            System.out.println("4: Sæt nyt svømmeresultat");
+            System.out.println("5: Se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+            System.out.println("6: Se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+            System.out.println("7: Se de bedste 5 i rygsvømning for junior og senior");
+            System.out.println("8: Se de bedste 5 i crawl for junior og senior ");
+            System.out.println("9: Se de bedste 5 i freestyle for junior og senior");
+            System.out.println("10: For at redigere resultater");
+            System.out.println("11: for at slette et resultat");
+            System.out.println("12: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
             try {
                 switch (choice) {
                     case 1:
-
                         cs.addMemberToTeams();
                         break;
                     case 2:
@@ -204,6 +205,10 @@ public class Menu {
                         cs.bedst5OfFreeStyleJuniorSenior();
                         break;
                     case 10:
+                        cs.editResult();
+                    case 11:
+                        cs.deleteResult();
+                    case 12:
                         mainMenu();
                         break;
                     default:
@@ -226,7 +231,7 @@ public class Menu {
         System.out.println("\nVil du se holdlisterne? ");
         System.out.println("1: For at se Juniorholdet.");
         System.out.println("2: For at se Seniorholdet.");
-        System.out.println("3: tilbage til medlemsoplysninger Menu");
+        System.out.println("3: Tilbage til medlemsoplysninger Menu");
         System.out.print("Skriv dit valg: ");
         int choice = scanner.nextInt();
         try {
@@ -239,6 +244,9 @@ public class Menu {
                     break;
                 case 3:
                     swimResults();
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg.");
                     break;
             }
         } catch (InputMismatchException e) {

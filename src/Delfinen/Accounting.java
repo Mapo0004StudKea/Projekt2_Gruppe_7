@@ -26,7 +26,7 @@ public class Accounting {
                 m.setHasPaid(true);
                 System.out.println("kontingent er betalt");
             }
-            // mangler en else eller fejlløsning
+            //TODO mangler en else eller fejlløsning
         }
     }
 
