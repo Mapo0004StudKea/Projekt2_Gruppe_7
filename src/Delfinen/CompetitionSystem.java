@@ -151,8 +151,7 @@ public class CompetitionSystem {
         }
 
     }
-    public void editResult() {
-        Menu menu = new Menu();
+    public void editResult() {;
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
         System.out.println("vælg ID på medlemmet: ");
@@ -178,15 +177,12 @@ public class CompetitionSystem {
         switch (disciplineChoice) {
             case 1:
                 editDisciplineResults(selectedMember.backstrokeListe);
-                menu.swimResults();
                 break;
             case 2:
                 editDisciplineResults(selectedMember.crawlListe);
-                menu.swimResults();
                 break;
             case 3:
                 editDisciplineResults(selectedMember.freestyleListe);
-                menu.swimResults();
                 break;
             default:
                 System.out.println("Ugyldigt valg.");
@@ -213,7 +209,6 @@ public class CompetitionSystem {
         }
     }
     public void deleteResult() {
-        Menu menu = new Menu();
         System.out.println();
 
         System.out.println("Liste over medlemmer:");
@@ -244,15 +239,12 @@ public class CompetitionSystem {
         switch (disciplineChoice) {
             case 1:
                 deleteDisciplineResults(selectedMember.backstrokeListe);
-                menu.swimResults();
                 break;
             case 2:
                 deleteDisciplineResults(selectedMember.crawlListe);
-                menu.swimResults();
                 break;
             case 3:
                 deleteDisciplineResults(selectedMember.freestyleListe);
-                menu.swimResults();
                 break;
             default:
                 System.out.println("Ugyldigt valg.");
