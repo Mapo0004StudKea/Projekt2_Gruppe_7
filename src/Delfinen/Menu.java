@@ -217,13 +217,14 @@ public class Menu {
         }
     }
     public void displayTeams() {
+        System.out.println("-- Hold størrelse --");
         System.out.println("Junior Team Size: " + cs.juniorTeam.size());
         System.out.println("Senior Team Size: " + cs.seniorTeam.size());
 
-        System.out.println("Vil du se holdlisterne? ");
-        System.out.println("1: for Junior Holdet.");
-        System.out.println("2: for Senior Holdet.");
-        System.out.println("3: tilmage til medlemsoplysninger Menu");
+        System.out.println("\nVil du se holdlisterne? ");
+        System.out.println("1: For at se Juniorholdet.");
+        System.out.println("2: For at se Seniorholdet.");
+        System.out.println("3: tilbage til medlemsoplysninger Menu");
         System.out.print("Skriv dit valg: ");
         int choice = scanner.nextInt();
         try {
