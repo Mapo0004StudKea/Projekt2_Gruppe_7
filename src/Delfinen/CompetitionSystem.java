@@ -466,15 +466,15 @@ public class CompetitionSystem {
     }
 
     public void listOfResultBackstroke500Tournament() {
-            sortListResultInJuniorTeamBackstrokeTournament();
-            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
-            for (Member member : juniorTeam) {
-                System.out.println(member.getName() + " id nr: " + member.getId());
-                for (ResultTournament res : member.backstrokeListTournament) {
-                    System.out.println(res);
-                }
-                System.out.println();
+        sortListResultInJuniorTeamBackstrokeTournament();
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
+        for (Member member : juniorTeam) {
+            System.out.println(member.getName() + " id nr: " + member.getId());
+            for (ResultTournament res : member.backstrokeListTournament) {
+                System.out.println(res);
             }
+            System.out.println();
+        }
     }
 
     public void setNewResultTournament() {

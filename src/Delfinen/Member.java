@@ -98,7 +98,7 @@ public class Member {
 
     public double getListeResultBackstrokeListe() {
         if (!backstrokeListe.isEmpty()){
-        return  Collections.min(backstrokeListe).tid;}
+            return  Collections.min(backstrokeListe).tid;}
         return Double.MAX_VALUE;
     }
     public double getListeResultBackstrokeListeTournament() {

@@ -23,7 +23,7 @@ public class ReadFill {
             double tid = Double.parseDouble(bidder[3].trim());
             Member member = new Member(id, name, age);
 
-           int checkAge = LocalDate.now().compareTo(age);
+            int checkAge = LocalDate.now().compareTo(age);
             member.setExercise(false);
             member.setPassive(true);
             member.setCompetitionSwimmer(true);
@@ -53,10 +53,9 @@ public class ReadFill {
                 member.freestyleListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.freestyle);
             }
-                linje = ind.readLine();
+            linje = ind.readLine();
 
-            }
-            fil.close();
         }
+        fil.close();
     }
-
+}

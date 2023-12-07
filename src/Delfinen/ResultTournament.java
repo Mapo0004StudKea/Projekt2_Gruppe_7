@@ -3,16 +3,16 @@ package Delfinen;
 import java.time.LocalDate;
 
 public class ResultTournament extends Result {
-        String tournamentName;
-        int placement;
+    String tournamentName;
+    int placement;
     Disciplin disciplin = new Disciplin("Crawl", 100);
 
     public ResultTournament(double tid, LocalDate resultatDate, String tournamentName, int placement) {
 
         super(tid, resultatDate);
 
-    this.tournamentName = tournamentName;
-    this.placement = placement;
+        this.tournamentName = tournamentName;
+        this.placement = placement;
 
     }
 
@@ -27,14 +27,12 @@ public class ResultTournament extends Result {
     public String getTournamentName() {
         return tournamentName;
     }
-     public void setPlacement(int placement) {
+    public void setPlacement(int placement) {
         this.placement = placement;
-     }
+    }
 
-     public int getPlacement() {
+    public int getPlacement() {
         return placement;
-     }
+    }
 
 }
-
-

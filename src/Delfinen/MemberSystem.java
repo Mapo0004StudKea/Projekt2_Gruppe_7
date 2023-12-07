@@ -128,16 +128,16 @@ public class MemberSystem {
                 System.out.println("Ønsker du at ændre navn på medlemmet? j/n");
                 String newName2 = scanner.nextLine();
                 if(newName2.equals("j")){
-                System.out.println("Indtast nyt fulde navn på medlemmet:");
-                String newName = scanner.nextLine();
-                member.setName(newName);}
+                    System.out.println("Indtast nyt fulde navn på medlemmet:");
+                    String newName = scanner.nextLine();
+                    member.setName(newName);}
 
                 System.out.println("Ønsker du at ændre fødselsdag? j/n");
                 String newBDay = scanner.nextLine();
                 if(newBDay.equals("j")){
-                System.out.println("Indtast ny fødselsdato. yyyy-mm-dd:");
-                LocalDate newDate = LocalDate.parse(scanner.nextLine());
-                member.setAge(newDate);}
+                    System.out.println("Indtast ny fødselsdato. yyyy-mm-dd:");
+                    LocalDate newDate = LocalDate.parse(scanner.nextLine());
+                    member.setAge(newDate);}
 
                 System.out.println("1. for at ændre til passivt medlem");
                 System.out.println("2. for at ændre til konkurrence medlem");
