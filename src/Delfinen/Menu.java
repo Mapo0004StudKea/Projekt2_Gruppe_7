@@ -123,7 +123,11 @@ public class Menu {
                         ms.viewMemberList();
                         System.out.println("vælg hvem du gerne ville se");
                         int choices = scanner.nextInt();
-                        ms.listMember.get(choices).printTransaction();
+                        for (Member m : MemberSystem.listMember) {
+                            if (choices == m.getId()) {
+                                m.printTransaction();
+                            }
+                            }
                         break;
                     case 4:
                         acc.listOfPayment();
