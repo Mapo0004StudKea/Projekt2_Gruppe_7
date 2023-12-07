@@ -299,7 +299,9 @@ public class Menu {
         System.out.println("4: Se de bedste 5 i rygsvømning for junior og senior");
         System.out.println("5: Se de bedste 5 i crawl for junior og senior ");
         System.out.println("6: Se de bedste 5 i freestyle for junior og senior");
-        System.out.println("7: Tilbage til tidligere menu");
+        System.out.println("7: For at redigere resultater");
+        System.out.println("8: For at slette et resultat");
+        System.out.println("9: Tilbage til tidligere menu");
         System.out.print("Skriv dit valg: ");
         int choice = scanner.nextInt();
         try {
@@ -336,6 +338,12 @@ public class Menu {
                     cs.best5OfFreeStyleJuniorSeniorTournament();
                     break;
                 case 7:
+                    cs.editResultTournament();
+                    break;
+                case 8:
+                    cs.deleteResultTournament();
+                    break;
+                case 9:
                     swimResults();
                     break;
                 default:

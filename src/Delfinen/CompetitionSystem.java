@@ -627,7 +627,6 @@ public class CompetitionSystem {
                 System.out.println();
             }
         }
-
     }
     public void best5OfFreeStyleJuniorSeniorTournament() {
         if (juniorTeam.isEmpty()){
@@ -658,7 +657,6 @@ public class CompetitionSystem {
                 System.out.println();
             }
         }
-
     }
     public void setNewResultTournament() {
         System.out.println();
@@ -728,5 +726,121 @@ public class CompetitionSystem {
                 break;
         }
 
+    }
+    public void editResultTournament() {;
+        System.out.println("Liste over medlemmer:");
+        ms.viewMemberList();
+        System.out.println("vælg ID på medlemmet: ");
+        int choice1 = scan.nextInt();
+        Member selectedMember = null;
+        for (Member m : MemberSystem.listMember) {
+            if (choice1 == m.getId()) {
+                selectedMember = m;
+                break;
+            }
+        }
+        if (selectedMember == null) {
+            System.out.println("Medlem ikke fundet.");
+            return;
+        }
+
+        System.out.println("Vælg disciplin:");
+        System.out.println("1. Rygsvømning - 500m");
+        System.out.println("2. Crawl - 500m");
+        System.out.println("3. Freestyle - 500m");
+        int disciplineChoice = scan.nextInt();
+
+        switch (disciplineChoice) {
+            case 1:
+                editDisciplineResultsTournament(selectedMember.backstrokeListTournament);
+                break;
+            case 2:
+                editDisciplineResultsTournament(selectedMember.crawlListTournament);
+                break;
+            case 3:
+                editDisciplineResultsTournament(selectedMember.freestyleListTournament);
+                break;
+            default:
+                System.out.println("Ugyldigt valg.");
+        }
+    }
+    public void editDisciplineResultsTournament(List<ResultTournament> resultList) {
+        System.out.println("hvis du ikke ser en liste af resultater, så har personen ikke nogle");
+        System.out.println("Vælg indeks for den resultat, du vil redigere:");
+        for (int i = 0; i < resultList.size(); i++) {
+            System.out.println(i + ". " + resultList.get(i));
+        }
+        int resultIndex = scan.nextInt();
+
+        if (resultIndex >= 0 && resultIndex < resultList.size()) {
+
+            System.out.println("Indtast ny tid(husk at skrive med komma):");
+            double newTime = scan.nextDouble();
+            resultList.get(resultIndex).setTid(newTime);
+
+            System.out.println("Resultatet er blevet redigeret:");
+            System.out.println(resultList.get(resultIndex));
+        } else {
+            System.out.println("Ugyldigt indeks.");
+        }
+    }
+    public void deleteResultTournament() {
+        System.out.println();
+
+        System.out.println("Liste over medlemmer:");
+        ms.viewMemberList();
+
+        System.out.println("Vælg ID nr. på medlemmet:");
+        int memberId = scan.nextInt();
+
+        Member selectedMember = null;
+        for (Member m : MemberSystem.listMember) {
+            if (memberId == m.getId()) {
+                selectedMember = m;
+                break;
+            }
+        }
+
+        if (selectedMember == null) {
+            System.out.println("Medlem ikke fundet.");
+            return;
+        }
+
+        System.out.println("Vælg disciplin:");
+        System.out.println("1. Rygsvømning - 500m");
+        System.out.println("2. Crawl - 500m");
+        System.out.println("3. Freestyle - 500m");
+        int disciplineChoice = scan.nextInt();
+
+        switch (disciplineChoice) {
+            case 1:
+                deleteDisciplineResultsTournament(selectedMember.backstrokeListTournament);
+                break;
+            case 2:
+                deleteDisciplineResultsTournament(selectedMember.crawlListTournament);
+                break;
+            case 3:
+                deleteDisciplineResultsTournament(selectedMember.freestyleListTournament);
+                break;
+            default:
+                System.out.println("Ugyldigt valg.");
+        }
+    }
+    public void deleteDisciplineResultsTournament(List<ResultTournament> resultList) {
+        System.out.println("Vælg indeks for det resultat, du vil slette:");
+        for (int i = 0; i < resultList.size(); i++) {
+            System.out.println(i + ". " + resultList.get(i));
+        }
+
+        int resultIndex = scan.nextInt();
+
+        if (resultIndex >= 0 && resultIndex < resultList.size()) {
+            Result deletedResult = resultList.remove(resultIndex);
+            System.out.println("Resultatet er blevet slettet:");
+            System.out.println(deletedResult);
+
+        } else {
+            System.out.println("Ugyldigt indeks.");
+        }
     }
 }
