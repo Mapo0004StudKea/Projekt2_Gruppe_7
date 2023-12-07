@@ -73,6 +73,7 @@ public class CompetitionSystem {
             System.out.println("ID: " + member.getId() + ", Navn: " + member.getName());
         }
     }
+
     public void viewJuniorTeamList() {
         System.out.println();
         System.out.println("Ungdomsholdet: ");
@@ -89,6 +90,7 @@ public class CompetitionSystem {
         }
         System.out.println("Senior Team Size: " + seniorTeam.size());
     }
+
     public void setNewResult() {
         System.out.println();
 
@@ -118,10 +120,8 @@ public class CompetitionSystem {
                         m.backstrokeListe.add(re);
                         System.out.println(m);
                     }
-                    // mangler fejltastning
-                    for (int i = 0; i < m.backstrokeListe.size(); i++) {
-                        System.out.println(m.backstrokeListe.get(i));
-                    }
+
+
                 }
                 break;
             case 2:
@@ -131,9 +131,6 @@ public class CompetitionSystem {
                         m2.crawlListe.add(re);
                         System.out.println(m2);
                     }
-                    for (int i=0; i<m2.crawlListe.size(); i++) {
-                        System.out.println(m2.crawlListe.get(i));
-                    }
                 }
                 break;
             case 3:
@@ -142,9 +139,6 @@ public class CompetitionSystem {
                     if (choice == m3.getId()) {
                         m3.freestyleListe.add(re);
                         System.out.println(m3);
-                    }
-                    for (int i=0; i<m3.freestyleListe.size(); i++) {
-                        System.out.println(m3.freestyleListe.get(i));
                     }
                 }
                 break;
@@ -188,6 +182,7 @@ public class CompetitionSystem {
                 System.out.println("Ugyldigt valg.");
         }
     }
+
     public void editDisciplineResults(List<Result> resultList) {
         System.out.println("hvis du ikke ser en liste af resultater, så har personen ikke nogle");
         System.out.println("Vælg indeks for den resultat, du vil redigere:");
@@ -208,6 +203,7 @@ public class CompetitionSystem {
             System.out.println("Ugyldigt indeks.");
         }
     }
+
     public void deleteResult() {
         System.out.println();
 
@@ -250,6 +246,7 @@ public class CompetitionSystem {
                 System.out.println("Ugyldigt valg.");
         }
     }
+
     public void deleteDisciplineResults(List<Result> resultList) {
         System.out.println("Vælg indeks for det resultat, du vil slette:");
         for (int i = 0; i < resultList.size(); i++) {
@@ -267,6 +264,7 @@ public class CompetitionSystem {
             System.out.println("Ugyldigt indeks.");
         }
     }
+
     public void sortListResultInJuniorTeamBackstroke(){
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListe.sort(null);
@@ -282,6 +280,7 @@ public class CompetitionSystem {
             juniorTeam.get(i).freestyleListe.sort(null);
         }
     }
+
     public void sortListResultInSeniorTeamBackstroke(){
         for (int i = 0; i < seniorTeam.size() ; i++) {
             seniorTeam.get(i).backstrokeListe.sort(null);
@@ -297,6 +296,8 @@ public class CompetitionSystem {
             seniorTeam.get(i).freestyleListe.sort(null);
         }
     }
+
+
     public void listOfResultJuniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
@@ -331,6 +332,8 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
+
+
     public void listOfResultSeniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
@@ -364,6 +367,8 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
+
+
     public void bedst5OfBackstrokeJuniorSenior() {
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
@@ -456,8 +461,8 @@ public class CompetitionSystem {
         }
 
     }
-    //-----------------------------------------------------------\\
 
+    //-----------------------------------------------------------\\
 
     public void sortListResultInJuniorTeamBackstrokeTournament() {
         System.out.println("For Junior team: ");
@@ -493,7 +498,6 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
-
 
     public void sortListResultInJuniorTeamCrawlTournament() {
         for (int i = 0; i < juniorTeam.size() ; i++) {
@@ -562,7 +566,6 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
-
 
     public void setNewResultTournament() {
         System.out.println();

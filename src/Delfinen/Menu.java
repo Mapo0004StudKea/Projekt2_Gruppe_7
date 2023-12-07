@@ -320,7 +320,7 @@ public class Menu {
                     System.out.println("Stævneresultater for seniorer i crawl" + "\n");
                     cs.listOfResultCrawl500TournamentSenior();
                     System.out.println("Stævneresultater for seniorer i freestyle" + "\n");
-                    cs.sortListResultInSeniorTeamFreestyleTournament();
+                    cs.listOfResultFreestyle500TournamentSenior();
                     TournamentAndResultMenu();
                     break;
                 case 4:
