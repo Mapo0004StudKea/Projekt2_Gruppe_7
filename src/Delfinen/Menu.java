@@ -19,7 +19,7 @@ public class Menu {
             System.out.println("2: Kontingenter");
             System.out.println("3: Svømmeresultater");
             System.out.println("4: Stop program");
-            System.out.println("5: indlæse medlemslister");
+
             System.out.print("Skriv dit valg: ");
             int choice = sc.nextInt();
             try {
@@ -38,10 +38,7 @@ public class Menu {
                         scanner.close();
                         System.exit(0);
                         break;
-                    case 5:
-                        ReadFillMotionister.ReadMyFillMotionister();
-                        ReadFill.ReadMyFill();
-                        break;
+
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;

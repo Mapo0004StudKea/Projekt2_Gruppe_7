@@ -37,18 +37,18 @@ public class ReadFill {
 
             MemberSystem.listMember.add(member);
 
-            if (MemberSystem.listMember.size() < 21){
+            if (MemberSystem.listMember.size() > 20 && MemberSystem.listMember.size() <40 ){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.crawlListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.crawl);
             }
 
-            if (MemberSystem.listMember.size() > 21 && MemberSystem.listMember.size() <40){
+            if (MemberSystem.listMember.size() > 40 && MemberSystem.listMember.size() <55){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.backstrokeListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.backstroke);
             }
-            if (MemberSystem.listMember.size() > 40){
+            if (MemberSystem.listMember.size() > 55){
                 Result re1 = new Result(tid, LocalDate.now());
                 member.freestyleListe.add(re1);
                 re1.setDisciplin(CompetitionSystem.freestyle);
