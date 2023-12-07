@@ -17,7 +17,12 @@ public class ResultTournament extends Result {
     }
 
     public String toString() {
-        return "Navnet på konkurrencen: " + tournamentName + "Placering til stævnet" + placement +"din nye tid "+tid +" dd "+ resultDate + " disciplin " + disciplin;
+        return "Navnet på konkurrencen: " + tournamentName + " Placering til stævnet " + placement +" din nye tid "+tid +" dd "+ resultDate + " disciplin " + disciplin;
+    }
+
+    @Override
+    public void setDisciplin(Disciplin disciplin) {
+        this.disciplin = disciplin;
     }
 
     public void setTournamentName(String tournamentName) {

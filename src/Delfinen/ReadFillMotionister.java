@@ -44,8 +44,6 @@ public class ReadFillMotionister {
             if (currentMember.getExercise()) {
                 currentMember.MemberShipPayment(currentMember.getPrice());
                 currentMember.setHasPaid(true);
-                System.out.println("kontingent er betalt");
-                System.out.println(currentMember);
             }
         }
     }

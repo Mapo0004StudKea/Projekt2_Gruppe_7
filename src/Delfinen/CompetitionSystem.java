@@ -506,9 +506,10 @@ public class CompetitionSystem {
 
         switch (menuChoice) {
             case 1:
-                res.setDisciplin(backstroke);
+
                 for (Member m : MemberSystem.listMember) {
                     if (choice == m.getId()) {
+                        res.setDisciplin(backstroke);
                         m.backstrokeListTournament.add(res);
                         System.out.println(m);
                     }
