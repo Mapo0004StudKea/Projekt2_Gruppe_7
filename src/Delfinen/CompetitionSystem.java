@@ -774,9 +774,17 @@ public class CompetitionSystem {
 
         if (resultIndex >= 0 && resultIndex < resultList.size()) {
 
-            System.out.println("Indtast ny tid(husk at skrive med komma):");
+            System.out.println("Indtast ny tid:");
             double newTime = scan.nextDouble();
             resultList.get(resultIndex).setTid(newTime);
+
+            System.out.println("Indtast nyt stævnenavn:");
+            String newTournamentName = scan.next();
+            resultList.get(resultIndex).setTournamentName(newTournamentName);
+
+            System.out.println("Indtast ny placering:");
+            int newPlacement = scan.nextInt();
+            resultList.get(resultIndex).setPlacement(newPlacement);
 
             System.out.println("Resultatet er blevet redigeret:");
             System.out.println(resultList.get(resultIndex));
@@ -835,7 +843,7 @@ public class CompetitionSystem {
         int resultIndex = scan.nextInt();
 
         if (resultIndex >= 0 && resultIndex < resultList.size()) {
-            Result deletedResult = resultList.remove(resultIndex);
+            ResultTournament deletedResult = resultList.remove(resultIndex);
             System.out.println("Resultatet er blevet slettet:");
             System.out.println(deletedResult);
 
