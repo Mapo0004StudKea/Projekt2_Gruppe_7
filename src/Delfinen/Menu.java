@@ -38,7 +38,6 @@ public class Menu {
                         scanner.close();
                         System.exit(0);
                         break;
-
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;
@@ -47,6 +46,7 @@ public class Menu {
                 System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
                 scanner.nextLine();
             }
+            scanner.close();
         }
     }
 
@@ -84,7 +84,6 @@ public class Menu {
                     case 6:
                         mainMenu();
                         break;
-
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;
@@ -95,10 +94,11 @@ public class Menu {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            scanner.close();
         }
     }
 
-    public void Accounting() {
+    public void Accounting() throws IOException {
         while(true) {
             System.out.println();
             System.out.println("Accounting og finans menu");
@@ -144,9 +144,8 @@ public class Menu {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            scanner.close();
         }
-
-
     }
     public void swimResults() {
         while(true) {
@@ -156,22 +155,14 @@ public class Menu {
             System.out.println("2: Fjern medlem fra hold");
             System.out.println("3: Se holdliste");
             System.out.println("4: Sæt nyt svømmeresultat");
-            System.out.println("5: Se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
-            System.out.println("6: Se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
-            System.out.println("7: Se de bedste 5 i rygsvømning for junior og senior");
-            System.out.println("8: Se de bedste 5 i crawl for junior og senior ");
-            System.out.println("9: Se de bedste 5 i freestyle for junior og senior");
-            System.out.println("10: For at redigere resultater");
-            System.out.println("11: for at slette et resultat");
-            System.out.println("12: Tilbage til hovedmenu");
-            System.out.println("13: Sæt nyt svømmeresultat for turnering");
-            System.out.println("14: Se liste for resultater backstroke i turnering");
+            System.out.println("5: Se træning og resultat menu");
+            System.out.println("6: Se turnering og resultat menu");
+            System.out.println("7: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
             try {
                 switch (choice) {
                     case 1:
-
                         cs.addMemberToTeams();
                         break;
                     case 2:
@@ -184,40 +175,14 @@ public class Menu {
                         cs.setNewResult();
                         break;
                     case 5:
-                        cs.listOfResultJuniorBackstroke500();
-                        cs.listOfResultJuniorCrawl500();
-                        cs.listOfResultJuniorFreeStyle500();
+                        TrainingAndResultMenu();
                         break;
                     case 6:
-                        cs.listOfResultSeniorBackstroke500();
-                        cs.listOfResultSeniorCrawl500();
-                        cs.listOfResultSeniorFreeStyle500();
+                        TournamentAndResultMenu();
                         break;
                     case 7:
-                        cs.bedst5OfBackstrokeJuniorSenior();
-                        break;
-                    case 8:
-                        cs.bedst5OfCrawlJuniorSenior();
-                        break;
-                    case 9:
-                        cs.bedst5OfFreeStyleJuniorSenior();
-                        break;
-                    case 10:
-                        cs.editResult();
-                        break;
-                    case 11:
-                        cs.deleteResult();
-                        break;
-                    case 12:
                         mainMenu();
                         break;
-                    case 13:
-                        cs.setNewResultTournament();
-                        break;
-                    case 14:
-                        cs.listOfResultBackstroke500Tournament();
-                        break;
-
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;
@@ -228,6 +193,7 @@ public class Menu {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            scanner.close();
         }
     }
     public void displayTeams() {
@@ -260,5 +226,86 @@ public class Menu {
             System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
             scanner.nextLine();
         }
+        scanner.close();
+    }
+    public void TrainingAndResultMenu(){
+        System.out.println("Menu for træning og resultater");
+        System.out.println("1: Se juniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+        System.out.println("2: Se seniorholdet bedste træningstider i Rygsvømning, Crawl og Freestyle");
+        System.out.println("3: Se de bedste 5 i rygsvømning for junior og senior");
+        System.out.println("4: Se de bedste 5 i crawl for junior og senior ");
+        System.out.println("5: Se de bedste 5 i freestyle for junior og senior");
+        System.out.println("6: For at redigere resultater");
+        System.out.println("7: For at slette et resultat");
+        System.out.println("8: Tilbage til tidligere menu");
+        System.out.print("Skriv dit valg: ");
+        int choice = scanner.nextInt();
+        try {
+            switch (choice) {
+                case 1:
+                    cs.listOfResultJuniorBackstroke500();
+                    cs.listOfResultJuniorCrawl500();
+                    cs.listOfResultJuniorFreeStyle500();
+                    break;
+                case 2:
+                    cs.listOfResultSeniorBackstroke500();
+                    cs.listOfResultSeniorCrawl500();
+                    cs.listOfResultSeniorFreeStyle500();
+                    break;
+                case 3:
+                    cs.bedst5OfBackstrokeJuniorSenior();
+                    break;
+                case 4:
+                    cs.bedst5OfCrawlJuniorSenior();
+                    break;
+                case 5:
+                    cs.bedst5OfFreeStyleJuniorSenior();
+                    break;
+                case 6:
+                    cs.editResult();
+                    break;
+                case 7:
+                    cs.deleteResult();
+                    break;
+                case 8:
+                    swimResults();
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg.");
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
+        }
+        scanner.close();
+    }
+    public void TournamentAndResultMenu() {
+        System.out.println("Menu for turnering og resultater");
+        System.out.println("1: Sæt nyt svømmeresultat for turnering");
+        System.out.println("2: Se liste for resultater backstroke i turnering");
+        System.out.println("3: Tilbage til tidligere menu");
+        System.out.print("Skriv dit valg: ");
+        int choice = scanner.nextInt();
+        try {
+            switch (choice) {
+                case 1:
+                    cs.setNewResultTournament();
+                    break;
+                case 2:
+                    cs.listOfResultBackstroke500Tournament();
+                    break;
+                case 3:
+                    swimResults();
+                    break;
+                default:
+                    System.out.println("Ugyldigt valg.");
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
+        }
+        scanner.close();
     }
 }

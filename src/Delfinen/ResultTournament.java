@@ -39,5 +39,4 @@ public class ResultTournament extends Result {
     public int getPlacement() {
         return placement;
     }
-
 }

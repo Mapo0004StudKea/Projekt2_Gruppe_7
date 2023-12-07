@@ -16,9 +16,9 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> backstrokeListe = new ArrayList<>();
-    ArrayList<ResultTournament> backstrokeListTournament = new ArrayList<>();
     ArrayList<Result> crawlListe = new ArrayList<>();
     ArrayList<Result> freestyleListe = new ArrayList<>();
+    ArrayList<ResultTournament> backstrokeListTournament = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 

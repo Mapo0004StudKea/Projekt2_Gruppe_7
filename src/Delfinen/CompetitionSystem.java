@@ -18,7 +18,7 @@ public class CompetitionSystem {
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            //  System.out.println("Vil du tilføje " + member.name + " til hold? (Ja/Nej)");
+            //  System.out.println(Vil du tilføje + member.name + til hold? (Ja/Nej));
             int age = LocalDate.now().getYear() - member.age.getYear();
 
         /*    if (userInput.equalsIgnoreCase("Ja")) {
@@ -188,7 +188,7 @@ public class CompetitionSystem {
                 System.out.println("Ugyldigt valg.");
         }
     }
-    private void editDisciplineResults(List<Result> resultList) {
+    public void editDisciplineResults(List<Result> resultList) {
         System.out.println("hvis du ikke ser en liste af resultater, så har personen ikke nogle");
         System.out.println("Vælg indeks for den resultat, du vil redigere:");
         for (int i = 0; i < resultList.size(); i++) {
@@ -250,7 +250,7 @@ public class CompetitionSystem {
                 System.out.println("Ugyldigt valg.");
         }
     }
-    private void deleteDisciplineResults(List<Result> resultList) {
+    public void deleteDisciplineResults(List<Result> resultList) {
         System.out.println("Vælg indeks for det resultat, du vil slette:");
         for (int i = 0; i < resultList.size(); i++) {
             System.out.println(i + ". " + resultList.get(i));
@@ -370,7 +370,7 @@ public class CompetitionSystem {
         }
         if (!juniorTeam.isEmpty()) {
             sortListResultInJuniorTeamBackstroke();
-            System.out.println("de bedste 5 rygsvømning for junoir");
+            System.out.println("de bedste 5 rygsvømning for junior");
             System.out.println();
             juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
             for (int i = 0; i <= 4; i++) {
@@ -460,8 +460,13 @@ public class CompetitionSystem {
 
 
     public void sortListResultInJuniorTeamBackstrokeTournament() {
+        System.out.println("For Junior team: ");
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListTournament.sort(null);
+        }
+        System.out.println("For senior team: ");
+        for (int i=0;i<seniorTeam.size();i++) {
+            seniorTeam.get(i).backstrokeListTournament.sort(null);
         }
     }
 
@@ -493,7 +498,7 @@ public class CompetitionSystem {
         System.out.println("Skriv navnet på stævnet");
         String tournamentName = scan.next();
 
-        System.out.println("Skriv hvilken placerig svømmeren fik til stævnet");
+        System.out.println("Skriv hvilken placering svømmeren fik til stævnet");
         int placement = scan.nextInt();
 
         ResultTournament res = new ResultTournament(tid, LocalDate.now(), tournamentName, placement);
@@ -546,9 +551,4 @@ public class CompetitionSystem {
         }
 
     }
-
-
-
-
-
 }
