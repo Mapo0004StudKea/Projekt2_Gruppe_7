@@ -11,7 +11,7 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
 
     public void mainMenu() throws IOException {
-        Scanner sc = new Scanner(System.in);
+
 
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
@@ -19,10 +19,11 @@ public class Menu {
             System.out.println("2: Kontingenter");
             System.out.println("3: Svømmeresultater");
             System.out.println("4: Stop program");
-
-            System.out.print("Skriv dit valg: ");
-            int choice = sc.nextInt();
             try {
+            System.out.print("Skriv dit valg: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
                 switch (choice) {
                     case 1:
                         memberInfoMenu();
@@ -91,7 +92,7 @@ public class Menu {
                 }
             }   catch (InputMismatchException e) {
                 System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
-                scanner.nextLine();
+                scanner.nextInt();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
