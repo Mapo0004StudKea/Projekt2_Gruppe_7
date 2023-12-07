@@ -1,8 +1,10 @@
 package Delfinen;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -55,14 +57,20 @@ public class MemberSystem {
     }
 
     public void seeIfMemberHadPaid() {
-        System.out.println();
-        for (int i = 0; i < listMember.size(); i++) {
-            if (listMember.get(i).getHasPaid() == true) {
-                System.out.println(listMember.get(i));
+        try {
+
+            System.out.println();
+            for (int i = 0; i < listMember.size(); i++) {
+                if (listMember.get(i).getHasPaid() == true) {
+                    System.out.println(listMember.get(i));
+                }
             }
+
+        }catch(InputMismatchException e){
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
         }
     }
-
     public void seeMemberPassive() {
         System.out.println();
         for (int i = 0; i < listMember.size(); i++) { //Henter et medlem fra arrayListen og viser hvis det er en motionist svømmer
@@ -81,29 +89,35 @@ public class MemberSystem {
     }
 
     public void deleteMember() {
-        System.out.println();
-        System.out.println("Indtast medlemmets ID for at slette:");
-        int memberIdToDelete = scanner.nextInt();
+        try {
+            System.out.println();
+            System.out.println("Indtast medlemmets ID for at slette:");
+            int memberIdToDelete = scanner.nextInt();
 
-        Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
-        boolean memberFound = false;
+            Iterator<Member> iterator = listMember.iterator(); // hvordan virker den her metode.
+            boolean memberFound = false;
 
-        while (iterator.hasNext()) {
-            Member member = iterator.next();
-            if (member.getId() == memberIdToDelete) {
-                iterator.remove();
-                memberFound = true;
-                System.out.println("Medlem slettet!");
-                break;
+            while (iterator.hasNext()) {
+                Member member = iterator.next();
+                if (member.getId() == memberIdToDelete) {
+                    iterator.remove();
+                    memberFound = true;
+                    System.out.println("Medlem slettet!");
+                    break;
+                }
             }
-        }
-        if (!memberFound) {
-            System.out.println("Medlem ikke fundet med det angivne ID.");
+            if (!memberFound) {
+                System.out.println("Medlem ikke fundet med det angivne ID.");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
         }
     }
 
     // der skal laves en rettelse så hvis man ændre sit fødsels år skal man ikke betale så meget.
     public void editMember() {
+        try {
         System.out.println();
         if (listMember.isEmpty()) {
             System.out.println("Ingen medlemmer at redigere.");
@@ -148,22 +162,21 @@ public class MemberSystem {
                 switch (chose) {
                     case 1:
                         scanner.nextLine();
-                        System.out.println("Ønsker medlemmet at sin medlem status j/n");
+                        System.out.println("Ønsker medlemmet at sin medlem status er passiv? j/n");
                         String passiv = scanner.nextLine();
                         if (passiv.equals("j")) {
                             member.setPrice(Accounting.passiveMemberPrice);
                             member.setPassive(true);
+                            member.setExercise(false);
+                            member.setCompetitionSwimmer(false);
                             System.out.println("Medlemskabet er nu passivt");
-                            if (passiv.equals("n")) {
-                                member.setExercise(false);
-                                member.setCompetitionSwimmer(false);
-                            }
+                            if (passiv.equals("n"));
                         }
                         break;
 
                     case 2:
                         scanner.nextLine();
-                        System.out.println("Ønsker medlemmet at ændre sin medlem status j/n");
+                        System.out.println("Ønsker medlemmet at ændre sin medlem status er sat til kunkurrance svømmer? j/n");
                         String competition = scanner.nextLine();
 
                         if (competition.equals("j")) {
@@ -171,11 +184,10 @@ public class MemberSystem {
                             if (checkAge >=65){member.setPrice(Accounting.seniorMemberPrice);}
                             else member.setPrice(Accounting.exerciseMemberPrice);
                             member.setCompetitionSwimmer(true);
+                            member.setPassive(false);
+                            member.setExercise(false);
                             System.out.println("Medlemskabet er nu passivt");
-                            if (competition.equals("n")) {
-                                member.setPassive(false);
-                                member.setExercise(false);
-                            }
+                            if (competition.equals("n"));
                         }
                         break;
 
@@ -189,11 +201,10 @@ public class MemberSystem {
                             if (checkAge >=65){member.setPrice(Accounting.seniorMemberPrice);}
                             else member.setPrice(Accounting.exerciseMemberPrice);
                             member.setExercise(true);
+                            member.setPassive(false);
+                            member.setCompetitionSwimmer(false);
                             System.out.println("Medlemskabet er nu passivt");
-                            if (exerciser.equals("n")) {
-                                member.setPassive(false);
-                                member.setCompetitionSwimmer(false);
-                            }
+                            if (exerciser.equals("n"));
                         }
                         break;
                 }
@@ -211,6 +222,11 @@ public class MemberSystem {
         if (!memberFound) {
             System.out.println("Medlem ikke fundet med det angivne ID.");
         }
+        }   catch (InputMismatchException e) {
+            System.out.println("Error: Indtast venligst et gyldigt heltalsværdi.");
+            scanner.nextLine();
+        }
+
     }
 
     public Member chooseMembership() {
