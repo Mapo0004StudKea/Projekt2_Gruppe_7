@@ -305,11 +305,13 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.backstrokeListe) {
-                System.out.println(result);
+            if(member.backstrokeListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.backstrokeListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultJuniorCrawl500() {
@@ -317,22 +319,26 @@ public class CompetitionSystem {
 
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.crawlListe) {
-                System.out.println(result);
+            if(!member.crawlListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.crawlListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultJuniorFreeStyle500() {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.freestyleListe) {
-                System.out.println(result);
+            if(!member.freestyleListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.freestyleListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
@@ -341,33 +347,39 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.backstrokeListe) {
-                System.out.println(result);
+            if(!member.backstrokeListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.backstrokeListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultSeniorCrawl500() {
         sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCralwList()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.crawlListe) {
-                System.out.println(result);
+            if(!member.crawlListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.crawlListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultSeniorFreeStyle500() {
         sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultfreestyleListe()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.freestyleListe) {
-                System.out.println(result);
+            if(!member.freestyleListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.freestyleListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
@@ -483,25 +495,29 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamBackstrokeTournament();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.backstrokeListTournament) {
-                System.out.println(res);
+            if (!member.backstrokeListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.backstrokeListTournament) {
+                    System.out.println(res);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultBackstroke500TournamentSenior() {
         sortListResultInSeniorTeamBackstrokeTournament();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.backstrokeListTournament) {
-                if (member.backstrokeListTournament.contains(res)) {
+            if(!member.backstrokeListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.backstrokeListTournament) {
+                    if (member.backstrokeListTournament.contains(res)) {
 
-                    System.out.println(res);
+                        System.out.println(res);
+                    }
                 }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
@@ -521,25 +537,29 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamCrawlTournament();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCrawlListeTournament()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.crawlListTournament) {
-                System.out.println(res);
+            if(!member.crawlListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.crawlListTournament) {
+                    System.out.println(res);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultCrawl500TournamentSenior() {
         sortListResultInSeniorTeamCrawlTournament();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCrawlListeTournament()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.crawlListTournament) {
-                if (member.crawlListTournament.contains(res)) {
+            if(!member.crawlListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.crawlListTournament) {
+                    if (member.crawlListTournament.contains(res)) {
 
-                    System.out.println(res);
+                        System.out.println(res);
+                    }
                 }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
@@ -558,25 +578,29 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamFreestyleTournament();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultFreestylelListeTournament()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.freestyleListTournament) {
-                System.out.println(res);
+            if(!member.freestyleListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.freestyleListTournament) {
+                    System.out.println(res);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultFreestyle500TournamentSenior() {
         sortListResultInSeniorTeamFreestyleTournament();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultFreestylelListeTournament()));
         for (Member member : seniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (ResultTournament res : member.freestyleListTournament) {
-                if (member.freestyleListTournament.contains(res)) {
+            if(!member.freestyleListTournament.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (ResultTournament res : member.freestyleListTournament) {
+                    if (member.freestyleListTournament.contains(res)) {
 
-                    System.out.println(res);
+                        System.out.println(res);
+                    }
                 }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
