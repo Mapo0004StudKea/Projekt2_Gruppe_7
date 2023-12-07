@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class ReadFillMotionister {
 
     public static void ReadMyFillMotionister() throws IOException {
-        FileReader fil = new FileReader("src\\motionister.txt");
+        FileReader fil = new FileReader("motionister.txt");
         BufferedReader ind = new BufferedReader(fil);
 
         String linje = ind.readLine();

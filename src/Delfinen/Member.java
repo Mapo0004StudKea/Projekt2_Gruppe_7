@@ -16,9 +16,11 @@ public class Member {
     double price;
     boolean hasPaid =true;
     ArrayList<Result> backstrokeListe = new ArrayList<>();
-    ArrayList<Result> crawlListe = new ArrayList<>();
-    ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<ResultTournament> backstrokeListTournament = new ArrayList<>();
+    ArrayList<Result> crawlListe = new ArrayList<>();
+    ArrayList<ResultTournament> crawlListTournament = new ArrayList<>();
+    ArrayList<Result> freestyleListe = new ArrayList<>();
+    ArrayList<ResultTournament> freestyleListTournament = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
     double totalPayment;
 
@@ -112,12 +114,24 @@ public class Member {
             return  Collections.min(crawlListe).tid;}
         return Double.MAX_VALUE;
     }
+    public double getListeResultCrawlListeTournament() {
+        if (!crawlListTournament.isEmpty()){
+            return  Collections.min(crawlListTournament).tid;}
+        return Double.MAX_VALUE;
+    }
 
     public double getListeResultfreestyleListe() {
         if (!freestyleListe.isEmpty()){
             return  Collections.min(freestyleListe).tid;}
         return Double.MAX_VALUE;
     }
+    public double getListeResultFreestylelListeTournament() {
+        if (!freestyleListTournament.isEmpty()){
+            return  Collections.min(freestyleListTournament).tid;}
+        return Double.MAX_VALUE;
+    }
+
+
 
     public void setJunSen(boolean junSen) {
         JunSen = junSen;

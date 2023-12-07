@@ -469,7 +469,6 @@ public class CompetitionSystem {
             seniorTeam.get(i).backstrokeListTournament.sort(null);
         }
     }
-
     public void listOfResultBackstroke500Tournament() {
         sortListResultInJuniorTeamBackstrokeTournament();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
@@ -481,6 +480,41 @@ public class CompetitionSystem {
             System.out.println();
         }
     }
+
+    public void sortListResultInJuniorTeamCrawlTournament() {
+        for (int i = 0; i < juniorTeam.size() ; i++) {
+            juniorTeam.get(i).crawlListTournament.sort(null);
+        }
+    }
+    public void listOfResultCrawl500Tournament() {
+        sortListResultInJuniorTeamCrawlTournament();
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCrawlListeTournament()));
+        for (Member member : juniorTeam) {
+            System.out.println(member.getName() + " id nr: " + member.getId());
+            for (ResultTournament res : member.crawlListTournament) {
+                System.out.println(res);
+            }
+            System.out.println();
+        }
+    }
+
+    public void sortListResultInJuniorTeamFreestyleTournament() {
+        for (int i = 0; i < juniorTeam.size() ; i++) {
+            juniorTeam.get(i).freestyleListTournament.sort(null);
+        }
+    }
+    public void listOfResultFreestyle500Tournament() {
+        sortListResultInJuniorTeamFreestyleTournament();
+        juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultFreestylelListeTournament()));
+        for (Member member : juniorTeam) {
+            System.out.println(member.getName() + " id nr: " + member.getId());
+            for (ResultTournament res : member.freestyleListTournament) {
+                System.out.println(res);
+            }
+            System.out.println();
+        }
+    }
+
 
     public void setNewResultTournament() {
         System.out.println();
@@ -528,11 +562,11 @@ public class CompetitionSystem {
                 res.setDisciplin(crawl);
                 for (Member m2 : MemberSystem.listMember) {
                     if (choice == m2.getId()) {
-                        m2.crawlListe.add(res);
+                        m2.crawlListTournament.add(res);
                         System.out.println(m2);
                     }
-                    for (int i=0; i<m2.crawlListe.size(); i++) {
-                        System.out.println(m2.crawlListe.get(i));
+                    for (int i=0; i<m2.crawlListTournament.size(); i++) {
+                        System.out.println(m2.crawlListTournament.get(i));
                     }
                 }
                 break;
@@ -540,11 +574,11 @@ public class CompetitionSystem {
                 res.setDisciplin(freestyle);
                 for (Member m3 : MemberSystem.listMember) {
                     if (choice == m3.getId()) {
-                        m3.freestyleListe.add(res);
+                        m3.freestyleListTournament.add(res);
                         System.out.println(m3);
                     }
-                    for (int i=0; i<m3.freestyleListe.size(); i++) {
-                        System.out.println(m3.freestyleListe.get(i));
+                    for (int i=0; i<m3.freestyleListTournament.size(); i++) {
+                        System.out.println(m3.freestyleListTournament.get(i));
                     }
                 }
                 break;
