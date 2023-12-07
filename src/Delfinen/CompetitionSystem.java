@@ -155,10 +155,10 @@ public class CompetitionSystem {
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
         System.out.println("vælg ID på medlemmet: ");
-        int choice = scan.nextInt();
+        int choice1 = scan.nextInt();
         Member selectedMember = null;
         for (Member m : MemberSystem.listMember) {
-            if (choice == m.getId()) {
+            if (choice1 == m.getId()) {
                 selectedMember = m;
                 break;
             }
@@ -189,16 +189,16 @@ public class CompetitionSystem {
         }
     }
     private void editDisciplineResults(List<Result> resultList) {
+        System.out.println("hvis du ikke ser en liste af resultater, så har personen ikke nogle");
         System.out.println("Vælg indeks for den resultat, du vil redigere:");
         for (int i = 0; i < resultList.size(); i++) {
             System.out.println(i + ". " + resultList.get(i));
         }
-
         int resultIndex = scan.nextInt();
 
         if (resultIndex >= 0 && resultIndex < resultList.size()) {
 
-            System.out.println("Indtast ny tid:");
+            System.out.println("Indtast ny tid(husk at skrive med komma):");
             double newTime = scan.nextDouble();
             resultList.get(resultIndex).setTid(newTime);
 

@@ -204,8 +204,10 @@ public class Menu {
                         break;
                     case 10:
                         cs.editResult();
+                        break;
                     case 11:
                         cs.deleteResult();
+                        break;
                     case 12:
                         mainMenu();
                         break;
