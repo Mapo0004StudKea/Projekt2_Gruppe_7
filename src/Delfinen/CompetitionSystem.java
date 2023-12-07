@@ -99,7 +99,7 @@ public class CompetitionSystem {
         // hvis du skriver forkert kan du ikke komme ind i metoden igen.
         int choice = scan.nextInt();
 
-        System.out.println("set ny resultat, skriv tid");
+        System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
         double tid = scan.nextDouble();
 
         Result re = new Result(tid, LocalDate.now());
@@ -664,7 +664,7 @@ public class CompetitionSystem {
         // hvis du skriver forkert kan du ikke komme ind i metoden igen.
         int choice = scan.nextInt();
 
-        System.out.println("set ny resultat, skriv tid");
+        System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
         double tid = scan.nextDouble();
 
         System.out.println("Skriv navnet på stævnet");
