@@ -294,10 +294,9 @@ public class Menu {
     public void TournamentAndResultMenu() {
         System.out.println("Menu for turnering og resultater");
         System.out.println("1: Sæt nyt svømmeresultat for turnering");
-        System.out.println("2: Se liste for resultater 'backstroke' i turnering");
-        System.out.println("3: Se liste for resultater 'crawl' i turnering");
-        System.out.println("4: Se liste for resultater 'freestyle' i turnering");
-        System.out.println("5: Tilbage til tidligere menu");
+        System.out.println("2: Se liste for resultater 'backstroke, crawl og freestyle for junior' i turnering");
+        System.out.println("3: Se liste for resultater 'backstroke, crawl og freestyle' for seniorer i turnering");
+        System.out.println("4: Tilbage til tidligere menu");
         System.out.print("Skriv dit valg: ");
         int choice = scanner.nextInt();
         try {
@@ -307,18 +306,24 @@ public class Menu {
                     TournamentAndResultMenu();
                     break;
                 case 2:
+                    System.out.println("Stævneresultater for juniorer i backstroke" + "\n");
                     cs.listOfResultBackstroke500Tournament();
-                    TournamentAndResultMenu();
-                    break;
-                case 3:
+                    System.out.println("Stævneresultater for juniorer i crawl" + "\n");
                     cs.listOfResultCrawl500Tournament();
-                    TournamentAndResultMenu();
-                    break;
-                case 4:
+                    System.out.println("Stævneresultater for juniorer i freestyle" + "\n");
                     cs.listOfResultFreestyle500Tournament();
                     TournamentAndResultMenu();
                     break;
-                case 5:
+                case 3:
+                    System.out.println("Stævneresultater for seniorer i backstroke" + "\n");
+                    cs.listOfResultBackstroke500TournamentSenior();
+                    System.out.println("Stævneresultater for seniorer i crawl" + "\n");
+                    cs.listOfResultCrawl500TournamentSenior();
+                    System.out.println("Stævneresultater for seniorer i freestyle" + "\n");
+                    cs.sortListResultInSeniorTeamFreestyleTournament();
+                    TournamentAndResultMenu();
+                    break;
+                case 4:
                     swimResults();
                     break;
                 default:
