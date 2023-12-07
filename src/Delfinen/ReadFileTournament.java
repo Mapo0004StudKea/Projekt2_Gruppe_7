@@ -39,7 +39,7 @@ public class ReadFileTournament {
             if (checkAge > 65) {
                 member.setPrice(Accounting.seniorMemberPrice);}
             MemberSystem.listMember.add(member);
-            if (MemberSystem.listMember.size() <10) {
+            if (MemberSystem.listMember.size() >75 && MemberSystem.listMember.size() <=85) {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.backstrokeListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.backstroke);
@@ -47,7 +47,7 @@ public class ReadFileTournament {
                 System.out.println(rt);
             }
 
-            if (MemberSystem.listMember.size()>10 && MemberSystem.listMember.size()>20) {
+            if (MemberSystem.listMember.size()>85 && MemberSystem.listMember.size() <=95) {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.crawlListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.crawl);
@@ -55,7 +55,7 @@ public class ReadFileTournament {
                 System.out.println(rt);
             }
 
-            if (MemberSystem.listMember.size()>20 && MemberSystem.listMember.size()<30) {
+            if (MemberSystem.listMember.size()>95 && MemberSystem.listMember.size() <=105) {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.freestyleListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.freestyle);
