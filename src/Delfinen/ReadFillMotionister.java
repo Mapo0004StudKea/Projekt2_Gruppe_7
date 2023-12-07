@@ -25,18 +25,18 @@ public class ReadFillMotionister {
             member.setExercise(true);
             member.setPassive(true);
             member.setCompetitionSwimmer(false);
-            if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge >= 18 && checkAge <= 65) {
-                member.setPrice(Accounting.exerciseMemberPrice);
-            } else if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge < 18) {
+           if ( checkAge >= 18 && checkAge <= 65 ) {
+                    member.setPrice(Accounting.exerciseMemberPrice);
+            }
+          if ( checkAge < 18 ) {
                 member.setPrice(Accounting.juniorMemberPrice);
                 member.setJunSen(true);
-            } else if (member.getExercise() == true || member.getCompetitionSwimmer() == true && checkAge > 65) {
-                member.setPrice(Accounting.seniorMemberPrice);
             }
+          if (checkAge > 65) {
+                member.setPrice(Accounting.seniorMemberPrice);}
             MemberSystem.listMember.add(member);
             linje = ind.readLine();
         }
-
         ind.close();
         fil.close();
 

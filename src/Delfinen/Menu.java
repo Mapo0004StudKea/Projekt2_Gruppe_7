@@ -40,7 +40,7 @@ public class Menu {
                         break;
                     case 5:
                         ReadFillMotionister.ReadMyFillMotionister();
-                       // ReadFill.ReadMyFill();
+                        ReadFill.ReadMyFill();
                         break;
                     default:
                         System.out.println("Ugyldigt valg.");
