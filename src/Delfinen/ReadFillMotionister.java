@@ -23,7 +23,7 @@ public class ReadFillMotionister {
 
             int checkAge = LocalDate.now().compareTo(age);
             member.setExercise(true);
-            member.setPassive(true);
+            member.setPassive(false);
             member.setCompetitionSwimmer(false);
             if ( checkAge >= 18 && checkAge <= 65 ) {
                 member.setPrice(Accounting.exerciseMemberPrice);

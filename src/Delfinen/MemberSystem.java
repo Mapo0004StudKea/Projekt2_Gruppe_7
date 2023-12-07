@@ -170,6 +170,9 @@ public class MemberSystem {
                             member.setExercise(false);
                             member.setCompetitionSwimmer(false);
                             System.out.println("Medlemskabet er nu passivt");
+
+                            System.out.println("det bliver så " + Accounting.passiveMemberPrice);
+                            acc.newTransaction();
                             if (passiv.equals("n"));
                         }
                         break;
@@ -186,14 +189,21 @@ public class MemberSystem {
                             member.setCompetitionSwimmer(true);
                             member.setPassive(false);
                             member.setExercise(false);
-                            System.out.println("Medlemskabet er nu passivt");
+                            System.out.println("Medlemskabet er nu kunkurrance svømmer");
+
+                            if (checkAge < 18){System.out.println("det bliver så " + Accounting.juniorMemberPrice);}
+                            if (checkAge >=65){System.out.println("det bliver så " + Accounting.seniorMemberPrice);}
+                            if ( checkAge >= 18 && checkAge <= 65 ) {
+                                member.setPrice(Accounting.exerciseMemberPrice);
+                            }
+                            acc.newTransaction();
                             if (competition.equals("n"));
                         }
                         break;
 
                     case 3:
                         scanner.nextLine();
-                        System.out.println("Ønsker medlemmet at sin medlem status j/n");
+                        System.out.println("Ønsker medlemmet at sin medlem status motionist j/n");
                         String exerciser = scanner.nextLine();
 
                         if (exerciser.equals("j")) {
@@ -203,7 +213,13 @@ public class MemberSystem {
                             member.setExercise(true);
                             member.setPassive(false);
                             member.setCompetitionSwimmer(false);
-                            System.out.println("Medlemskabet er nu passivt");
+                            System.out.println("Medlemskabet er nu Motionist");
+                            if (checkAge < 18){System.out.println("det bliver så " + Accounting.juniorMemberPrice);}
+                            if (checkAge >=65){System.out.println("det bliver så " + Accounting.seniorMemberPrice);}
+                            if ( checkAge >= 18 && checkAge <= 65 ) {
+                                member.setPrice(Accounting.exerciseMemberPrice);
+                            }
+                            acc.newTransaction();
                             if (exerciser.equals("n"));
                         }
                         break;
