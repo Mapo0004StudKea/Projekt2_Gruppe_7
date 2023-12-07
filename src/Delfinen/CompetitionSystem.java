@@ -493,7 +493,10 @@ public class CompetitionSystem {
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (ResultTournament res : member.backstrokeListTournament) {
-                System.out.println(res);
+                if (member.backstrokeListTournament.contains(res)) {
+
+                    System.out.println(res);
+                }
             }
             System.out.println();
         }
@@ -528,7 +531,10 @@ public class CompetitionSystem {
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (ResultTournament res : member.crawlListTournament) {
-                System.out.println(res);
+                if (member.crawlListTournament.contains(res)) {
+
+                    System.out.println(res);
+                }
             }
             System.out.println();
         }
@@ -562,7 +568,10 @@ public class CompetitionSystem {
         for (Member member : seniorTeam) {
             System.out.println(member.getName() + " id nr: " + member.getId());
             for (ResultTournament res : member.freestyleListTournament) {
-                System.out.println(res);
+                if (member.freestyleListTournament.contains(res)) {
+
+                    System.out.println(res);
+                }
             }
             System.out.println();
         }

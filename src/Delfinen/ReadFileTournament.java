@@ -18,13 +18,17 @@ public class ReadFileTournament {
             int id = Integer.parseInt(bidder[0].trim());
             String name = bidder[1].trim();
             LocalDate age = LocalDate.parse(bidder[2].trim());
+            double time = Double.parseDouble(bidder [3].trim());
+            String tournamentName = bidder[4].trim();
+            int placement = Integer.parseInt(bidder[5].trim());
 
             Member member = new Member(id, name, age);
 
+
             int checkAge = LocalDate.now().compareTo(age);
-            member.setExercise(true);
+            member.setExercise(false);
             member.setPassive(false);
-            member.setCompetitionSwimmer(false);
+            member.setCompetitionSwimmer(true);
             if ( checkAge >= 18 && checkAge <= 65 ) {
                 member.setPrice(Accounting.exerciseMemberPrice);
             }
@@ -35,13 +39,38 @@ public class ReadFileTournament {
             if (checkAge > 65) {
                 member.setPrice(Accounting.seniorMemberPrice);}
             MemberSystem.listMember.add(member);
+            if (MemberSystem.listMember.size() <10) {
+                ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
+                member.backstrokeListTournament.add(rt);
+                rt.setDisciplin(CompetitionSystem.backstroke);
+                System.out.println(member);
+                System.out.println(rt);
+            }
+
+            if (MemberSystem.listMember.size()>10 && MemberSystem.listMember.size()>20) {
+                ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
+                member.crawlListTournament.add(rt);
+                rt.setDisciplin(CompetitionSystem.crawl);
+                System.out.println(member);
+                System.out.println(rt);
+            }
+
+            if (MemberSystem.listMember.size()>20 && MemberSystem.listMember.size()<30) {
+                ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
+                member.freestyleListTournament.add(rt);
+                rt.setDisciplin(CompetitionSystem.freestyle);
+                System.out.println(member);
+                System.out.println(rt);
+            }
+
+
             linje = ind.readLine();
         }
         ind.close();
         fil.close();
 
         for (Member currentMember : MemberSystem.listMember) {
-            if (currentMember.getExercise()) {
+            if (currentMember.getCompetitionSwimmer()) {
                 currentMember.MemberShipPayment(currentMember.getPrice());
                 currentMember.setHasPaid(true);
             }
