@@ -128,7 +128,7 @@ public class Menu {
                             if (choices == m.getId()) {
                                 m.printTransaction();
                             }
-                            }
+                        }
                         break;
                     case 4:
                         acc.listOfPayment();
@@ -296,7 +296,10 @@ public class Menu {
         System.out.println("1: Sæt nyt svømmeresultat for turnering");
         System.out.println("2: Se liste for resultater 'backstroke, crawl og freestyle for junior' i turnering");
         System.out.println("3: Se liste for resultater 'backstroke, crawl og freestyle' for seniorer i turnering");
-        System.out.println("4: Tilbage til tidligere menu");
+        System.out.println("4: Se de bedste 5 i rygsvømning for junior og senior");
+        System.out.println("5: Se de bedste 5 i crawl for junior og senior ");
+        System.out.println("6: Se de bedste 5 i freestyle for junior og senior");
+        System.out.println("7: Tilbage til tidligere menu");
         System.out.print("Skriv dit valg: ");
         int choice = scanner.nextInt();
         try {
@@ -320,10 +323,19 @@ public class Menu {
                     System.out.println("Stævneresultater for seniorer i crawl" + "\n");
                     cs.listOfResultCrawl500TournamentSenior();
                     System.out.println("Stævneresultater for seniorer i freestyle" + "\n");
-                    cs.sortListResultInSeniorTeamFreestyleTournament();
+                    cs.listOfResultFreestyle500TournamentSenior();
                     TournamentAndResultMenu();
                     break;
                 case 4:
+                    cs.best5OfBackstrokeJuniorSeniorTournament();
+                    break;
+                case 5:
+                    cs.best5OfCrawlJuniorSeniorTournament();
+                    break;
+                case 6:
+                    cs.best5OfFreeStyleJuniorSeniorTournament();
+                    break;
+                case 7:
                     swimResults();
                     break;
                 default:

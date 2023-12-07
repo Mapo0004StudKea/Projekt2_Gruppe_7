@@ -460,7 +460,6 @@ public class CompetitionSystem {
 
 
     public void sortListResultInJuniorTeamBackstrokeTournament() {
-        System.out.println("For Junior team: ");
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListTournament.sort(null);
         }
@@ -563,7 +562,98 @@ public class CompetitionSystem {
         }
     }
 
+    public void best5OfBackstrokeJuniorSeniorTournament() {
+        if (juniorTeam.isEmpty()){
+            System.out.println("Junior teamet er tomt");
+        }
+        if (!juniorTeam.isEmpty()) {
+            sortListResultInJuniorTeamBackstroke();
+            System.out.println("de bedste 5 rygsvømning for junior");
+            System.out.println();
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
+                System.out.println(juniorTeam.get(i).backstrokeListTournament);
+                System.out.println();
+            }
+        }
+        if (seniorTeam.isEmpty()){
+            System.out.println("Senior teamet er tomt");
+        }
+        if (!seniorTeam.isEmpty()) {
+            sortListResultInJuniorTeamBackstrokeTournament();
+            System.out.println("de bedste 5 rygsvømning for senior");
+            System.out.println();
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
+                System.out.println(seniorTeam.get(i).backstrokeListTournament);
+                System.out.println();
+            }
+        }
+    }
+    public void best5OfCrawlJuniorSeniorTournament() {
+        if (juniorTeam.isEmpty()){
+            System.out.println("Junior teamet er tomt");
+        }
+        if (!juniorTeam.isEmpty()) {
+            sortListResultInJuniorTeamCrawl();
+            System.out.println("de bedste 5 crawl for junior");
+            System.out.println();
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCrawlListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
+                System.out.println(juniorTeam.get(i).crawlListTournament);
+                System.out.println();
+            }
+        }
+        if (seniorTeam.isEmpty()){
+            System.out.println("Senior teamet er tomt");
+        }
+        if (!seniorTeam.isEmpty()) {
+            sortListResultInSeniorTeamCrawl();
+            System.out.println(" de bedste 5 crawl for senior");
+            System.out.println();
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultCrawlListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
+                System.out.println(seniorTeam.get(i).crawlListTournament);
+                System.out.println();
+            }
+        }
 
+    }
+    public void best5OfFreeStyleJuniorSeniorTournament() {
+        if (juniorTeam.isEmpty()){
+            System.out.println("Junior teamet er tomt");
+        }
+        if (!juniorTeam.isEmpty()) {
+            sortListResultInJuniorTeamFree();
+            System.out.println("de bedste 5 freestyle for junior");
+            System.out.println();
+            juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultFreestylelListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(juniorTeam.get(i).getName() + " id nr: " + juniorTeam.get(i).getId());
+                System.out.println(juniorTeam.get(i).freestyleListTournament);
+                System.out.println();
+            }
+        }
+        if (seniorTeam.isEmpty()){
+            System.out.println("Senior teamet er tomt");
+        }
+        if (!seniorTeam.isEmpty()) {
+            sortListResultInSeniorTeamFree();
+            System.out.println("de bedste 5 freestyle for senior");
+            System.out.println();
+            seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultFreestylelListeTournament()));
+            for (int i = 0; i <= 4; i++) {
+                System.out.println(seniorTeam.get(i).getName() + " id nr: " + seniorTeam.get(i).getId());
+                System.out.println(seniorTeam.get(i).freestyleListTournament);
+                System.out.println();
+            }
+        }
+
+    }
     public void setNewResultTournament() {
         System.out.println();
 
@@ -631,6 +721,5 @@ public class CompetitionSystem {
                 }
                 break;
         }
-
     }
 }
