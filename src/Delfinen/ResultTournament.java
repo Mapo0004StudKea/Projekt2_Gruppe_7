@@ -3,6 +3,7 @@ package Delfinen;
 import java.time.LocalDate;
 
 public class ResultTournament extends Result {
+    boolean checkTournament;
     String tournamentName;
     int placement;
     Disciplin disciplin = new Disciplin("Crawl", 100);
@@ -20,6 +21,7 @@ public class ResultTournament extends Result {
         return "Navnet på konkurrencen: " + tournamentName + " Placering til stævnet " + placement +" din nye tid "+tid +" dd "+ resultDate + " disciplin " + disciplin;
     }
 
+    @Override
     public void setDisciplin(Disciplin disciplin) {
         this.disciplin = disciplin;
     }
@@ -28,8 +30,18 @@ public class ResultTournament extends Result {
         this.tournamentName = tournamentName;
     }
 
+    public String getTournamentName() {
+        return tournamentName;
+    }
     public void setPlacement(int placement) {
         this.placement = placement;
     }
 
+    public int getPlacement() {
+        return placement;
+    }
+
+    public void setCheckTournament(boolean checkTournament) {
+        this.checkTournament = checkTournament;
+    }
 }

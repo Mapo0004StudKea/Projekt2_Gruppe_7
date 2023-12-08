@@ -43,24 +43,18 @@ public class ReadFileTournament {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.backstrokeListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.backstroke);
-                System.out.println(member);
-                System.out.println(rt);
             }
 
             if (MemberSystem.listMember.size()>85 && MemberSystem.listMember.size() <=95) {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.crawlListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.crawl);
-                System.out.println(member);
-                System.out.println(rt);
             }
 
             if (MemberSystem.listMember.size()>95 && MemberSystem.listMember.size() <=105) {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.freestyleListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.freestyle);
-                System.out.println(member);
-                System.out.println(rt);
             }
 
 
