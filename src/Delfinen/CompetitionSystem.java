@@ -691,7 +691,7 @@ public class CompetitionSystem {
 
         System.out.println("vælg ID nr. på medlemmet");
 
-        int choice = scan.nextInt();
+        int choice = getIntInput();
 
         System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
         double tid = scan.nextDouble();
