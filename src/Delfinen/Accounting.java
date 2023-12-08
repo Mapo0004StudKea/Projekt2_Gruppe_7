@@ -3,10 +3,10 @@ package Delfinen;
 import java.util.Scanner;
 
 public class Accounting {
-    static final double exerciseMemberPrice = 1600; //Alm. Medlemskab
-    static final double passiveMemberPrice = 500; //passiv
-    static final double seniorMemberPrice = 1200; //over 60
-    static final double juniorMemberPrice = 1000; //under 18
+    static final double exerciseMemberPrice = 1600;
+    static final double passiveMemberPrice = 500;
+    static final double seniorMemberPrice = 1200;
+    static final double juniorMemberPrice = 1000;
     Scanner scan = new Scanner(System.in);
 
     public void viewPrices() {
@@ -27,11 +27,9 @@ public class Accounting {
                 m.setHasPaid(true);
                 System.out.println("kontingent er betalt");
             }
-            //TODO mangler en else eller fejlløsning
         }
     }
 
-    // mangler fejlløsning
     public void listOfPayment() {
         double total = 0;
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {

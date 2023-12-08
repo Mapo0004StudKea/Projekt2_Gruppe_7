@@ -14,8 +14,4 @@ public class Disciplin {
     public String toString() {
         return  navn + " length: " + length;
     }
-
-    public String getNavnDisciplin() {
-        return navn;
-    }
 }

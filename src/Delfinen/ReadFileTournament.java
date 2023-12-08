@@ -43,7 +43,6 @@ public class ReadFileTournament {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.backstrokeListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.backstroke);
-                rt.setCheckTournament(true);
                 System.out.println(member);
                 System.out.println(rt);
             }
@@ -52,7 +51,6 @@ public class ReadFileTournament {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.crawlListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.crawl);
-                rt.setCheckTournament(true);
                 System.out.println(member);
                 System.out.println(rt);
             }
@@ -61,7 +59,6 @@ public class ReadFileTournament {
                 ResultTournament rt = new ResultTournament(time, LocalDate.now(), tournamentName, placement);
                 member.freestyleListTournament.add(rt);
                 rt.setDisciplin(CompetitionSystem.freestyle);
-                rt.setCheckTournament(true);
                 System.out.println(member);
                 System.out.println(rt);
             }
@@ -80,4 +77,3 @@ public class ReadFileTournament {
         }
     }
 }
-

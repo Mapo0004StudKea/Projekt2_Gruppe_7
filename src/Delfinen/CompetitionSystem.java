@@ -18,18 +18,8 @@ public class CompetitionSystem {
     public void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
-            //  System.out.println(Vil du tilføje + member.name + til hold? (Ja/Nej));
             int age = LocalDate.now().getYear() - member.age.getYear();
 
-        /*    if (userInput.equalsIgnoreCase("Ja")) {
-                if (juniorTeam.contains(member)) {
-                    System.out.println("Der findes allerede en juniorsvømmer" + member);
-                    continue;
-                }
-                if (seniorTeam.contains(member)) {
-                    System.out.println("Der findes allerede en seniorsvømmer" + member);
-                    continue;
-                }*/
             if (member.getCompetitionSwimmer() && age < 18) {
                 System.out.println(member.name + " er tilføjet juniorholdet.");
                 juniorTeam.add(member);
@@ -40,9 +30,7 @@ public class CompetitionSystem {
 
             System.out.println("Junior Team Size: " + juniorTeam.size());
             System.out.println("Senior Team Size: " + seniorTeam.size());
-        }/* else if (userInput.equalsIgnoreCase("Nej")) {
-                System.out.println("Bliver ikke gjort mere...");
-            }*/
+        }
     }
 
     public void removeMemberFromTeams() {
@@ -101,7 +89,7 @@ public class CompetitionSystem {
         ms.viewMemberList();
 
         System.out.println("vælg ID nr. på medlemmet");
-        // hvis du skriver forkert kan du ikke komme ind i metoden igen.
+
         int choice = scan.nextInt();
 
         System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
@@ -298,16 +286,17 @@ public class CompetitionSystem {
         }
     }
 
-
     public void listOfResultJuniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : juniorTeam) {
-            System.out.println(member.getName() + " id nr: " + member.getId());
-            for (Result result : member.backstrokeListe) {
-                System.out.println(result);
+            if (!member.backstrokeListe.isEmpty()) {
+                System.out.println(member.getName() + " id nr: " + member.getId());
+                for (Result result : member.backstrokeListe) {
+                    System.out.println(result);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
     public void listOfResultJuniorCrawl500() {
@@ -337,7 +326,6 @@ public class CompetitionSystem {
             }
         }
     }
-
 
     public void listOfResultSeniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
@@ -378,7 +366,6 @@ public class CompetitionSystem {
             }
         }
     }
-
 
     public void bedst5OfBackstrokeJuniorSenior() {
         if (juniorTeam.isEmpty()){
@@ -474,8 +461,6 @@ public class CompetitionSystem {
     }
 
     //-----------------------------------------------------------\\
-
-
     public void sortListResultInJuniorTeamBackstrokeTournament() {
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListTournament.sort(null);
@@ -516,7 +501,6 @@ public class CompetitionSystem {
             }
         }
     }
-
 
     public void sortListResultInJuniorTeamCrawlTournament() {
         for (int i = 0; i < juniorTeam.size() ; i++) {
@@ -697,7 +681,7 @@ public class CompetitionSystem {
         ms.viewMemberList();
 
         System.out.println("vælg ID nr. på medlemmet");
-        // hvis du skriver forkert kan du ikke komme ind i metoden igen.
+
         int choice = scan.nextInt();
 
         System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
@@ -726,7 +710,7 @@ public class CompetitionSystem {
                         m.backstrokeListTournament.add(res);
                         System.out.println(m);
                     }
-                    // mangler fejltastning
+
                     for (int i = 0; i < m.backstrokeListTournament.size(); i++) {
                         System.out.println(m.backstrokeListTournament.get(i));
                     }

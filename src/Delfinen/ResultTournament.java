@@ -20,7 +20,6 @@ public class ResultTournament extends Result {
         return "Navnet på konkurrencen: " + tournamentName + " Placering til stævnet " + placement +" din nye tid "+tid +" dd "+ resultDate + " disciplin " + disciplin;
     }
 
-    @Override
     public void setDisciplin(Disciplin disciplin) {
         this.disciplin = disciplin;
     }

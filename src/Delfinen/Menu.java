@@ -12,7 +12,6 @@ public class Menu {
 
     public void mainMenu() throws IOException {
 
-
         while  (true) {
             System.out.println("Velkommen til svømmehallen Delfinen");
             System.out.println("1: Medlemsoplysninger");

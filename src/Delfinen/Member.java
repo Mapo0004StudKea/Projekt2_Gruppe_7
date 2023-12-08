@@ -7,7 +7,6 @@ import java.util.Collections;
 public class Member {
     String name;
     LocalDate age;
-    String address;
     int id;
     boolean competitionSwimmer;
     boolean passive;
@@ -22,7 +21,6 @@ public class Member {
     ArrayList<Result> freestyleListe = new ArrayList<>();
     ArrayList<ResultTournament> freestyleListTournament = new ArrayList<>();
     ArrayList<Transaction> listTransaction = new ArrayList<>();
-    double totalPayment;
 
     Member(int id, String name, LocalDate age) {
         this.name = name;

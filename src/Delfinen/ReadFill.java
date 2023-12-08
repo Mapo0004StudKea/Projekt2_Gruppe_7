@@ -1,11 +1,7 @@
 package Delfinen;
 
-import Delfinen.Member;
-import Delfinen.MemberSystem;
-
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class ReadFill {
 

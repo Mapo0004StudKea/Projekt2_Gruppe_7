@@ -25,7 +25,6 @@ public class Result implements Comparable <Result> {
         this.tid = tid;
     }
 
-
     @Override
     public int compareTo(Result o) {
         return Double.compare(this.tid,o.tid);
