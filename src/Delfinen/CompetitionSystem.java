@@ -82,7 +82,7 @@ public class CompetitionSystem {
         System.out.println("Senior Team Size: " + seniorTeam.size());
     }
 
-    public void setNewResult() {
+    public void setNewResult() { //Sætter resultat for svømmere til træning.
         System.out.println();
 
         System.out.println("Liste over medlemmer:");
@@ -254,6 +254,7 @@ public class CompetitionSystem {
         }
     }
 
+    //Sorterer juniorteamets resultater for hver disciplin til træning.
     public void sortListResultInJuniorTeamBackstroke(){
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListe.sort(null);
@@ -270,6 +271,7 @@ public class CompetitionSystem {
         }
     }
 
+    //Sorterer seniorteamets resultater for hver disciplin til træning.
     public void sortListResultInSeniorTeamBackstroke(){
         for (int i = 0; i < seniorTeam.size() ; i++) {
             seniorTeam.get(i).backstrokeListe.sort(null);
@@ -286,6 +288,7 @@ public class CompetitionSystem {
         }
     }
 
+    //Printer alle juniorernes tider ud i hver disciplin til træning.
     public void listOfResultJuniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
@@ -327,6 +330,7 @@ public class CompetitionSystem {
         }
     }
 
+    //Printer alle seniorernes tider ud i hver disciplin til træning.
     public void listOfResultSeniorBackstroke500() {
         sortListResultInJuniorTeamBackstroke();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
@@ -367,6 +371,7 @@ public class CompetitionSystem {
         }
     }
 
+    //Printer de 5 bedste i hver disciplin for juniorer og seniorer til træning.
     public void bedst5OfBackstrokeJuniorSenior() {
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
@@ -461,18 +466,22 @@ public class CompetitionSystem {
     }
 
     //-----------------------------------------------------------\\
-    public void sortListResultInJuniorTeamBackstrokeTournament() {
+    //Turneringsresultater.
+
+    public void sortListResultInJuniorTeamBackstrokeTournament() {  //Sorterer juniorteamets resultater for backstroke.
+
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).backstrokeListTournament.sort(null);
         }
     }
-    public void sortListResultInSeniorTeamBackstrokeTournament() {
+    public void sortListResultInSeniorTeamBackstrokeTournament() { //Sorterer seniorteamets resultater for backstroke i en turnering.
         System.out.println("For senior team: ");
         for (int i=0;i<seniorTeam.size();i++) {
             seniorTeam.get(i).backstrokeListTournament.sort(null);
         }
     }
-    public void listOfResultBackstroke500Tournament() {
+
+    public void listOfResultBackstroke500Tournament() { //Printer alle juniorernes tider ud i backstroke i en turnering.
         sortListResultInJuniorTeamBackstrokeTournament();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
         for (Member member : juniorTeam) {
@@ -485,7 +494,7 @@ public class CompetitionSystem {
             }
         }
     }
-    public void listOfResultBackstroke500TournamentSenior() {
+    public void listOfResultBackstroke500TournamentSenior() { //Printer alle seniorernes tider ud i backstroke i en turnering.
         sortListResultInSeniorTeamBackstrokeTournament();
         seniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListeTournament()));
         for (Member member : seniorTeam) {
@@ -502,12 +511,12 @@ public class CompetitionSystem {
         }
     }
 
-    public void sortListResultInJuniorTeamCrawlTournament() {
+    public void sortListResultInJuniorTeamCrawlTournament() { //sorterer i crawl for juniorer.
         for (int i = 0; i < juniorTeam.size() ; i++) {
             juniorTeam.get(i).crawlListTournament.sort(null);
         }
     }
-    public void sortListResultInSeniorTeamCrawlTournament() {
+    public void sortListResultInSeniorTeamCrawlTournament() { //sorterer i crawl for seniorer.
         System.out.println("For senior team: ");
         for (int i=0;i<seniorTeam.size();i++) {
             seniorTeam.get(i).crawlListTournament.sort(null);
@@ -584,7 +593,7 @@ public class CompetitionSystem {
         }
     }
 
-    public void best5OfBackstrokeJuniorSeniorTournament() {
+    public void best5OfBackstrokeJuniorSeniorTournament() { //udprinter de fem bedste i rygsvømning.
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
         }
@@ -614,7 +623,7 @@ public class CompetitionSystem {
             }
         }
     }
-    public void best5OfCrawlJuniorSeniorTournament() {
+    public void best5OfCrawlJuniorSeniorTournament() { //udprinter de fem bedste i crawl.
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
         }
@@ -644,7 +653,7 @@ public class CompetitionSystem {
             }
         }
     }
-    public void best5OfFreeStyleJuniorSeniorTournament() {
+    public void best5OfFreeStyleJuniorSeniorTournament() { //udprinter de fem bedste i freestyle.
         if (juniorTeam.isEmpty()){
             System.out.println("Junior teamet er tomt");
         }
@@ -674,7 +683,7 @@ public class CompetitionSystem {
             }
         }
     }
-    public void setNewResultTournament() {
+    public void setNewResultTournament() { //sætter nyt rsultat i turnering.
         System.out.println();
 
         System.out.println("Liste over medlemmer:");

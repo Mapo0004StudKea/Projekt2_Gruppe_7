@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class ReadFileTournament {
 
-    public static void ReadMyFillTour() throws IOException {
+    public static void ReadMyFillTour() throws IOException { //Fil til at have allerede eksisterende turneringsmedlemmer.
         FileReader fil = new FileReader("Tournament.txt");
         BufferedReader ind = new BufferedReader(fil);
 
