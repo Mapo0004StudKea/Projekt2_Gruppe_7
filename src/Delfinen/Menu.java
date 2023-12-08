@@ -156,32 +156,30 @@ public class Menu {
         while(true) {
             System.out.println();
             System.out.println("Menu for medlemsoplysninger");
-            System.out.println("1: Tilføj medlem til hold");
-            System.out.println("2: Fjern medlem fra hold");
-            System.out.println("3: Se holdliste");
-            System.out.println("4: Se træning og resultat menu");
-            System.out.println("5: Se turnering og resultat menu");
-            System.out.println("6: Tilbage til hovedmenu");
+            System.out.println("1: Fjern medlem fra hold");
+            System.out.println("2: Se holdliste");
+            System.out.println("3: Se træning og resultat menu");
+            System.out.println("4: Se turnering og resultat menu");
+            System.out.println("5: Tilbage til hovedmenu");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
             try {
                 switch (choice) {
+                   // case 1:
+                     //   cs.addMemberToTeams();
                     case 1:
-                        cs.addMemberToTeams();
-                        break;
-                    case 2:
                         cs.removeMemberFromTeams();
                         break;
-                    case 3:
+                    case 2:
                         displayTeams();
                         break;
-                    case 4:
+                    case 3:
                         TrainingAndResultMenu();
                         break;
-                    case 5:
+                    case 4:
                         TournamentAndResultMenu();
                         break;
-                    case 6:
+                    case 5:
                         mainMenu();
                         break;
                     default:

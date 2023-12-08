@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CompetitionSystem {
-    public ArrayList<Member> juniorTeam = new ArrayList<>();
-    public ArrayList<Member> seniorTeam = new ArrayList<>();
+    public static ArrayList<Member> juniorTeam = new ArrayList<>();
+    public static ArrayList<Member> seniorTeam = new ArrayList<>();
     MemberSystem ms = new MemberSystem();
     Scanner scan = new Scanner(System.in);
     static Disciplin crawl = new Disciplin("Crawl - 500m", 500);
     static Disciplin backstroke = new Disciplin("Rygsvømning - 500m", 500);
     static Disciplin freestyle = new Disciplin("freestyle - 500m", 500);
 
-    public void addMemberToTeams() {
+    public static void addMemberToTeams() {
         for (int i = 0; i < MemberSystem.listMember.size(); i++) {
             Member member = MemberSystem.listMember.get(i);
             int age = LocalDate.now().getYear() - member.age.getYear();
@@ -743,7 +743,7 @@ public class CompetitionSystem {
         }
 
     }
-    public void editResultTournament() {;
+    public void editResultTournament() {
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
         System.out.println("vælg ID på medlemmet: ");

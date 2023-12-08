@@ -8,6 +8,7 @@ public class Main {
         ReadFillMotionister.ReadMyFillMotionister();
         ReadFill.ReadMyFill();
         ReadFileTournament.ReadMyFillTour();
+        CompetitionSystem.addMemberToTeams();
         Menu newMenu = new Menu();
         newMenu.mainMenu();
 

@@ -22,6 +22,7 @@ public class MemberSystem {
             LocalDate date = LocalDate.parse(scanner.nextLine());
             System.out.println("indtast telefon nummer: ");
             int makeId = scanner.nextInt();
+            scanner.nextLine();
             Member m1 = new Member(makeId, name, date);
             listMember.add(m1);
             System.out.println("sæt medlemskab");
@@ -35,6 +36,16 @@ public class MemberSystem {
             } else if (m1.getExercise() == true || m1.getCompetitionSwimmer() == true && checkAge > 65) {
                 m1.setPrice(Accounting.seniorMemberPrice);
             }
+            if (m1.getCompetitionSwimmer() == true) {
+                if (checkAge < 18) {
+                    CompetitionSystem.juniorTeam.add(m1);
+                }
+            }
+                if (m1.getCompetitionSwimmer() == true) {
+                    if (checkAge > 18) {
+                        CompetitionSystem.seniorTeam.add(m1);
+                    }
+                }
 
             System.out.println(m1.getPrice());
             System.out.println("Vil du betale nu eller senere, tryk j eller n for ja/nej.");
