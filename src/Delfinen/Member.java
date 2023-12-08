@@ -42,7 +42,6 @@ public class Member {
                 id, name, age, memberType, exerciser, konkurrenceSvømmer, juniorSeniorSvømmer, price, harBetalt);
     }
 
-
     public void setName(String name) {
         this.name = name;
     }
@@ -78,12 +77,15 @@ public class Member {
         return competitionSwimmer;
     }
 
+    public void setJunSen(boolean junSen) {
+        JunSen = junSen;
+    }
+
     public LocalDate getAge() {
         return age;
     }
-
-    public boolean getExercise() {
-        return exercise;
+    public void setAge(LocalDate age) {
+        this.age = age;
     }
 
     public void setPrice(double price) {
@@ -96,6 +98,9 @@ public class Member {
 
     public void setExercise(boolean exercise) {
         this.exercise = exercise;
+    }
+    public boolean getExercise() {
+        return exercise;
     }
 
     public double getListeResultBackstrokeListe() {
@@ -131,16 +136,6 @@ public class Member {
         return Double.MAX_VALUE;
     }
 
-
-
-    public void setJunSen(boolean junSen) {
-        JunSen = junSen;
-    }
-
-    public void setAge(LocalDate age) {
-        this.age = age;
-    }
-
     void MemberShipPayment(double amount) {
         double remainingBalance = price - amount;
         listTransaction.add(new Transaction("indbetalt", amount, remainingBalance));
@@ -155,11 +150,4 @@ public class Member {
         }
         System.out.println();
     }
-    void totalPayment(){
-        for (int i = 0; i <listTransaction.size() ; i++) {
-            double payment = listTransaction.get(0).amount + totalPayment;
-            System.out.println(payment);
-        }
-    }
-
 }

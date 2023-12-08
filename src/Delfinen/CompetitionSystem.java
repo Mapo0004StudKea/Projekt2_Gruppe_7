@@ -123,8 +123,6 @@ public class CompetitionSystem {
                         m.backstrokeListe.add(re);
                         System.out.println(m);
                     }
-
-
                 }
                 break;
             case 2:
@@ -305,13 +303,11 @@ public class CompetitionSystem {
         sortListResultInJuniorTeamBackstroke();
         juniorTeam.sort(Comparator.comparingDouble(member -> member.getListeResultBackstrokeListe()));
         for (Member member : juniorTeam) {
-            if(member.backstrokeListe.isEmpty()) {
-                System.out.println(member.getName() + " id nr: " + member.getId());
-                for (Result result : member.backstrokeListe) {
-                    System.out.println(result);
-                }
-                System.out.println();
+            System.out.println(member.getName() + " id nr: " + member.getId());
+            for (Result result : member.backstrokeListe) {
+                System.out.println(result);
             }
+            System.out.println();
         }
     }
     public void listOfResultJuniorCrawl500() {
