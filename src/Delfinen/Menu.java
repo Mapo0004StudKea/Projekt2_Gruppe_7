@@ -60,7 +60,6 @@ public class Menu {
             System.out.println("4: Se medlemsliste");
             System.out.println("5: Se medlemmer som har betalt");
             System.out.println("6: Tilbage til hovedmenu");
-            System.out.println("8: for at putte medlemmer i ´se medlemsliste´");
             System.out.print("Skriv dit valg: ");
             int choice = scanner.nextInt();
             try {
@@ -84,7 +83,6 @@ public class Menu {
                     case 6:
                         mainMenu();
                         break;
-
                     default:
                         System.out.println("Ugyldigt valg.");
                         break;

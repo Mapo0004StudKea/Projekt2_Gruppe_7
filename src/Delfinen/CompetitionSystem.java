@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class CompetitionSystem {
     public static ArrayList<Member> juniorTeam = new ArrayList<>();
@@ -81,7 +82,18 @@ public class CompetitionSystem {
         }
         System.out.println("Senior Team Size: " + seniorTeam.size());
     }
-
+    public int getIntInput() {
+        while(true) {
+            try {
+                return scan.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.print("Ugyldigt input. Venligst indtast heltal: ");
+                scan.next();
+                while (scan.hasNextLine() && !scan.nextLine().isEmpty()) {
+                }
+            }
+        }
+    }
     public void setNewResult() { //Sætter resultat for svømmere til træning.
         System.out.println();
 
@@ -90,7 +102,7 @@ public class CompetitionSystem {
 
         System.out.println("vælg ID nr. på medlemmet");
 
-        int choice = scan.nextInt();
+        int choice = getIntInput();
 
         System.out.println("set ny resultat, skriv tid" + "\t" + ("min, sek"));
         double tid = scan.nextDouble();
@@ -134,7 +146,7 @@ public class CompetitionSystem {
         }
 
     }
-    public void editResult() {;
+    public void editResult() {
         System.out.println("Liste over medlemmer:");
         ms.viewMemberList();
         System.out.println("vælg ID på medlemmet: ");
